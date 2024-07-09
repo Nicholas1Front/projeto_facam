@@ -1,0 +1,116 @@
+Anotações iniciais para o começo do projeto de desenvolvimento da plataforma web FACAM;
+
+#Ferramentas / Linguagens e outras coisas que serão utilizadas :
+    HTML , CSS e Javascript ;
+    Bibliotecas para o carrossel de imagem (Swiper.js);
+    Photoshop;
+    Vs Code (Ide para desenvolvimento);
+    Github (repositório para projeto);
+    Whatsapp e Discord (canal de comunicação);
+
+
+#Esboço inicial (estrutura e design) :
+    Para um esboço inicial será feito um exemplo de como queremos que o website fique depois de pronto, no photoshop.
+    Em relação a estrutura, após o termino do esboço em photoshop , será definida a estrutura de tags e por fim os padrões de
+    estilos que serão utilizados exemplo :
+
+        "No arquivo .css usaremos para Títulos : a tag <h3> com um font-size de 24px"
+    
+    O tempo estimado para a produção do esboço inicial será de no máximo 2 semanas contando a partir do começo de Julho
+    de 2024, 
+
+#Github / Drive
+    Para sermos profissionais utilizaremos o github dá melhor forma possível, e com o tempo aprenderemos a atualizar os
+    repositórios, se alguém presente tiver experiência com github será muito apreciada !
+
+    Em alternativa o uso do Drive também será de suma importância para compartilhamento de arquivos também. Ou seja, para qualquer alteração
+    ou atualização do projeto, a comunicação é extremament importante.
+
+#Prazo para entrega do projeto
+    Não nos preocuparemos com prazos , porém temos que ter em mente que o prazo máximo de entrega será no projeto
+    integrador II ou até o termino do curso.
+
+    tempo estimado : 8 meses ao máximo
+
+#Estruturação de arquivos 
+    De primeiro momento os arquivos estarão relacionados da seguinte maneira : aqueles que envolvem diretamente na aplicação
+    e aqueles que não se envolvem diretamente na aplicação. Os arquivos que não envolvem diretamente na aplicação porém são importantes
+    para o projeto ficarão na pasta /documents , e os arquivos que envolvem diretamente a aplicação ficarão na pasta /app , ficando assim a estruturação :
+
+        documents
+            ..
+        
+        app
+            images
+            scripts
+            styles
+            README.md
+    
+    Além disso, para este primeiro momento, é necessário também ser levantada a questão de modulação do projeto. Para que este projeto não seja muito confuso e
+    extenso eu , Nicholas, sugiro que cada página HTML tenha seu próprio arquivo de estilo :
+
+        app
+            index.html (home)
+            areaAluno.html
+            ..
+            styles
+                indexStyle.css
+                areaAlunoStyle.css
+                ..
+
+#Desenvolvimento nas Linguagens
+    Uma questão simples porém que precisa ser abordada : o nome de cada tag , class ou id tem que ser autodescritivo e de fácil entendimento, devido a nossa
+    inexperiência o uso de comentários é indicado caso seja necessário, exemplo :
+
+        <section class="apresentation-container">
+            <div class="icons-control"> </div>
+
+            ..
+        <section>
+
+        <!-- o bloco de código acima diz respeito a parte do site "Conheça a Facam",
+            com os links relacionados as páginas do site como "a Instituição"...  
+        --> 
+    
+    Em javascript o processo de desenvolvimento não será diferente, todas as variáveis, constantes e funções devem ser autodescritivas e de fácil entendimento,
+    comentários serão mais do que necessários. 
+
+    A comunicação externa também será importante para que estejamos cientes de nomes, funções e etc. Outro fator que se faz de suma importância ser abordado neste 
+    primeiro momento é a responsividade, no momento é que for aplicada a responsividade é de suma importância que seja comunicado as mudanças e as implementações feitas,
+    pois esta é uma das parte mais vitais desse projeto.
+
+    Todas as diretrizes acima estão sendo pensadas visando a máxima produção e organização deste projeto. Porém a criatividade também é apoiada pois o projeto é de todos
+    nós!
+
+#Reuniões da equipe / Definição de papéis
+    Como somos uma equipe pequena e este é um projeto simples porém extenso, nenhum de nós irá ficar "preso" somente a uma função, porém é claro tudo que tivermos
+    dificuldade pediremos ajuda um ao outro. Portanto a definição de papéis será algo sempre muito "volátil" , onde por meio dos canais de comunicação e reuniões de equipe
+    definiremos as tasks e runs semanais ou mensais.
+
+    Quanto as reuniões de equipe, as mesmas serão definidas conforme o andamento do projeto, sejam elas presenciais ( na faculdade) ou online. De todo modo, a maioria de nossas
+    conferências serão por meio dos canais de comunicação e qualquer alteração no plano original , iremos documentar.
+
+
+#Outras questões
+    Ainda existem muitas outras questões que precisam ser abordadas e discutidas a exemplo 
+        Escolha de imagens e ícones,
+        Escolha das bibliotecas e frameworks(se necessário)
+        Disposição das informações
+        Qual site será usado como modelo de desenvolvimento
+        ..
+    
+    Essas questões serão abordadas durante o desenvolvimento do projeto e pelos meios de comunicação. Qualquer mudança no plano original alteraremos a documentação
+    do projeto
+
+#Por fim 
+    Este arquivo tem como objetivo apresentar e relatar para todos nós as dimensões do problema que estamos lidando. Sempre que possível iremos lidar de uma maneira
+    profissional e bem humorada até porque precisamos de animo para tocar este projeto.
+
+    Este arquivo também vale como primeiro documento escrito para documentação oficial deste projeto. Ao longo do desenvolvimento também desenvolveremos outras "notes" 
+    para documentarmos algumas questões e acompanharmos o desenvolvimento deste projeto.
+
+    "Vamos fazer nosso melhor ! Conto com vocês."
+
+#Sugestões
+
+    1.Criar uma conta google para este projeto

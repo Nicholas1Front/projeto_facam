@@ -1,0 +1,44 @@
+#Cores 
+
+    Cor preta = black ;
+    Cor azul = #00489A ; (Header / Cabeçalho)
+    Cor branca = #FFFFFF ;
+    Cor cinza = #E6E7E8 ; (Carrossel de noticias)
+    Cor cinza = #424D26 ; (Footer/Rodapé)
+
+    Experimentar azul - branco , branco - azul , cinza - preto , branco - preto
+
+#Fontes / Tags
+
+    Para titulos grandes :
+        tag <h2> , font-size : 32px , font-weight:bold
+    
+    Para titulos comuns / normais :
+        tag <h3>, font-size : 24px a 26px , font-weight : bold;
+
+    Para subtitulos :
+        tag <h4> , font-size : 19px a 21px , font-weight: bold;
+
+    Para paragrafos / textos : 
+        tag <p> , font-size : 17px ; font-weight : normal  
+
+#Estrutura base 
+
+    head
+
+    body
+        header 
+            nav
+        
+        section
+            div.container
+
+        section
+            div.container
+
+        section
+            div.container
+
+        footer
+
+    
