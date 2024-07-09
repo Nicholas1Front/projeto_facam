@@ -15,15 +15,27 @@
 }
 
 .header-container{
-    display:flex;
-    align-items: center;
-    gap:50%;
+    margin: 0 auto;
+    padding: 0 2%;
 }
 
 .desktop-logo{
-    float:inline-start;
+    float:left;
 }
 
-.desktop-login{
-    float: inline-end;
+.desktop-logo img{
+    width:65%;
+}
+
+.desktop-menu{
+    margin-top:4%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.desktop-menu li > a{
+    color:white;
+    text-decoration: none;
 }
