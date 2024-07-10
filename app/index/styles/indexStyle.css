@@ -22,7 +22,7 @@
 /* header and vestibular-call-section */
 
 .background-container{
-    background-image: url("../../../assets/images/lofi_girl.png");
+    background-image: url("../../../assets/images/girl_listening_overlay.png");
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center;
@@ -49,6 +49,7 @@
     float: right;
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
 }
 
@@ -56,15 +57,34 @@
     margin: 0 8px;
 }
 
-.desktop-menu li > a{
+.desktop-menu-item a{
     color:white;
     text-decoration: none;
     transition: 0.2s;
 }
 
-.desktop-menu li > a:hover{
+.desktop-menu-item a:hover{
     text-decoration: underline;
     transition:0.2s;
+}
+
+.desktop-menu-login{
+    border: 2px solid white;
+    color: white;
+    padding:10px 15px;
+    border-radius: 25px;
+    transition: 0.2s;
+}
+
+.desktop-menu-login a{
+    text-decoration: none;
+    color:white;
+}
+
+.desktop-menu-login:hover{
+    border-color:#00489A;
+    background-color: #00489A;
+    transition: 0.2s;
 }
 
 .vestibular-call-section{
@@ -79,6 +99,7 @@
 
 .call-vestibular{
     position: absolute;
+    width: fit-content;
     margin-top:-95px;
     display: flex;
     justify-content: center;
@@ -95,13 +116,18 @@
 .horizontal-line{
     height:3px;
     margin-left:15px;
-    width:250px;
+    width:200px;
     background-color:white;
     margin-bottom:5px;
 }
 
 .text-control{
     padding:15px 0;
+    width:fit-content;
+}
+
+.text-control h4{
+    font-weight: normal;
 }
 
 .text-control h2{
@@ -110,7 +136,7 @@
 }
 
 .button-control{
-    margin:10px 0;
+    margin-top:20px;
     padding:5px 0;
 }
 
