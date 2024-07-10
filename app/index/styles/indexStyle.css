@@ -4,7 +4,7 @@
     margin : 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Robot", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .clear{
@@ -52,15 +52,24 @@
     list-style: none;
 }
 
+.desktop-menu li{
+    margin: 0 8px;
+}
+
 .desktop-menu li > a{
     color:white;
     text-decoration: none;
+    transition: 0.2s;
+}
+
+.desktop-menu li > a:hover{
+    text-decoration: underline;
+    transition:0.2s;
 }
 
 .vestibular-call-section{
     width:100%;
-    margin:10px 0;
-    padding:10px 0;
+    padding:295px 0;
     color:white;
     display: flex;
     justify-content: center;
@@ -69,23 +78,35 @@
 }
 
 .call-vestibular{
+    position: absolute;
+    margin-top:-95px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding:5px 10px;
+    padding:10px 10px;
     text-align: center;
+}
+
+.horizontal-line-control{
+    width:100%;
 }
 
 .horizontal-line{
     height:3px;
-    width:100px;
+    margin-left:15px;
+    width:250px;
     background-color:white;
-    margin-bottom:10px;
+    margin-bottom:5px;
 }
 
 .text-control{
     padding:15px 0;
+}
+
+.text-control h2{
+    font-size:65px;
+    padding:12px 0;
 }
 
 .button-control{
@@ -94,16 +115,19 @@
 }
 
 .button-control a{
+    font-size:18px;
+    font-weight: bold;
     text-decoration: none;
-    color:white;
-    padding:7px 12px;
-    border: 2px solid white;
+    color:#fa594d;
+    padding:10px 20px;
+    border: 2px solid #fa594d;
+    border-radius:25px;
     transition:0.2s;
 }
 
 .button-control a:hover{
-    background-color: blue;
-    color:white;
-    border: 2px solid blue;
+    background-color: #fa594d;
+    border:2px solid #fa594d;
+    color: white;
     transition:0.2s;
 }
