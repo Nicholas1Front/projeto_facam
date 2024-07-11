@@ -267,15 +267,15 @@ que engloba as duas */
 }
 
 .know-facam-control >.horizontal-line-control > .horizontal-line{
-    width:150px;
+    width:165px;
     height:3px;
-    margin-left:-10px;
+    margin-left:-5px;
     background-color: #00489A;
 }
 
 .know-facam-control > .title-control{
     width:100%;
-    padding:12px 0;
+    padding-bottom:12px;
     display:flex;
     justify-content: left;
 }
@@ -314,15 +314,9 @@ que engloba as duas */
     cursor:pointer;
 }
 
-.links-control:hover{
-    color:#00489A;
-    font-weight: 900;
-    
-}
-
 .links-control i{
-    font-size:50px;
-    padding:11px 0;
+    font-size:60px;
+    padding:14px 0;
     color:black;
 }
 
@@ -332,5 +326,6 @@ que engloba as duas */
     font-size:18px;
     font-weight: normal;
 }
+
 
 

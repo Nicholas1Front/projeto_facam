@@ -1,44 +1,54 @@
 // elements
 
 const linksControl = document.querySelectorAll(".links-control");
-const linksControl_Symbol = document.querySelectorAll(".links-control i");
-const linksControl_Link = document.querySelectorAll(".links a");
+const linksControl_symbol = document.querySelectorAll(".links-control i");
+const linksControl_link = document.querySelectorAll(".links-control a");
 
+// testing
+console.log(linksControl);
+console.log(linksControl_symbol);
+console.log(linksControl_link);
 // functions
 
-function hoverInLinkControl(){
-    linksControl_Symbol.forEach((symbol) => {
-        symbol.style.fontWeight = "900";
-        symbol.style.color = "#00489A";
-        symbol.style.transition = "0.2s";
-    })
+function hoverInLinksControl(param){
+    linksControl_symbol[param].style.color = "#00489A";
+    linksControl_symbol[param].style.fontWeight = "800";
+    linksControl_symbol[param].style.transition = "0.2s";
 
-    linksControl_Link.forEach((link) => {
-        link.style.fontWeight = "900";
-        link.style.color = "#00489A";
-        link.style.transition = "0.2s";
-    })
+    linksControl_link[param].style.color = "#00489A";
+    linksControl_link[param].style.fontWeight = "bold";
+    linksControl_link[param].style.transition = "0.2s";
 }
 
-function hoverOutLinkControl(){
-    linksControl_Symbol.forEach((symbol) => {
-        symbol.style.fontWeight = "bold";
-        symbol.style.color = "black";
-        symbol.style.transition = "0.2s";
-    })
+function hoverOutLinksControl(param){
+    linksControl_symbol[param].style.color = "black";
+    linksControl_symbol[param].style.fontWeight = "bold";
+    linksControl_symbol[param].style.transition = "0.2s";
 
-    linksControl_Link.forEach((link) => {
-        link.style.fontWeight = "normal";
-        link.style.color = "black";
-        link.style.transition = "0.2s";
-    })
+    linksControl_link[param].style.color = "black";
+    linksControl_link[param].style.fontWeight = "normal";
+    linksControl_link[param].style.transition = "0.2s";
 }
 
-// event listeners
+// booting 
 
-linksControl.forEach((link) => {
-    link.addEventListener("mouseenter", function(event){
-        event.preventDefault();
-        hoverInLinkControl();
-    });
+/*Este bloco de código é iniciado no momento que a página é carregada
+e os loopings são executados que por sua vez chamam as funções hoverIn e hoverOut*/
+document.addEventListener('DOMContentLoaded',function(event){
+    for(let i = 0; i < linksControl.length ; i++){
+        linksControl[i].addEventListener('mouseenter',function(event){
+            event.preventDefault();
+        
+            hoverInLinksControl(i);
+        });
+    }
+    
+    for(let i = 0; i < linksControl.length ; i++){
+        linksControl[i].addEventListener('mouseleave',function(event){
+            event.preventDefault();
+        
+            hoverOutLinksControl(i);
+        });
+    }
+    
 })
