@@ -28,7 +28,6 @@
 
 body::-webkit-scrollbar {
     width: 10px;
-
 }
 
 body::-webkit-scrollbar-track {
@@ -141,11 +140,14 @@ que engloba as duas */
     padding-left:8px;
     width:85%;
     background-color: transparent;
-    color:white;
+    color:black;
+    transition:0.2s;
 }
 
 #searchbar:focus{
     outline:none;
+    background-color: white;
+    transition:0.2s;
 }
 
 #search-btn{
@@ -327,5 +329,53 @@ que engloba as duas */
     font-weight: normal;
 }
 
+/* graduation-section */
+/* Esta section diz respeito a parte do site da FACAM de "Graduação" e mostra a grade com os cursos */
 
+.graduation-section{
+    width:100%;
+    background-color: #dedede;
+    margin-top: 15px;
+}
+
+.graduation-title-control{
+    width:100%;
+    padding:45px 0;
+}
+
+.graduation-title-control > .horizontal-line-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:-10px;
+}
+
+.graduation-title-control > .horizontal-line-control > .horizontal-line{
+    width:145px;
+    background-color: #00489A;
+}
+
+.graduation-title-control > .title-control{
+    width:100%;    
+    padding-bottom:12px;
+    display:flex;
+    justify-content: center;
+}
+
+
+.graduation-title-control > .title-control h2{
+    font-size:55px;
+}
+
+.graduation-title-control > .subtitle-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graduation-title-control > .subtitle-control h4{
+    font-weight: normal;
+}
 
