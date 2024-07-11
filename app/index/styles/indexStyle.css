@@ -296,13 +296,13 @@ que engloba as duas */
 
 .know-facam-links{
     width:100%;
-    margin:14px 0;
 }
 
 .know-facam-links-control{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin:40px 0;
 }
 
 .links-control{
@@ -311,10 +311,26 @@ que engloba as duas */
     justify-content: center;
     align-items : center;
     flex-direction: column;
+    cursor:pointer;
+}
+
+.links-control:hover{
+    color:#00489A;
+    font-weight: 900;
+    
 }
 
 .links-control i{
-    font-size:55px;
+    font-size:50px;
+    padding:11px 0;
+    color:black;
+}
+
+.links-control a{
+    color:black;
+    text-decoration: none;
+    font-size:18px;
+    font-weight: normal;
 }
 
 
