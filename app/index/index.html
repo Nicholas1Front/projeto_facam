@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial | FACAM</title>
     <link rel="stylesheet" href="styles/indexStyle.css">
+    <link rel="shortcut icon" href="../../assets/images/university_icon.png" type="image/x-icon">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +23,7 @@
                 </div>
         
                 <nav class="desktop-menu">
+                    <li class="desktop-menu-item selected"><a href="#">Página inicial</a></li>
                     <li class="desktop-menu-item"><a href="#">Instituição</a></li>
                     <li class="desktop-menu-item"><a href="#">Biblioteca</a></li>
                     <li class="desktop-menu-item"><a href="#">Vestibular</a></li>
@@ -36,6 +38,20 @@
             </div>
 
         </header><!--desktop-header-->
+
+        <div class="searchbar-container">
+            <div class="searchbar-control">
+                <input type="text" name="searchbar" id="searchbar" autocomplete="off" placeholder="Buscar..."/>
+
+                <button id="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
 
         <section class="vestibular-call-section">
 
@@ -62,6 +78,45 @@
         </section><!--vestibular-call-section-->
 
     </div><!--background-container-->
+
+    <section class="get-know-section">
+
+        <div class="container">
+            <div class="get-know-control">
+
+                <div class="know-facam">
+    
+                    <div class="know-facam-control">
+    
+                        <div class="horizontal-line-control">
+                            <div class="horizontal-line"></div>
+                        </div>
+    
+                        <div class="title-control">
+                            <h2>Conheça a FACAM</h2>
+                        </div>
+    
+                        <div class="subtitle-control">
+                            <h4>Deseja conhecer mais sobre nossa instituição ? Explore através do site !</h4>
+                        </div>
+                        
+                    </div>
+    
+                </div>
+
+                <div class="know-facam-links">
+    
+                    <div class="know-facam-links-control">
+
+                    </div>
+                    
+                </div>
+    
+            </div>
+
+        </div>
+
+    </section>
     <script src="scripts/indexScript.js"></script>
 </body>
 </html>

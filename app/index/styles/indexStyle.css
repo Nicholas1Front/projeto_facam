@@ -19,7 +19,30 @@
     /* Centraliza os elementos e dá um espaçamento de 2% nos lados */
 }
 
+.w50{
+    float:left;
+    width:50%;
+}
+
+/* scrollbar configs */
+
+body::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #025cc4;
+    border-radius: 34px;
+}
+
 /* header and vestibular-call-section */
+/* Esta seção diz respeito ao cabeçalho do site e também a call ao vestibular como imagem principal, além do background
+que engloba as duas */
 
 .background-container{
     background-image: url("../../../assets/images/girl_listening_overlay.png");
@@ -68,6 +91,19 @@
     transition:0.2s;
 }
 
+.selected{
+    font-weight: bold;
+    /* Mostra em qual página o usuário está */
+}
+
+.selected a{
+    text-decoration: none;
+}
+
+.selected a:hover{
+    text-decoration: none;
+}
+
 .desktop-menu-login{
     border: 2px solid white;
     color: white;
@@ -85,6 +121,46 @@
     border-color:#00489A;
     background-color: #00489A;
     transition: 0.2s;
+}
+
+.searchbar-container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar-control{
+    width:28%;
+    color:white;
+}
+
+#searchbar{
+    border-radius:15px;
+    border: 1px solid white;
+    padding: 10px 0;
+    padding-left:8px;
+    width:85%;
+    background-color: transparent;
+    color:white;
+}
+
+#searchbar:focus{
+    outline:none;
+}
+
+#search-btn{
+    padding:10px 20px;
+    color:white;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    background-color: #00489A;
+    transition:0.2s;
+}
+
+#search-btn:hover{
+    transition:0.2s;
+    background-color: #025cc4;
 }
 
 .vestibular-call-section{
@@ -157,3 +233,56 @@
     color: white;
     transition:0.2s;
 }
+
+/* get-know-section */
+/* Esta seção diz respeito a parte do site da FACAM que está com o título "Conheça a FACAM" */
+
+.get-know-section{
+    margin: 15px 0;
+    width:100%;
+}
+
+.get-know-control{
+    width:100%;
+    padding:50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.know-facam-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+.know-facam-control > .horizontal-line-control{
+    width:100%;
+}
+
+.know-facam-control >.horizontal-line-control > .horizontal-line{
+    width:150px;
+    height:3px;
+    margin-left:-10px;
+    background-color: #00489A;
+}
+
+.know-facam-control > .title-control{
+    width:100%;
+    padding:12px 0;
+}
+
+.know-facam-control > .title-control h2{
+    font-size:50px;
+}
+
+.know-facam-control > .subtitle-control{
+    width:100%;
+}
+
+.know-facam-control > .subtitle-control h4{
+    font-weight:normal;
+}
+
+
