@@ -1,6 +1,3 @@
-Claro! Aqui está a versão formatada em Markdown das suas anotações iniciais:
-
-```md
 # Anotações Iniciais para o Projeto de Desenvolvimento da Plataforma Web FACAM
 
 ## Ferramentas, Linguagens e Outras Tecnologias
