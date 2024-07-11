@@ -245,9 +245,12 @@ que engloba as duas */
 .get-know-control{
     width:100%;
     padding:50px 0;
+}
+
+.know-facam{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    margin-bottom:10px;
 }
 
 .know-facam-control{
@@ -259,6 +262,8 @@ que engloba as duas */
 
 .know-facam-control > .horizontal-line-control{
     width:100%;
+    display:flex;
+    justify-content: left;
 }
 
 .know-facam-control >.horizontal-line-control > .horizontal-line{
@@ -271,18 +276,45 @@ que engloba as duas */
 .know-facam-control > .title-control{
     width:100%;
     padding:12px 0;
+    display:flex;
+    justify-content: left;
 }
 
 .know-facam-control > .title-control h2{
-    font-size:50px;
+    font-size:55px;
 }
 
 .know-facam-control > .subtitle-control{
     width:100%;
+    display:flex;
+    justify-content: left;
 }
 
 .know-facam-control > .subtitle-control h4{
     font-weight:normal;
+}
+
+.know-facam-links{
+    width:100%;
+    margin:14px 0;
+}
+
+.know-facam-links-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links-control{
+    display: flex;
+    width:25%;
+    justify-content: center;
+    align-items : center;
+    flex-direction: column;
+}
+
+.links-control i{
+    font-size:55px;
 }
 
 
