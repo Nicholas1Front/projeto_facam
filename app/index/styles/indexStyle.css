@@ -379,3 +379,66 @@ que engloba as duas */
     font-weight: normal;
 }
 
+.graduation-content-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graduation-content-control > .graduation-links-control{
+    width:46%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graduation-content-control > .graduation-links-control > .items-control{
+    margin:0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.graduation-content-control > .graduation-links-control > .items-control a{
+    display:block;
+    padding:10px 0;
+    text-decoration: none;
+    color:black;
+    font-weight: normal;
+    font-size: 18px;
+    transition:0.2s;
+}
+
+.graduation-content-control > .graduation-links-control > .items-control a:hover{
+    font-weight:bold;
+    color:#00489A;
+    transition: 0.2s;
+}
+
+.graduation-content-control > .vertical-line-control{
+    width:4%;
+    height:150px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.graduation-content-control > .vertical-line-control > .vertical-line{
+    width:1px;
+    height:100%;
+    border:1px solid #00489A;
+}
+
+.graduation-content-control > .graduation-image-control{
+    width:46%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graduation-image-control img{
+    width:50%;
+}
+
