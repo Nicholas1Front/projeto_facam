@@ -388,16 +388,40 @@ que engloba as duas */
     padding:30px 0;
 }
 
-.graduation-courses > .items-control{
+.graduation-courses{
+    width:100%;
+    padding:35px 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.courses-items-control{
+    cursor: pointer;
     float:left;
     width:23%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:column;
 }
 
-.graduation-courses > .items-control > .course-img{
-    width:200px;
-    height:200px;
-    filter: invert(1) brightness(2);
+.course-img-control{
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-img{
+    width:100%;
+}
+
+.courses-items-control a{
+    color:white;
+    font-weight: normal;
+    padding-top:21px;
+    font-size: 18px;
+    text-decoration : none;
 }
