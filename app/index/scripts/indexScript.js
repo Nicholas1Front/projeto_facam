@@ -4,6 +4,10 @@ const linksControl = document.querySelectorAll(".links-control");
 const linksControl_symbol = document.querySelectorAll(".links-control i");
 const linksControl_link = document.querySelectorAll(".links-control a");
 
+const coursesControl = document.querySelectorAll(".courses-items-control");
+const coursesImgs = document.querySelectorAll(".course-img");
+const coursesLinks = document.querySelectorAll(".courses-items-control a");
+
 // testing
 console.log(linksControl);
 console.log(linksControl_symbol);
