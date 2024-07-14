@@ -9,9 +9,9 @@ const coursesImgs = document.querySelectorAll(".course-img");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
 // testing
-console.log(linksControl);
-console.log(linksControl_symbol);
-console.log(linksControl_link);
+console.log(coursesControl);
+console.log(coursesImgs[0].getAttribute("src"));
+console.log(coursesLinks);
 // functions
 
 function hoverInLinksControl(param){
@@ -34,6 +34,11 @@ function hoverOutLinksControl(param){
     linksControl_link[param].style.transition = "0.2s";
 }
 
+function hoverInCoursesControl(param){
+    coursesImgs[param].setAttribute("src", `../../assets/images/${coursesImgs[param]}_blue.png`);
+    coursesLinks[param].style.color = '#025cc4';
+}
+
 // booting 
 
 /*Este bloco de código é iniciado no momento que a página é carregada
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded',function(event){
         
             hoverInLinksControl(i);
         });
-    }
+    };
     
     for(let i = 0; i < linksControl.length ; i++){
         linksControl[i].addEventListener('mouseleave',function(event){
@@ -53,6 +58,13 @@ document.addEventListener('DOMContentLoaded',function(event){
         
             hoverOutLinksControl(i);
         });
+    };
+
+    for(let i = 0; i < coursesControl.length ; i++){
+        coursesControl[i].addEventListener("mouseenter",function(event){
+            
+        })
     }
     
 })
+
