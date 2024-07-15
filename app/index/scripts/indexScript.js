@@ -6,11 +6,12 @@ const linksControl_link = document.querySelectorAll(".links-control a");
 
 const coursesControl = document.querySelectorAll(".courses-items-control");
 const coursesImgs = document.querySelectorAll(".course-img");
+const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
 // testing
 console.log(coursesControl);
-console.log(coursesImgs[0].getAttribute("src"));
+console.log(coursesImgs);
 console.log(coursesLinks);
 // functions
 
@@ -35,8 +36,25 @@ function hoverOutLinksControl(param){
 }
 
 function hoverInCoursesControl(param){
-    coursesImgs[param].setAttribute("src", `../../assets/images/${coursesImgs[param]}_blue.png`);
+    coursesImgsHover[param].style.display = "block";
+    coursesImgsHover[param].style.transition = "0.2s";
+
+    coursesImgs[param].style.display = "none";
+    coursesImgs[param].style.transition = "0.2s";
+
     coursesLinks[param].style.color = '#025cc4';
+    coursesLinks[param].style.transition = "0.2s";
+}
+
+function hoverOutCoursesControl(param){
+    coursesImgsHover[param].style.display = "none";
+    coursesImgsHover[param].style.transition = "0.2s";
+
+    coursesImgs[param].style.display = "block";
+    coursesImgs[param].style.transition = "0.2s";
+
+    coursesLinks[param].style.color = 'white';
+    coursesLinks[param].style.transition = "0.2s";
 }
 
 // booting 
@@ -62,7 +80,13 @@ document.addEventListener('DOMContentLoaded',function(event){
 
     for(let i = 0; i < coursesControl.length ; i++){
         coursesControl[i].addEventListener("mouseenter",function(event){
-            
+            event.preventDefault();
+            hoverInCoursesControl(i);
+        });
+
+        coursesControl[i].addEventListener("mouseleave",function(event){
+            event.preventDefault();
+            hoverOutCoursesControl(i);
         })
     }
     

@@ -418,6 +418,11 @@ que engloba as duas */
     width:100%;
 }
 
+.course-img-hover{
+    width: 100%;
+    display: none;
+}
+
 .courses-items-control a{
     color:white;
     font-weight: normal;
