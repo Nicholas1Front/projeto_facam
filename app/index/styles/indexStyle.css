@@ -329,6 +329,20 @@ que engloba as duas */
     font-weight: normal;
 }
 
+/* registration-section */
+/* Esta section diz respeito a dar a escolha ao usuário para se matricular e ver os principais cursos e seus valores */
+
+.registration-section{
+    margin:15px 0;
+    width:100%;
+    background-color: #c7c7c7;
+}
+
+.registration-control{
+    padding:50px 0;
+    width:100%;
+}
+
 /* graduation-section */
 /* Esta section diz respeito a parte do site da FACAM de "Graduação" e mostra a grade com os cursos */
 
@@ -407,8 +421,8 @@ que engloba as duas */
 }
 
 .course-img-control{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 150px;
+    max-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
