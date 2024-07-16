@@ -357,10 +357,11 @@ que engloba as duas */
 .slide-prev-control{
     width:8%;
     text-align: center;
-    padding:20px;
+    padding: 30px;
     margin: 0 12px;
-    border-radius:25px;
+    border-radius:50%;
     transition: 0.2s;
+    color: #025cc4;
 }
 
 .slide-prev-control i{
@@ -368,8 +369,7 @@ que engloba as duas */
 }
 
 .slide-prev-control:hover{
-    background-color: #025cc4;
-    color: white;
+    background-color: #9a9a9a;
     transition: 0.2s;
 }
 
@@ -378,6 +378,10 @@ que engloba as duas */
     padding:15px;
     border: 2px solid #025cc4;
     border-radius:12px;
+}
+
+.slides-control{
+    margin-top:35px;
 }
 
 .slide-content{
@@ -432,35 +436,61 @@ que engloba as duas */
 
 .slide-content > .value-shift-control{
     margin-top:40px;
+    width:100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .slide-content > .value-shift-control > .value-control{
-    width:40%;
+    width:98%;
 }
 
-.slide-content >.value-shift-control > .vertical-line-control{
-    width:10%;
-    height:150px;
+.slide-content > .value-shift-control > .value-control > .value-wrapper{
+    display: flex;
+    flex-direction:column;
+    text-align: left;
+}
+
+.value-wrapper > .cut-price{
+    font-size:15px;
+    text-decoration: line-through solid;
+    color:#565656;
+    margin-bottom:4px;
+}
+
+.value-wrapper > .real-price{
+    font-size: 30px;
+    color:#025cc4;
+    font-weight: 600;
+}
+
+.slide-content >.value-shift-control > .horizontal-line-control{
+    width:98%;
+    padding:10px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
-.slide-content >.value-shift-control > .vertical-line-control > .vertical-line{
-    width: 1px;
-    height:90%;
+.slide-content >.value-shift-control > .horizontal-line-control > .horizontal-line{
+    width:45%;
+    height:1px;
+    margin-left: 0;
     background-color: #025cc4;
 }
 
 .slide-content > .value-shift-control > .shift-control{
-    width:40%;
+    width:98%;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: center;
+}
+
+.slide-content > .value-shift-control > .shift-control h4{
+    margin-bottom:10px;
 }
 
 .slide-content > .value-shift-control > .shift-control > .shift-wrapper{
@@ -473,20 +503,80 @@ que engloba as duas */
 .slide-content > .value-shift-control > .shift-control > .shift-wrapper > .shift-span{
     font-size: 17px;
     font-weight: 600;
-    padding:8px 10px;
+    padding:5px 7px;
     margin: 0 6px;
     border-radius : 25px;
     border: 1px solid #025cc4;
     color:#025cc4; 
 }
 
+.slide-content > .registration-button-control{
+    width:100%;
+    margin:12px 0;
+}
+
+.slide-content > .registration-button-control > .signup-control {
+    width:100%;
+    padding: 5px 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content > .registration-button-control > .signup-control a{
+    display: block;
+    width:50%;
+    padding:10px 0;
+    font-weight: bold;
+    border-radius:25px;
+    text-decoration: none;
+    text-align: center;
+    color: #fa594d;
+    border:2px solid #fa594d;
+    transition:0.2s;
+}
+
+.slide-content > .registration-button-control > .signup-control a:hover{
+    background-color: #fa594d;
+    color:white;
+    transition:0.2s;
+}
+
+.slide-content > .registration-button-control > .know-more-control {
+    width:100%;
+    padding: 5px 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content > .registration-button-control > .know-more-control a{
+    display: block;
+    width:50%;
+    padding:10px 0;
+    font-weight: bold;
+    border-radius:25px;
+    text-decoration: none;
+    text-align: center;
+    color: #025cc4;
+    border:2px solid #025cc4;
+    transition:0.2s;
+}
+
+.slide-content  > .registration-button-control > .know-more-control a:hover{
+    background-color: #025cc4;
+    color: white;
+    transition:0.2s;
+}
+
 .slide-next-control{
     width:8%;
     text-align: center;
-    padding:20px;
+    padding: 30px;
     margin: 0 12px;
-    border-radius:25px;
+    border-radius:50%;
     transition: 0.2s;
+    color: #025cc4;
 }
 
 .slide-next-control i{
@@ -494,8 +584,7 @@ que engloba as duas */
 }
 
 .slide-next-control:hover{
-    background-color: #025cc4;
-    color: white;
+    background-color: #9a9a9a;
     transition: 0.2s;
 }
 
@@ -512,10 +601,15 @@ que engloba as duas */
 }
 
 .slide-breadcrumb{
-    padding:10px;
+    height:15px;
+    width:15px;
     margin: 0 5px;
     border-radius:50%;
     background-color: #a6a4a4;
+}
+
+.breadcrumb-selected {
+    background-color: #025cc4;
 }
 
 /* graduation-section */
