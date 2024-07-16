@@ -361,9 +361,109 @@ que engloba as duas */
 
 .slide{
     width:50%;
-    padding:10px;
+    padding:15px;
     border: 2px solid #025cc4;
     border-radius:12px;
+}
+
+.slide-content{
+    width:100%;
+}
+
+.slide-content > .title-control{
+    width:100%;
+}
+
+.slide-content > .title-control h3{
+    font-size:20px;
+    margin-bottom:5px;
+    font-weight:600;
+}
+
+.slide-content > .title-control > .subtitle-control h4{
+    font-weight: normal;
+    font-size:17px;
+    color : black;
+}
+
+.slide-content > .horizontal-line-control{
+    width:100%;
+    margin:10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content > .horizontal-line-control > .horizontal-line{
+    width:91%;
+    height:1px;
+    background-color: #262626;
+}
+
+.slide-content > .modality-control{
+    display: flex;
+    justify-content: left;
+    padding:2px 0;
+}
+
+.slide-content > .modality-control > .modality-span{
+    font-size: 17px;
+    font-weight: 600;
+    padding:8px 10px;
+    margin: 0 6px;
+    border-radius : 25px;
+    background-color: #025cc4;
+    color:white;
+}
+
+.slide-content > .value-shift-control{
+    margin-top:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content > .value-shift-control > .value-control{
+    width:40%;
+}
+
+.slide-content >.value-shift-control > .vertical-line-control{
+    width:10%;
+    height:150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content >.value-shift-control > .vertical-line-control > .vertical-line{
+    width: 1px;
+    height:90%;
+    background-color: #025cc4;
+}
+
+.slide-content > .value-shift-control > .shift-control{
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.slide-content > .value-shift-control > .shift-control > .shift-wrapper{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width:100%;
+}
+
+.slide-content > .value-shift-control > .shift-control > .shift-wrapper > .shift-span{
+    font-size: 17px;
+    font-weight: 600;
+    padding:8px 10px;
+    margin: 0 6px;
+    border-radius : 25px;
+    border: 1px solid #025cc4;
+    color:#025cc4; 
 }
 
 .slide-next-control{
