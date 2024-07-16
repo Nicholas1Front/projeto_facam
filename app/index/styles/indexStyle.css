@@ -357,6 +357,20 @@ que engloba as duas */
 .slide-prev-control{
     width:8%;
     text-align: center;
+    padding:20px;
+    margin: 0 12px;
+    border-radius:25px;
+    transition: 0.2s;
+}
+
+.slide-prev-control i{
+    font-size:50px;
+}
+
+.slide-prev-control:hover{
+    background-color: #025cc4;
+    color: white;
+    transition: 0.2s;
 }
 
 .slide{
@@ -469,6 +483,20 @@ que engloba as duas */
 .slide-next-control{
     width:8%;
     text-align: center;
+    padding:20px;
+    margin: 0 12px;
+    border-radius:25px;
+    transition: 0.2s;
+}
+
+.slide-next-control i{
+    font-size:50px;
+}
+
+.slide-next-control:hover{
+    background-color: #025cc4;
+    color: white;
+    transition: 0.2s;
 }
 
 .slides-breadcrumb{
