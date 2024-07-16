@@ -343,6 +343,53 @@ que engloba as duas */
     width:100%;
 }
 
+.slides-container{
+    width:100%;
+}
+
+.slides-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.slide-prev-control{
+    width:8%;
+    text-align: center;
+}
+
+.slide{
+    width:50%;
+    padding:10px;
+    border: 2px solid #025cc4;
+    border-radius:12px;
+}
+
+.slide-next-control{
+    width:8%;
+    text-align: center;
+}
+
+.slides-breadcrumb{
+    padding:25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.slides-breadcrumb-control{
+    display: flex;
+}
+
+.slide-breadcrumb{
+    padding:10px;
+    margin: 0 5px;
+    border-radius:50%;
+    background-color: #a6a4a4;
+}
+
 /* graduation-section */
 /* Esta section diz respeito a parte do site da FACAM de "Graduação" e mostra a grade com os cursos */
 
