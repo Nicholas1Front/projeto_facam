@@ -22,6 +22,9 @@ console.log(slideBreadcrumbs);
 
 //slides 
 
+// to do : ajeitar o mecanismo dos slides se possivel passar todo para uma função
+// to do : fazer um autoplay com looping para os slides se possivel 
+
 let slidesCounter = 0;
 
 showSlide(0);
