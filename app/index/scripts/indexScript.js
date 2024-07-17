@@ -4,6 +4,10 @@ const linksControl_symbol = document.querySelectorAll(".links-control i");
 const linksControl_link = document.querySelectorAll(".links-control a");
 
 const slides = document.querySelectorAll(".slide");
+const slideNextBtn = document.querySelector(".slide-next-control");
+const slidePrevBtn = document.querySelector(".slide-prev-control");
+
+const slideBreadcrumbs = document.querySelectorAll(".slide-breadcrumb");
 
 const coursesControl = document.querySelectorAll(".courses-items-control");
 const coursesImgs = document.querySelectorAll(".course-img");
@@ -11,12 +15,82 @@ const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
 // testing
-console.log(slides);
+console.log(slides.length);
+console.log(slideNextBtn);
+console.log(slidePrevBtn);
+console.log(slideBreadcrumbs);
 
-/* Funções temporárias para teste : show mostra , hide esconde */
-showSlide(2);
-hideSlide(0);
+//slides 
+
+let slidesCounter = 0;
+
+showSlide(0);
 hideSlide(1);
+hideSlide(2);
+
+slidePrevBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    if(slidesCounter <= 0){
+        return;
+    }else if(slidesCounter >= 0){
+        slidesCounter = slidesCounter - 1;
+
+        console.log(`SlidesCounter = ${slidesCounter}`);
+
+        hideSlide(slidesCounter+1);
+        showSlide(slidesCounter);
+
+        hideBreadcrumb(slidesCounter+1);
+        showBreadcrumb(slidesCounter);
+    }
+
+})
+
+slideNextBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    if(slidesCounter == slides.length-1 || slidesCounter > slides.length){
+        hideBreadcrumb(slidesCounter);
+        hideSlide(slidesCounter);
+
+        slidesCounter = 0;
+
+        showBreadcrumb(slidesCounter);
+        showSlide(slidesCounter);
+        
+        return;
+    }else if(slidesCounter < slides.length){
+        slidesCounter++;
+
+        console.log(`SlidesCounter = ${slidesCounter}`)
+
+        hideSlide(slidesCounter-1);
+        showSlide(slidesCounter);
+
+        showBreadcrumb(slidesCounter);  
+
+        hideBreadcrumb(slidesCounter-1);
+    }
+
+});
+
+function showBreadcrumb(param){
+    slideBreadcrumbs[param].classList.add("breadcrumb-selected");
+}
+
+function hideBreadcrumb(param){
+    slideBreadcrumbs[param].classList.remove("breadcrumb-selected")
+}
+
+function showSlide(param){
+    slides[param].style.display = "flex";
+}
+
+function hideSlide(param){
+    slides[param].style.display = "none";
+}
+
 
 // functions
 
@@ -62,13 +136,6 @@ function hoverOutCoursesControl(param){
     coursesLinks[param].style.transition = "0.2s";
 }
 
-function showSlide(param){
-    slides[param].style.display = "flex";
-}
-
-function hideSlide(param){
-    slides[param].style.display = "none";
-}
 
 // booting 
 
