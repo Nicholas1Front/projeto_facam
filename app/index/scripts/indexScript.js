@@ -5,22 +5,19 @@ const linksControl_link = document.querySelectorAll(".links-control a");
 
 const slides = document.querySelectorAll(".slide");
 
-
-document.addEventListener("DOMContentLoaded",function(){
-    for(let i = 1 ; i < slides.length ; i++){
-        hideOtherSlides(i);
-    }
-})
-
 const coursesControl = document.querySelectorAll(".courses-items-control");
 const coursesImgs = document.querySelectorAll(".course-img");
 const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
 // testing
-console.log(coursesControl);
-console.log(coursesImgs);
-console.log(coursesLinks);
+console.log(slides);
+
+/* Funções temporárias para teste : show mostra , hide esconde */
+showSlide(2);
+hideSlide(0);
+hideSlide(1);
+
 // functions
 
 function hoverInLinksControl(param){
@@ -65,8 +62,11 @@ function hoverOutCoursesControl(param){
     coursesLinks[param].style.transition = "0.2s";
 }
 
-function hideOtherSlides(param){
-    slides[0].style.display = "flex";
+function showSlide(param){
+    slides[param].style.display = "flex";
+}
+
+function hideSlide(param){
     slides[param].style.display = "none";
 }
 
