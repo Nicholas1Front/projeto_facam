@@ -3,7 +3,6 @@ const linksControl = document.querySelectorAll(".links-control");
 const linksControl_symbol = document.querySelectorAll(".links-control i");
 const linksControl_link = document.querySelectorAll(".links-control a");
 
-const registrationSection = document.querySelector(".registration-section");
 const slides = document.querySelectorAll(".slide");
 const slideNextBtn = document.querySelector(".slide-next-control");
 const slidePrevBtn = document.querySelector(".slide-prev-control");
@@ -16,24 +15,25 @@ const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
 // testing
-console.log(slides.length);
-console.log(slideNextBtn);
-console.log(slidePrevBtn);
-console.log(slideBreadcrumbs);
 
-console.log(registrationSection.clientHeight);
+//registration slides
 
-//slides 
+//esta parte diz respeito a todos os elementos e functions que formam o mecanismo de slides da registration-section
 
-// to do : ajeitar o mecanismo dos slides se possivel passar todo para uma função
-// to do : fazer um autoplay com looping para os slides se possivel
+//slide autoplay mecanism
+setInterval(()=>{
+    let scrollValue = window.scrollY || document.documentElement.scrollTop;
 
+    setTimeout(()=>{
+        autoplaySlides(scrollValue);
+    },4000);
+
+},7000)
+
+//slide elements
 let slidesCounter = 0;
 
-showSlide(0);
-hideSlide(1);
-hideSlide(2);
-
+//slide functions
 function prevSlideProcess(){
     if(slidesCounter <= 0){
         hideBreadcrumb(slidesCounter);
@@ -102,28 +102,6 @@ function autoplaySlides(scrollValue){
 
 }
 
-setInterval(()=>{
-    let scrollValue = window.scrollY || document.documentElement.scrollTop;
-
-    setTimeout(()=>{
-        autoplaySlides(scrollValue);
-    },4000)
-},7000)
-
-slidePrevBtn.addEventListener("click", function(event){
-    event.preventDefault();
-
-    prevSlideProcess();
-
-})
-
-slideNextBtn.addEventListener("click", function(event){
-    event.preventDefault();
-
-    nextSlideProcess();
-
-});
-
 function showBreadcrumb(param){
     slideBreadcrumbs[param].classList.add("breadcrumb-selected");
 }
@@ -149,6 +127,28 @@ function removeAnimation(param){
     slides[param].classList.remove("slide-in-left");
 }
 
+function initSlides(slides){
+    showSlide(0);
+
+    for(let i = 1 ; i <= slides.length-1 ; i++){
+        hideSlide(i);
+    };
+};
+
+//slide event listeners
+slidePrevBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    prevSlideProcess();
+
+})
+
+slideNextBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    nextSlideProcess();
+
+});
 
 // functions
 
@@ -215,6 +215,8 @@ document.addEventListener('DOMContentLoaded',function(event){
             hoverOutLinksControl(i);
         });
     };
+
+    initSlides(slides); //slide init : esconde os outros slides e mostra o primeiro slide
 
     for(let i = 0; i < coursesControl.length ; i++){
         coursesControl[i].addEventListener("mouseenter",function(event){
