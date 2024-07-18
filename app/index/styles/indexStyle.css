@@ -880,3 +880,34 @@ que engloba as duas */
     font-size: 18px;
     text-decoration : none;
 }
+
+.back-to-top-control{
+    position:fixed;
+    width:fit-content;
+    margin-top:100%;
+    margin-left:110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-to-top-btn{
+    padding:20px 25px;
+    border-radius: 50%;
+    border:1px solid #025cc4;
+    background-color: transparent;
+    color: #025cc4;
+    cursor:pointer;
+    transition: 0.2s;
+}
+
+.back-to-top-btn:hover{
+    background-color: #025cc4;
+    color:white;
+    border-color:#025cc4;
+    transition:0.2s;
+}
+
+.back-to-top-btn i{
+    font-size:25px;
+}
