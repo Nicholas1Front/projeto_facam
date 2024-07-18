@@ -1,10 +1,9 @@
 //elements
-const Body = document.querySelector("body");
-
 const linksControl = document.querySelectorAll(".links-control");
 const linksControl_symbol = document.querySelectorAll(".links-control i");
 const linksControl_link = document.querySelectorAll(".links-control a");
 
+const registrationSection = document.querySelector(".registration-section");
 const slides = document.querySelectorAll(".slide");
 const slideNextBtn = document.querySelector(".slide-next-control");
 const slidePrevBtn = document.querySelector(".slide-prev-control");
@@ -22,6 +21,8 @@ console.log(slideNextBtn);
 console.log(slidePrevBtn);
 console.log(slideBreadcrumbs);
 
+console.log(registrationSection.clientHeight);
+
 //slides 
 
 // to do : ajeitar o mecanismo dos slides se possivel passar todo para uma função
@@ -32,10 +33,6 @@ let slidesCounter = 0;
 showSlide(0);
 hideSlide(1);
 hideSlide(2);
-
-window.addEventListener("scroll", ()=>{
-    
-})
 
 function prevSlideProcess(){
     if(slidesCounter <= 0){
@@ -96,11 +93,22 @@ function nextSlideProcess(){
 
 }
 
-function autoplaySlides(){
-    setTimeout(function(){
+function autoplaySlides(scrollValue){
+    if(scrollValue >= 610){
         nextSlideProcess();
-    },5500)
+    }else if(scrollValue > 1510 || scrollValue < 550){
+        return;
+    }
+
 }
+
+setInterval(()=>{
+    let scrollValue = window.scrollY || document.documentElement.scrollTop;
+
+    setTimeout(()=>{
+        autoplaySlides(scrollValue);
+    },4000)
+},7000)
 
 slidePrevBtn.addEventListener("click", function(event){
     event.preventDefault();
