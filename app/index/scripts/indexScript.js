@@ -1,4 +1,6 @@
 //elements
+const Body = document.querySelector("body");
+
 const linksControl = document.querySelectorAll(".links-control");
 const linksControl_symbol = document.querySelectorAll(".links-control i");
 const linksControl_link = document.querySelectorAll(".links-control a");
@@ -23,7 +25,7 @@ console.log(slideBreadcrumbs);
 //slides 
 
 // to do : ajeitar o mecanismo dos slides se possivel passar todo para uma função
-// to do : fazer um autoplay com looping para os slides se possivel 
+// to do : fazer um autoplay com looping para os slides se possivel
 
 let slidesCounter = 0;
 
@@ -31,9 +33,11 @@ showSlide(0);
 hideSlide(1);
 hideSlide(2);
 
-slidePrevBtn.addEventListener("click", function(event){
-    event.preventDefault();
+window.addEventListener("scroll", ()=>{
+    
+})
 
+function prevSlideProcess(){
     if(slidesCounter <= 0){
         hideBreadcrumb(slidesCounter);
         hideSlide(slidesCounter);
@@ -60,12 +64,9 @@ slidePrevBtn.addEventListener("click", function(event){
         showAnimation(slidesCounter, "slide-in-left");
         removeAnimation(slidesCounter+1);
     }
+}
 
-})
-
-slideNextBtn.addEventListener("click", function(event){
-    event.preventDefault();
-
+function nextSlideProcess(){
     if(slidesCounter == slides.length-1 || slidesCounter > slides.length){
         hideBreadcrumb(slidesCounter);
         hideSlide(slidesCounter);
@@ -91,8 +92,27 @@ slideNextBtn.addEventListener("click", function(event){
 
         showAnimation(slidesCounter,"slide-in-right");
         removeAnimation(slidesCounter-1);
-
     }
+
+}
+
+function autoplaySlides(){
+    setTimeout(function(){
+        nextSlideProcess();
+    },5500)
+}
+
+slidePrevBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    prevSlideProcess();
+
+})
+
+slideNextBtn.addEventListener("click", function(event){
+    event.preventDefault();
+
+    nextSlideProcess();
 
 });
 

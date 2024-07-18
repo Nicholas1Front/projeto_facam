@@ -462,6 +462,26 @@ que engloba as duas */
     width:205px;
 }
 
+.registration-content > .title-control{
+    width:100%;
+    padding-top:30px;
+    padding-bottom:11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-content > .title-control h3{
+    font-size:22px;
+    font-weight: 500;
+}
+
+.registration-content > .title-control h3 > span{
+    font-size:22px;
+    font-weight: 500;
+    color: #025cc4;
+}
+
 .slides-container{
     width:100%;
 }
@@ -471,6 +491,7 @@ que engloba as duas */
     justify-content: center;
     align-items: center;
     width:100%;
+    margin-top:25px;
 }
 
 .slide-prev-control{
@@ -498,10 +519,6 @@ que engloba as duas */
     padding:15px;
     border: 2px solid #025cc4;
     border-radius:12px;
-}
-
-.slides-control{
-    margin-top:35px;
 }
 
 .slide-content{
