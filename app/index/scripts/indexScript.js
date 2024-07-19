@@ -232,13 +232,15 @@ function showBackTopBtn(){
     let scrollValue = window.scrollY || document.documentElement.scrollTop;
 
     if(scrollValue > 300){
-        backTopControl.style.marginTop = "44%";
-        backTopControl.style.marginLeft = "93%";
+        backTopControl.style.display = "flex";
+        backTopControl.style.justifyContent = "center";
+        backTopControl.style.alignItems = "center"
         backTopControl.style.transition = "0.3s";
+        backTopBtn.classList.remove("slide-out-bottom")
+        backTopBtn.classList.add("slide-in-bottom");
     }else if (scrollValue < 300){
-        backTopControl.style.marginTop = "100%";
-        backTopControl.style.marginLeft = "110%";
-        backTopControl.style.transition = "0.3s";
+        backTopBtn.classList.remove("slide-in-bottom");
+        backTopBtn.classList.add("slide-out-bottom");
     }
 }
 
