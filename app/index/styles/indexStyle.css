@@ -1072,6 +1072,27 @@ na página inicial */
     width:80%;
 }
 
+.post-graduation-box > .title-control{
+    width:100%;
+}
+
+.post-graduation-box > .subtitle-control{
+    width:100%;
+}
+
+.post-graduation-box > .horizontal-line-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.post-graduation-box > .horizontal-line-control > .horizontal-line{
+    margin-left:0;
+    height:2px;
+    width:80%;
+    background-color: #025cc4;
+}
+
 .content-control > .ead-information-control > .ead-box{
     margin:12px;
     border-radius:25px;
