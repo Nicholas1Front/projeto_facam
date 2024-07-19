@@ -1027,3 +1027,57 @@ na página inicial */
     font-size:55px;
     color:white;
 }
+
+.post-graduation-content-control{
+    margin-top: 27px;
+    margin-bottom:11px;
+}
+
+.post-graduation-content-control > .title-content-control{
+    display:flex;
+    justify-content: center;
+}
+
+.post-graduation-content-control > .title-content-control > .subtext-control{
+    width:fit-content;
+}
+
+.post-graduation-content-control > .title-content-control > .subtext-control h3{
+    color:white;
+    font-size:19px;
+    font-weight: 600;
+}
+
+.post-graduation-content-control > .content-control >.post-graduation-information-control{
+    width:50%;
+    float:left;
+    display: flex;
+    justify-content: center;
+}
+
+.post-graduation-content-control > .content-control > .ead-information-control{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    float:left;
+}
+
+.content-control >.post-graduation-information-control > .post-graduation-box{
+    margin:12px;
+    border-radius:25px;
+    background-color: #1a1a1a;
+    border:2px solid #025cc4;
+    box-shadow: 0px 1px 12px 9px #025cc4;
+    padding:10px;
+    width:80%;
+}
+
+.content-control > .ead-information-control > .ead-box{
+    margin:12px;
+    border-radius:25px;
+    background-color: #1a1a1a;
+    border:2px solid #025cc4;
+    box-shadow: 0px 1px 12px 9px #025cc4;
+    padding:10px;
+    width:80%;
+}
