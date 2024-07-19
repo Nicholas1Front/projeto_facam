@@ -988,7 +988,7 @@ que engloba as duas */
 na página inicial */
 
 .post-graduation-background-container{
-    background-image: url("../../../assets/images/");
+    background-image: url("../../../assets/images/anime_girl_studying_overlay.png");
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center;
@@ -998,4 +998,32 @@ na página inicial */
 .post-graduation-section{
     width:100%;
     padding:30px 0;
+}
+
+.post-graduation-title-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-graduation-title-control > .horizontal-line-control{
+    width:fit-content;
+}
+
+.post-graduation-title-control > .horizontal-line-control > .horizontal-line{
+    width:135px;
+    height:2px;
+    margin: 0 15px;
+}
+
+.post-graduation-title-control > .title-control{
+    width:fit-content;
+    padding:1px;
+    margin:0;
+}
+
+.post-graduation-title-control > .title-control h2{
+    font-size:55px;
+    color:white;
 }
