@@ -1062,43 +1062,79 @@ na página inicial */
     float:left;
 }
 
-.content-control >.post-graduation-information-control > .post-graduation-box{
+.information-box{
     margin:12px;
     border-radius:25px;
     background-color: #1a1a1a;
     border:2px solid #025cc4;
     box-shadow: 0px 1px 12px 9px #025cc4;
-    padding:10px;
+    padding:15px;
     width:80%;
 }
 
-.post-graduation-box > .title-control{
+.information-box > .title-control{
     width:100%;
 }
 
-.post-graduation-box > .subtitle-control{
-    width:100%;
+.information-box > .title-control h3{
+    font-size:20px;
+    font-weight: 600;
+    margin-bottom:5px;
+    color:#025cc4;
 }
 
-.post-graduation-box > .horizontal-line-control{
+.information-box > .subtitle-control{
+    width:100%;
+    margin-top:4px;
+}
+
+.information-box > .subtitle-control h4{
+    font-size:19px;
+    color:white;
+    font-weight: 300;
+}
+
+.information-box > .horizontal-line-control{
     width:100%;
     display: flex;
     justify-content: center;
 }
 
-.post-graduation-box > .horizontal-line-control > .horizontal-line{
+.information-box > .horizontal-line-control > .horizontal-line{
     margin-left:0;
     height:2px;
     width:80%;
     background-color: #025cc4;
 }
 
-.content-control > .ead-information-control > .ead-box{
-    margin:12px;
+.information-box > .text-control{
+    width:100%;
+    padding-top:25px;
+}
+
+.information-box > .know-more-control{
+    width:100%;
+    margin-top:12px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.information-box > .know-more-control a{
+    display: block;
+    width:50%;
+    padding:10px 0;
+    font-weight: bold;
     border-radius:25px;
-    background-color: #1a1a1a;
-    border:2px solid #025cc4;
-    box-shadow: 0px 1px 12px 9px #025cc4;
-    padding:10px;
-    width:80%;
+    text-decoration: none;
+    text-align: center;
+    color: #fa594d;
+    border:2px solid #fa594d;
+    transition:0.2s;   
+}
+
+.information-box > .know-more-control a:hover{
+    background-color: #fa594d;
+    color:white;
+    transition:0.2s;
 }
