@@ -1048,6 +1048,10 @@ na página inicial */
     font-weight: 600;
 }
 
+.post-graduation-content-control > .content-control{
+    margin-top:50px;
+}
+
 .post-graduation-content-control > .content-control >.post-graduation-information-control{
     width:50%;
     float:left;
@@ -1083,13 +1087,18 @@ na página inicial */
     color:#025cc4;
 }
 
+.information-box > .title-control h3 > i{
+    margin-left:5px;
+}
+
 .information-box > .subtitle-control{
     width:100%;
-    margin-top:4px;
+    margin-top:6px;
 }
 
 .information-box > .subtitle-control h4{
     font-weight: normal;
+    font-style: italic;
     font-size:17px;
     color : white;
 }
@@ -1121,7 +1130,7 @@ na página inicial */
 }
 
 .information-box > .text-control > .benefits-title{
-    margin-top:12px;
+    margin-top:19px;
     margin-bottom:10px;
     width:100%;
     display:flex;
@@ -1155,25 +1164,25 @@ na página inicial */
     justify-content: left;
     align-items: center;
     margin:9px 0;
-    padding-left:10px;
+    margin-left:13px;
 }
 
 .information-box > .text-control > .benefits-content > .benefits-wrapper i{
-    font-size:22px;
-    margin-right:4px;
+    font-size:25px;
+    margin-right:10px;
     color:#025cc4;
     font-weight: 600;
 }
 
 .information-box > .text-control > .benefits-content > .benefits-wrapper h3{
     font-size:17px;
-    color: #025cc4;
+    color:white;
     font-weight: 600;
 }
 
 .information-box > .know-more-control{
     width:100%;
-    margin-top:12px;
+    margin:10px 0;
     display: flex;
     justify-content: center;
     align-items:center;
