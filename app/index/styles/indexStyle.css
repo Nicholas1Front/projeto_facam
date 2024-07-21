@@ -1122,6 +1122,7 @@ na página inicial */
 
 .information-box > .text-control > .benefits-title{
     margin-top:12px;
+    margin-bottom:10px;
     width:100%;
     display:flex;
     align-items: center;
@@ -1129,7 +1130,7 @@ na página inicial */
 
 .information-box > .text-control > .benefits-title h4{
     color:#025cc4;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -1139,6 +1140,35 @@ na página inicial */
     background-color: #025cc4;
     margin-left:12px;
     margin-bottom: 0;
+}
+
+.information-box > .text-control > .benefits-content{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.information-box > .text-control > .benefits-content > .benefits-wrapper{
+    width:100%;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    margin:9px 0;
+    padding-left:10px;
+}
+
+.information-box > .text-control > .benefits-content > .benefits-wrapper i{
+    font-size:22px;
+    margin-right:4px;
+    color:#025cc4;
+    font-weight: 600;
+}
+
+.information-box > .text-control > .benefits-content > .benefits-wrapper h3{
+    font-size:17px;
+    color: #025cc4;
+    font-weight: 600;
 }
 
 .information-box > .know-more-control{
