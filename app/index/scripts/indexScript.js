@@ -27,9 +27,7 @@ const backTopBtn = document.querySelector(".back-to-top-btn");
 
 // testing
 
-let height = getElementTopPosition(postGraduation_section);
-
-console.log(height)
+console.log(informationsBox[0].attributes.class.nodeValue)
 
 //registration slides
 
@@ -270,7 +268,16 @@ function showAnimationPostGraduation_section(){
 
     if (scrollValue >= postGraduation_section_topScrollPosition){
         informationsBox.forEach(box => {
-            box.classList.add("slide-in-blurred-bottom")
+
+            let boxClassname = box.attributes.class.nodeValue
+
+            if(boxClassname == "information-box slide-in-blurred-bottom"){
+                return;
+            }
+
+            setTimeout(()=>{
+                box.classList.add("slide-in-blurred-bottom")
+            },2000)
         });
     }else{
         return
