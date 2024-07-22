@@ -19,10 +19,17 @@ const coursesImgs = document.querySelectorAll(".course-img");
 const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
+const postGraduation_section = document.querySelector(".post-graduation-section");
+const informationsBox = document.querySelectorAll(".information-box");
+
 const backTopControl = document.querySelector(".back-to-top-control");
 const backTopBtn = document.querySelector(".back-to-top-btn");
 
 // testing
+
+let height = getElementTopPosition(postGraduation_section);
+
+console.log(height)
 
 //registration slides
 
@@ -193,9 +200,21 @@ utilizando element como argumento.
 */
 
 function getElementTopPosition(element) {
+    if (!element || !(element instanceof Node)) {
+        console.error("Elemento inválido.");
+        return null;
+    }
+
+    // Verificar se o elemento está no documento
+    if (!document.body.contains(element)) {
+        console.error("O elemento não está no documento.");
+        return null;
+    }
+
+    // Obter a posição do elemento
     const rect = element.getBoundingClientRect();
-    const scrollTop = window.scrollY || window.pageYOffset;
-    
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
     return rect.top + scrollTop;
 }
 
@@ -244,11 +263,25 @@ function showBackTopBtn(){
     }
 }
 
-// booting 
+function showAnimationPostGraduation_section(){
+    let postGraduation_section_topScrollPosition = getElementTopPosition(postGraduation_section);
+
+    let scrollValue = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollValue >= postGraduation_section_topScrollPosition){
+        informationsBox.forEach(box => {
+            box.classList.add("slide-in-blurred-bottom")
+        });
+    }else{
+        return
+    }
+}
+
+// booting and event listerners
 
 /*Este bloco de código é iniciado no momento que a página é carregada
 e os loopings são executados que por sua vez chamam as funções hoverIn e hoverOut*/
-document.addEventListener('DOMContentLoaded',function(event){
+document.addEventListener('DOMContentLoaded',function(){
     for(let i = 0; i < linksControl.length ; i++){
         linksControl[i].addEventListener('mouseenter',function(event){
             event.preventDefault();
@@ -278,11 +311,12 @@ document.addEventListener('DOMContentLoaded',function(event){
             hoverOutCoursesControl(i);
         })
     };
-    
+
 });
 
 window.addEventListener("scroll",function(){
     showBackTopBtn();
+    showAnimationPostGraduation_section();
 })
 
 backTopBtn.addEventListener("click",function(){
