@@ -19,6 +19,7 @@ const coursesImgs = document.querySelectorAll(".course-img");
 const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
+const postGraduation_section = document.querySelector(".post-graduation-section");
 const contentControl = document.querySelector(".content-control");
 const informationsBox = document.querySelectorAll(".information-box");
 
@@ -27,7 +28,6 @@ const backTopBtn = document.querySelector(".back-to-top-btn");
 
 // testing
 
-console.log(informationsBox[0].getAttribute("class"))
 
 //registration slides
 
@@ -265,13 +265,13 @@ function showAnimationContentControl(){
 
     let scrollValue = window.scrollY || document.documentElement.scrollTop;
 
-    let contentControl_topScrollPosition = getElementTopPosition(contentControl);
+    let postGraduation_section_topScrollPosition = getElementTopPosition(postGraduation_section);
 
-    let informationsBox_className = informationsBox[0].attributes.class.nodeValue;
-
-    if (scrollValue == contentControl_topScrollPosition){
-        
-        console.log(informationsBox_className);
+    if (scrollValue >= postGraduation_section_topScrollPosition){
+       
+        setTimeout(()=>{
+            contentControl.classList.add("slide-in-blurred-bottom");
+        },900)
 
     }else{
         return;
@@ -280,10 +280,12 @@ function showAnimationContentControl(){
 
 function increaseBoxShadow_informationBox(param){
     informationsBox[param].style.boxShadow = "0px 1px 12px 12px #025cc4";
+    informationsBox[param].style.transition = "0.4s";
 }
 
 function decreaseBoxShadow_informationBox(param){
     informationsBox[param].style.boxShadow = "0px 1px 12px 9px #025cc4";
+    informationsBox[param].style.transition = "0.4s";
 }
 
 // booting and event listerners
