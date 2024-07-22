@@ -19,7 +19,7 @@ const coursesImgs = document.querySelectorAll(".course-img");
 const coursesImgsHover = document.querySelectorAll(".course-img-hover");
 const coursesLinks = document.querySelectorAll(".courses-items-control a");
 
-const postGraduation_section = document.querySelector(".post-graduation-section");
+const contentControl = document.querySelector(".content-control");
 const informationsBox = document.querySelectorAll(".information-box");
 
 const backTopControl = document.querySelector(".back-to-top-control");
@@ -27,7 +27,7 @@ const backTopBtn = document.querySelector(".back-to-top-btn");
 
 // testing
 
-console.log(informationsBox[0].attributes.class.nodeValue)
+console.log(informationsBox[0].getAttribute("class"))
 
 //registration slides
 
@@ -261,27 +261,29 @@ function showBackTopBtn(){
     }
 }
 
-function showAnimationPostGraduation_section(){
-    let postGraduation_section_topScrollPosition = getElementTopPosition(postGraduation_section);
+function showAnimationContentControl(){
 
     let scrollValue = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollValue >= postGraduation_section_topScrollPosition){
-        informationsBox.forEach(box => {
+    let contentControl_topScrollPosition = getElementTopPosition(contentControl);
 
-            let boxClassname = box.attributes.class.nodeValue
+    let informationsBox_className = informationsBox[0].attributes.class.nodeValue;
 
-            if(boxClassname == "information-box slide-in-blurred-bottom"){
-                return;
-            }
+    if (scrollValue == contentControl_topScrollPosition){
+        
+        console.log(informationsBox_className);
 
-            setTimeout(()=>{
-                box.classList.add("slide-in-blurred-bottom")
-            },2000)
-        });
     }else{
-        return
+        return;
     }
+}
+
+function increaseBoxShadow_informationBox(param){
+    informationsBox[param].style.boxShadow = "0px 1px 12px 12px #025cc4";
+}
+
+function decreaseBoxShadow_informationBox(param){
+    informationsBox[param].style.boxShadow = "0px 1px 12px 9px #025cc4";
 }
 
 // booting and event listerners
@@ -319,14 +321,25 @@ document.addEventListener('DOMContentLoaded',function(){
         })
     };
 
+    for(let i = 0 ; i < informationsBox.length ; i++){
+        informationsBox[i].addEventListener("mouseenter",()=>{
+            increaseBoxShadow_informationBox(i);
+        });
+
+        informationsBox[i].addEventListener("mouseleave",()=>{
+            decreaseBoxShadow_informationBox(i);
+        })
+    }
+
 });
 
 window.addEventListener("scroll",function(){
     showBackTopBtn();
-    showAnimationPostGraduation_section();
+    showAnimationContentControl();
 })
 
 backTopBtn.addEventListener("click",function(){
     scrollToTop();
 })
+
 
