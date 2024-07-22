@@ -1259,3 +1259,12 @@ na página inicial */
     color:white;
     transition:0.2s;
 }
+
+/* news-section */
+/* Esta section diz respeito a parte de "noticias" que existe na página inicial da FACAM */
+
+.news-section{
+    width:100%;
+    padding:45px 0;   
+}
+

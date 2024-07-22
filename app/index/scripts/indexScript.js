@@ -170,6 +170,9 @@ slideNextBtn.addEventListener("click", function(event){
 
 });
 
+// news slides
+//esta parte diz respeito a todos os elementos e functions que formam o mecanismo de slides da news-section
+
 // functions
 
 function hoverInLinksControl(param){
