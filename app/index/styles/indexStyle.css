@@ -1278,6 +1278,23 @@ na página inicial */
     width:45%;
 }
 
+.news-container > .news-title-control > .title-control{
+    width:100%;
+    display: flex;
+    align-items: center;
+}
+
+.news-container > .news-title-control > .title-control i{
+    font-size:60px;
+    color: #025cc4;
+    margin-right:9px;
+}
+
+.news-container > .news-title-control > .title-control h2{
+    font-size: 55px;
+    color: #025cc4;
+}
+
 .news-container > .vertical-line-control{
     width:5%;
     display: flex;

@@ -276,7 +276,7 @@ function showAnimationContentControl(){
        
         setTimeout(()=>{
             contentControl.classList.add("slide-in-blurred-bottom");
-        },900)
+        },200)
 
     }else{
         return;
