@@ -1276,6 +1276,9 @@ na página inicial */
 
 .news-container > .news-title-control{
     width:45%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .news-container > .news-title-control > .title-control{
@@ -1295,6 +1298,14 @@ na página inicial */
     color: #025cc4;
 }
 
+.news-container > .news-title-control > .subtitle-control{
+    margin-top:10px;
+}
+
+.news-container > .news-title-control > .subtitle-control h3{
+    font-weight: normal;
+}
+
 .news-container > .vertical-line-control{
     width:5%;
     display: flex;
@@ -1309,5 +1320,49 @@ na página inicial */
 
 .news-container > .news-content-control{
     width:45%;
+}
+
+.news-slides-container{
+    width:100%;
+}
+
+.news-slides-container > .news-slides-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.news-slides-container > .news-slides-control > .news-slide{
+    width:75%;
+    border-radius:25px;
+    background-color: #025cc4;
+    padding:15px;
+}
+
+.news-slides-container > .news-slides-breadcrumb{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.news-slides-breadcrumb > .news-slides-breadcrumb-control{
+    display: flex;
+    width:fit-content;
+    justify-content: center;
+    align-items:center;
+}
+
+.news-slides-breadcrumb > .news-slides-breadcrumb-control > .news-slide-breadcrumb{
+    height:15px;
+    width:15px;
+    margin: 0 5px;
+    border-radius:50%;
+    background-color: #a6a4a4;
+}
+
+.news-slide-prev-control , .news-slide-next-control{
+    font-size:15px;
 }
 
