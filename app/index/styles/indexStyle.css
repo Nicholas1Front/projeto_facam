@@ -1340,6 +1340,26 @@ na página inicial */
     padding:15px;
 }
 
+.news-slide > .title-control{
+    width:100%;
+}
+
+.news-slide > .subtitle-control{
+    width:100%;
+}
+
+.news-slide > .horizontal-line-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.news-slide > .horizontal-line-control > .horizontal-line{
+    width:50%;
+    height:1px;
+    margin-left:0;
+}
+
 .news-slides-container > .news-slides-breadcrumb{
     width:100%;
     display: flex;
