@@ -63,8 +63,6 @@ function prevSlideProcess(){
     }else if(slidesCounter >= 0){
         slidesCounter = slidesCounter - 1;
 
-        console.log(`SlidesCounter = ${slidesCounter}`);
-
         hideSlide(slidesCounter+1);
         showSlide(slidesCounter);
 
@@ -91,8 +89,6 @@ function nextSlideProcess(){
         return;
     }else if(slidesCounter < slides.length){
         slidesCounter++;
-
-        console.log(`SlidesCounter = ${slidesCounter}`)
 
         hideSlide(slidesCounter-1);
         showSlide(slidesCounter);
@@ -173,7 +169,115 @@ slideNextBtn.addEventListener("click", function(event){
 // news slides
 //esta parte diz respeito a todos os elementos e functions que formam o mecanismo de slides da news-section
 
-// todo : fazer todos os processos relacionados aos slides relacionados a news-section
+//slide elements
+
+const newsSlides = document.querySelectorAll(".news-slide");
+const newsBreadcrumbs = document.querySelectorAll(".news-slide-breadcrumb");
+const newsSlidePrevControl = document.querySelector(".news-slide-prev-control");
+const newsSlideNextControl = document.querySelector(".news-slide-next-control")
+let newsSlidesCounter = 0;
+
+//slide functions
+function prevNewsSlideProcess(){
+    if(newsSlidesCounter <= 0){
+        hideNewsBreadcrumb(newsSlidesCounter);
+        hideNewsSlide(newsSlidesCounter);
+        removeAnimation(newsSlidesCounter);
+
+        newsSlidesCounter = newsSlides.length - 1;
+
+        showNewsAnimation(newsSlidesCounter, "slide-in-right");
+        showNewsBreadcrumb(newsSlidesCounter);
+        showNewsSlide(newsSlidesCounter);
+
+        return;
+    }else if(newsSlidesCounter >= 0){
+        newsSlidesCounter = newsSlidesCounter - 1;
+
+        hideNewsSlide(newsSlidesCounter+1);
+        showNewsSlide(newsSlidesCounter);
+
+        hideNewsBreadcrumb(newsSlidesCounter+1);
+        showNewsBreadcrumb(newsSlidesCounter);
+
+        showNewsAnimation(newsSlidesCounter, "slide-in-left");
+        removeNewsAnimation(newsSlidesCounter+1);
+    }
+}
+
+function nextNewsSlideProcess(){
+    if(newsSlidesCounter == newsSlides.length-1 || newsSlidesCounter > newsSlides.length){
+        hideNewsBreadcrumb(newsSlidesCounter);
+        hideNewsSlide(newsSlidesCounter);
+        removeNewsAnimation(newsSlidesCounter);
+
+        newsSlidesCounter = 0;
+
+        showNewsAnimation(newsSlidesCounter, "slide-in-left");
+        showNewsBreadcrumb(newsSlidesCounter);
+        showNewsSlide(newsSlidesCounter);
+        
+        return;
+    }else if(newsSlidesCounter < newsSlides.length){
+        newsSlidesCounter++;
+
+        hideNewsSlide(newsSlidesCounter-1);
+        showNewsSlide(newsSlidesCounter);
+
+        showNewsBreadcrumb(newsSlidesCounter);  
+        hideNewsBreadcrumb(newsSlidesCounter-1);
+
+        showNewsAnimation(newsSlidesCounter,"slide-in-right");
+        removeNewsAnimation(newsSlidesCounter-1);
+    }
+
+};
+
+function showNewsSlide(param){
+    newsSlides[param].style.display = "flex";
+}
+
+function hideNewsSlide(param){
+    newsSlides[param].style.display = "none";
+}
+
+function showNewsBreadcrumb(param){
+    newsBreadcrumbs[param].classList.add("news-breadcrumb-selected");
+}
+
+function hideNewsBreadcrumb(param){
+    newsBreadcrumbs[param].classList.remove("news-breadcrumb-selected");
+}
+
+function showNewsAnimation(param , animation){
+    newsSlides[param].classList.add(animation);
+}
+
+function removeNewsAnimation(param){
+    newsSlides[param].classList.remove("slide-in-right");
+    newsSlides[param].classList.remove("slide-in-left");
+}
+
+function initNewsSlides(newsSlides){
+    showNewsSlide(0);
+    showNewsBreadcrumb(0)
+
+    for(let i = 1 ; i <= newsSlides.length-1 ; i++){
+        hideNewsSlide(i);
+    };
+};
+
+//slide event listeners
+
+newsSlidePrevControl.addEventListener("click", (event)=>{
+    event.preventDefault();
+    prevNewsSlideProcess();
+})
+
+newsSlideNextControl.addEventListener("click", (event)=>{
+    event.preventDefault();
+    nextNewsSlideProcess(); 
+})
 
 // functions
 
@@ -314,7 +418,9 @@ document.addEventListener('DOMContentLoaded',function(){
         });
     };
 
-    initSlides(slides); //slide init : esconde os outros slides e mostra o primeiro slide
+    //slide init : esconde os outros slides e mostra o primeiro slide
+    initSlides(slides); 
+    initNewsSlides(newsSlides);
 
     for(let i = 0; i < coursesControl.length ; i++){
         coursesControl[i].addEventListener("mouseenter",function(event){
