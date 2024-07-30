@@ -1329,6 +1329,7 @@ na página inicial */
 
 .news-slides-container > .news-slides-control{
     width:100%;
+    min-height:630px;
     display: flex;
     justify-content: center;
     align-items:center;
