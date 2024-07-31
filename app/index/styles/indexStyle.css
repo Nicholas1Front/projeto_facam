@@ -1340,7 +1340,7 @@ na página inicial */
 }
 
 .news-slides-container > .news-slides-control > .news-slide{
-    width:85%;
+    max-width:85%;
     border-radius:25px;
     background-color: #025cc4;
     padding:15px;
@@ -1395,17 +1395,21 @@ na página inicial */
     background-color: white;
 }
 
-.news-slide >.news-slide-content > .img-control{
-    width:100%;
-    padding:8px 0;
+.news-slide >.news-slide-content > .image-container{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width:100%;
+    margin:8px 0;
 }
 
-.news-slide >.news-slide-content > .img-control img{
-    /* todo : ajeitar a proporção da imagem utilizando ou max-height ou min-height */
-    max-width:75%;
+.news-slide >.news-slide-content > .image-container > .image-control{
+    max-width:80%;
+}
+
+.news-slide >.news-slide-content > .image-container > .image-control img{
+    width:100%;
+    max-height: 265px;;
     border-radius:15px;
 }
 
@@ -1441,7 +1445,7 @@ na página inicial */
 .news-slide >.news-slide-content > .text-control p{
     width:100%;
     text-align: center;
-    padding:5px 10%;
+    padding:5px 5%;
     font-size:16px;
     color:white;
 }
@@ -1512,4 +1516,22 @@ na página inicial */
 
 .news-breadcrumb-selected{
     background-color: #025cc4 !important;
+}
+
+/* main-footer */
+
+/* Esta seção diz respeito ao rodapé da página */
+
+.main-footer{
+    background-color: #000;
+    width:100%;
+    margin-top:10px;
+    padding-top:25px;
+}
+
+.main-footer > .main-footer-control{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
