@@ -33,16 +33,6 @@ const backTopBtn = document.querySelector(".back-to-top-btn");
 
 //esta parte diz respeito a todos os elementos e functions que formam o mecanismo de slides da registration-section
 
-//slide autoplay mecanism
-setInterval(()=>{
-    let scrollValue = window.scrollY || document.documentElement.scrollTop;
-
-    setTimeout(()=>{
-        autoplaySlides(scrollValue);
-    },4000);
-
-},7000)
-
 //slide elements
 let slidesCounter = 0;
 
@@ -98,22 +88,6 @@ function nextSlideProcess(){
 
         showAnimation(slidesCounter,"slide-in-right");
         removeAnimation(slidesCounter-1);
-    }
-
-}
-
-let graduation_section_topScrollPosition = 0;
-let registration_section_topScrollPosition = 0;
-
-function autoplaySlides(scrollValue){
-
-    graduation_section_topScrollPosition = getElementTopPosition(graduation_section);
-    registration_section_topScrollPosition = getElementTopPosition(registration_section);
-
-    if(scrollValue >= registration_section_topScrollPosition){
-        nextSlideProcess();
-    }else if(scrollValue > graduation_section_topScrollPosition || scrollValue < registration_section_topScrollPosition){
-        return;
     }
 
 }
@@ -301,30 +275,6 @@ function hoverOutLinksControl(param){
     linksControl_link[param].style.transition = "0.2s";
 }
 
-/*
-Esta função pega a altura em pixels de um elemento a partir do inicio do página,
-utilizando element como argumento. 
-*/
-
-function getElementTopPosition(element) {
-    if (!element || !(element instanceof Node)) {
-        console.error("Elemento inválido.");
-        return null;
-    }
-
-    // Verificar se o elemento está no documento
-    if (!document.body.contains(element)) {
-        console.error("O elemento não está no documento.");
-        return null;
-    }
-
-    // Obter a posição do elemento
-    const rect = element.getBoundingClientRect();
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-
-    return rect.top + scrollTop;
-}
-
 function hoverInCoursesControl(param){
     coursesImgsHover[param].style.display = "block";
     coursesImgsHover[param].style.transition = "0.2s";
@@ -370,33 +320,6 @@ function showBackTopBtn(){
     }
 }
 
-function showAnimationContentControl(){
-
-    let scrollValue = window.scrollY || document.documentElement.scrollTop;
-
-    let postGraduation_section_topScrollPosition = getElementTopPosition(postGraduation_section);
-
-    if (scrollValue >= postGraduation_section_topScrollPosition){
-       
-        setTimeout(()=>{
-            contentControl.classList.add("slide-in-blurred-bottom");
-        },200)
-
-    }else{
-        return;
-    }
-}
-
-function increaseBoxShadow_informationBox(param){
-    informationsBox[param].style.boxShadow = "0px 1px 12px 12px #025cc4";
-    informationsBox[param].style.transition = "0.4s";
-}
-
-function decreaseBoxShadow_informationBox(param){
-    informationsBox[param].style.boxShadow = "0px 1px 12px 9px #025cc4";
-    informationsBox[param].style.transition = "0.4s";
-}
-
 // booting and event listerners
 
 /*Este bloco de código é iniciado no momento que a página é carregada
@@ -433,16 +356,6 @@ document.addEventListener('DOMContentLoaded',function(){
             hoverOutCoursesControl(i);
         })
     };
-
-    for(let i = 0 ; i < informationsBox.length ; i++){
-        informationsBox[i].addEventListener("mouseenter",()=>{
-            increaseBoxShadow_informationBox(i);
-        });
-
-        informationsBox[i].addEventListener("mouseleave",()=>{
-            decreaseBoxShadow_informationBox(i);
-        })
-    }
 
 });
 
