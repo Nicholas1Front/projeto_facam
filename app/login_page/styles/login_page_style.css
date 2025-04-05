@@ -59,7 +59,7 @@ principal da página juntamente com a section de login */
     background-size: cover;
     background-position: center;
     width:100%;
-    padding-bottom:10rem;
+    padding-bottom:8rem;
 }
 
 .desktop-header{
@@ -133,19 +133,44 @@ principal da página juntamente com a section de login */
     transition: 0.2s;
 }
 
+.login-introduction-section{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    padding:2rem 0;
+}
+
+.login-introduction-section > .login-introduction-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-introduction-section > .login-introduction-container > .line{
+    height:3px;
+    margin-left:15px;
+    width:200px;
+    background-color:white;
+    margin-bottom:5px;
+}
+
+
 .user-login-section{
     width:100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:9rem 0;
+    padding:4rem 0;
     color: #fff;
 }
 
 .user-login-section > .user-login-container{
     background-color: #1a1a1a;
+    border:2px solid #025cc4;
+    box-shadow: 0px 1px 12px 9px #025cc4;
     border-radius:15px;
-    padding:0 1rem;
+    padding:1rem 2rem;
 }
 
 .user-login-section > .user-login-container > .title-container{
@@ -163,4 +188,111 @@ principal da página juntamente com a section de login */
     height:1px;
     background-color: #025cc4;
     margin-top:1rem;
+    margin-bottom:0.8rem;
+}
+
+.user-login-section > .user-login-container > .user-name-container,
+.user-login-section > .user-login-container > .user-password-container{
+    width:100%;
+    display:flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+.user-login-section > .user-login-container > .user-name-container label,
+.user-login-section > .user-login-container > .user-password-container label{
+    width:100%;
+    text-align: left;
+    padding-bottom:10px;
+    font-weight: 600;
+    font-size:16px;
+}
+
+.user-login-section > .user-login-container > .user-name-container label > i,
+.user-login-section > .user-login-container > .user-password-container label > i{
+    margin-left:5px;
+}
+
+.user-login-section > .user-login-container > .user-name-container > .input-control,
+.user-login-section > .user-login-container > .user-password-container > .input-control{
+    width:100%;
+    padding-bottom:1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.user-login-section > .user-login-container > .user-name-container > .input-control input,
+.user-login-section > .user-login-container > .user-password-container > .input-control input{
+    width:85%;
+    padding:0.5rem 0;
+    padding-left:8px;
+    background-color: transparent;
+    color:#fff;
+    border:1px solid #025cc4;
+    border-radius:25px;
+}
+
+.user-login-section > .user-login-container > .user-name-container > .input-control input:focus,
+.user-login-section > .user-login-container > .user-password-container > .input-control input:focus{
+    outline: none;
+    box-shadow: 0px 1px 4px 4px #025cc4;
+    transition: 0.2s;
+}
+
+.user-login-section > .user-login-container > .user-password-container > .input-control i{
+    font-size:18px;
+    margin-left:10px;
+}
+
+.user-login-section > .user-login-container > .forgot-password-container{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:2rem;
+}
+
+.user-login-section > .user-login-container > .forgot-password-container a{
+    color:#fff;
+    font-size:15px;
+}
+
+.user-login-section > .user-login-container > .forgot-password-container a:hover{
+    text-decoration: underline;
+}
+
+.user-login-section > .user-login-container > .button-container{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:1.5rem;
+}
+
+.user-login-section > .user-login-container > .button-container button{
+    width:50%;
+    padding:10px 0;
+    border-radius:25px;
+    font-size : 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid #fff;
+    color:#fff;
+    font-weight: 600;
+    background-color: transparent;
+    cursor:pointer;
+    transition: 0.2s;
+}
+
+.user-login-section > .user-login-container > .button-container button > i{
+    font-size:16px;
+    margin-left:5px;
+}
+
+.user-login-section > .user-login-container > .button-container button:hover{
+    background-color: #025cc4;
+    border-color:#025cc4;
+    transition:0.2s;
 }
