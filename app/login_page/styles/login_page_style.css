@@ -1,0 +1,166 @@
+/* boot elements */
+
+body{
+    overflow-x: hidden;
+}
+
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:#000;
+}
+
+.clear{
+    clear: both;
+    /* A classe clear serve para que a propriedade float funcione de maneira correta e não quebre
+    o fluxo da página */
+}
+
+.container{
+    margin:0 auto; 
+    padding: 0 2%;
+    /* Centraliza os elementos e dá um espaçamento de 2% nos lados */
+}
+
+.w50{
+    float:left;
+    width:50%;
+}
+
+/* scrollbar configs */
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #025cc4;
+    border-radius: 34px;
+}
+
+/* background-container -> header and user-login-secction */
+
+/* Esta seção diz respeito ao background-container que por sua vez contém o header 
+principal da página juntamente com a section de login */
+
+.background-container{
+    background-image: url("../../../assets/images/woman_working_2_overlay.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    padding-bottom:10rem;
+}
+
+.desktop-header{
+    /* background-color: #025cc2; */
+    width:100%;
+    padding:10px 0;
+    margin-bottom:5px;
+}
+
+.desktop-logo{
+    float:left;
+}
+
+.desktop-logo img{
+    width:65%;
+}
+
+.desktop-menu{
+    margin-top:4%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.desktop-menu li{
+    margin: 0 8px;
+}
+
+.desktop-menu-item a{
+    color:white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.desktop-menu-item a:hover{
+    text-decoration: underline;
+    transition:0.2s;
+}
+
+.selected{
+    font-weight: bold;
+    /* Mostra em qual página o usuário está */
+}
+
+.selected a{
+    text-decoration: none;
+}
+
+.selected a:hover{
+    text-decoration: none;
+}
+
+.desktop-menu-login{
+    border: 2px solid white;
+    color: white;
+    padding:10px 15px;
+    border-radius: 25px;
+    transition: 0.2s;
+}
+
+.desktop-menu-login a{
+    text-decoration: none;
+    color:white;
+}
+
+.desktop-menu-login:hover{
+    border-color:#00489A;
+    background-color: #00489A;
+    transition: 0.2s;
+}
+
+.user-login-section{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:9rem 0;
+    color: #fff;
+}
+
+.user-login-section > .user-login-container{
+    background-color: #1a1a1a;
+    border-radius:15px;
+    padding:0 1rem;
+}
+
+.user-login-section > .user-login-container > .title-container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1rem 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user-login-section > .user-login-container > .title-container > .line{
+    width:20rem;
+    height:1px;
+    background-color: #025cc4;
+    margin-top:1rem;
+}

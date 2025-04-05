@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login aluno | FACAM</title>
+    <link rel="stylesheet" href="../login_page/styles/login_page_style.css">
+    <link rel="shortcut icon" href="../../assets/images/university_icon.png" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8bf43e84bd.js" crossorigin="anonymous"></script><!--Font awesome-->
+</head>
+<body>
+    <div class="background-container">
+        <header class="desktop-header">
+            <div class="container">
+                <div class="desktop-logo">
+                    <img src="../../assets/images/facam_logo_white.png" alt="facam logo white"/>
+                </div>
+        
+                <nav class="desktop-menu">
+                    <li class="desktop-menu-item selected"><a href="#">Página inicial</a></li>
+                    <li class="desktop-menu-item"><a href="#">Instituição</a></li>
+                    <li class="desktop-menu-item"><a href="#">Biblioteca</a></li>
+                    <li class="desktop-menu-item"><a href="#">Vestibular</a></li>
+                    <li class="desktop-menu-item"><a href="#">EAD</a></li>
+                    <li class="desktop-menu-item"><a href="#">Contato</a></li>
+
+                    <li class="desktop-menu-login"><a href="#">Entrar</a></li>
+                </nav>
+
+                <div class="clear"></div>
+            </div>
+        </header>
+
+        <section class="user-login-section">
+            <div class="user-login-container">
+                <div class="title-container">
+                    <h3>Faça login para acessar a área do aluno</h3>
+                    <div class="line"></div>
+                </div>
+
+                <div class="user-name-container">
+                    <label for="user-name">Usuário <i class="fa-solid fa-user"></i></label>
+                    <div class="input-control">
+                        <input type="text" id="user-name-input" placeholder="Digite seu usuário..." required/>
+                    </div>
+                </div>
+
+                <div class="user-password-container">
+                    <label for="user-password">Senha <i class="fa-solid fa-key"></i></label>
+                    <div class="input-control">
+                        <input type="password" id="user-password-input" placeholder="Digite sua senha..." required/>
+                    </div>
+                </div>
+
+                <div class="forgot-password-container">
+                    <a href="#">Esqueci minha senha</a>
+                    <div class="line"></div>
+                </div>
+
+                <div class="button-container">
+                    <button id="verify-password-btn">Entrar <i class="fa-solid fa-right-to-bracket"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
