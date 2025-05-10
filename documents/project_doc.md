@@ -1,55 +1,107 @@
-#Cores 
+Claro! Aqui está a versão aprimorada e formatada do seu Markdown, com uma estrutura mais clara, padronização de maiúsculas e minúsculas, melhor uso de títulos e formatação consistente para facilitar a leitura e manutenção:
 
-    Cor preta = #000 ;
-    Cor azul = #00489A ; 
-    Cor branca = #FFF ;
-    Cor cinza = #E6E7E8 ou #dddddd ;  
+---
 
+# 🎨 Guia de Estilo – Frontend da Aplicação
 
-## Fontes e tamanhos
+## 🎨 Cores
 
-Para títulos grandes : h2 com tamanho de 55px, porém analisar a necessidade do design
+| Descrição     | Cor Hex   |
+| ------------- | --------- |
+| Preta         | `#000000` |
+| Azul          | `#00489A` |
+| Branca        | `#FFFFFF` |
+| Cinza claro 1 | `#E6E7E8` |
+| Cinza claro 2 | `#DDDDDD` |
 
-Para titulos pequenos/ médios : h3 com tamanho de 22px - 19px
+---
 
-Para subtitulos (abaixo do titulo) : h4 com tamanho padrão do css
+## 🖋️ Fontes e Tamanhos
 
-Para paragrafos : p com tamanho de 16px ou 17px , verificar necessidade do design
+* **Títulos grandes**:
+  `h2` com `font-size: 55px` (ajustar conforme necessidade do design)
 
-Para links com ícones : usar a com tamanho normal sem text-decoration : underline , para o ícone i um tamanho razoável é de 50px - 60px dependendo do uso.
+* **Títulos pequenos/médios**:
+  `h3` com `font-size: 22px` a `19px`
 
-Para botões : o tamanho depende do uso , entretanto sempre manter border-radius : 25px e padding : razoável
+* **Subtítulos (abaixo do título)**:
+  `h4` com o `font-size` padrão do CSS
 
-## Estrutura 
+* **Parágrafos**:
+  `p` com `font-size: 16px` ou `17px` (ajustar conforme necessidade do design)
 
-Agrupar e estruturar o código para que o mesmo tenha a estrutura organizada e limpa , exemplo : 
+* **Links com ícones**:
+  `a` com estilo normal, sem `text-decoration: underline`
+  `i` com `font-size: 50px` a `60px`, dependendo do uso
 
-register-section
-    register-container
-        title-container
-        register-form-container
-        submit-container
+* **Botões**:
 
-No CSS sempre usar globalização de classes , evitar o uso de ID somente quando necessário. Da mesma forma que a estrutura do HTML , o CSS deve ser utilizado assim : .register-section > .register-container > .title-container
+  * Tamanho depende do uso
+  * Sempre usar `border-radius: 25px`
+  * Usar `padding` adequado
 
-No Javascript os elementos, funções , event listerners devem ser separados de acordo com próprio código html , exemplo : 
+---
 
+## 🧱 Estrutura HTML e CSS
+
+### 📌 Exemplo de organização HTML
+
+```html
+<section class="register-section">
+  <div class="register-container">
+    <div class="title-container">
+      <!-- Título aqui -->
+    </div>
+    <div class="register-form-container">
+      <!-- Formulário aqui -->
+    </div>
+    <div class="submit-container">
+      <!-- Botão de envio aqui -->
+    </div>
+  </div>
+</section>
+```
+
+### 🎯 Boas práticas CSS
+
+* Utilizar **classes globais**, evitando `IDs` sempre que possível
+* A estrutura no CSS deve refletir a do HTML:
+
+```css
+.register-section > .register-container > .title-container { 
+  /* estilos aqui */ 
+}
+```
+
+---
+
+## 💻 Organização do JavaScript
+
+Dividir o código de acordo com as seções HTML.
+
+### 🧩 Exemplo:
+
+```js
 // register-section
 
-// elements
-const registerSection = ...
+// Elements
+const registerSection = document.querySelector('.register-section');
 
-//functions
-
-async function showSomething(...){
-    ...
+// Functions
+async function showSomething() {
+  // lógica aqui
 }
 
-//event listeners or booting
+// Event Listeners / Booting
+btn.addEventListener('click', showSomething);
+```
 
-btn.addEventListener... ou showSomething();
+---
 
+## 🌐 GitHub – Regras de Versionamento
 
-## Github 
+* **Todas as mudanças devem ser feitas na branch `main`**
+* **Sempre avisar sobre qualquer alteração feita no código**
+* Evitar subir arquivos com erros de formatação ou lógica não testada
 
-Para subir as mudanças para o github somente usar a branch main , e sempre avisar de mudança no código.
+---
