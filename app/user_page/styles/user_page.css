@@ -1,0 +1,138 @@
+body{
+    overflow-x: hidden;
+}
+
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:#000;
+}
+
+header, footer , section, div{
+    width:100%;
+}
+
+.clear{
+    clear: both;
+    /* A classe clear serve para que a propriedade float funcione de maneira correta e não quebre
+    o fluxo da página */
+}
+
+.container{
+    margin:0 auto; 
+    padding: 0 2%;
+    /* Centraliza os elementos e dá um espaçamento de 2% nos lados */
+}
+
+.w50{
+    float:left;
+    width:50%;
+}
+
+/* scrollbar configs */
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #025cc4;
+    border-radius: 34px;
+}
+
+/* header */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color:#fff;
+}
+
+header > .header-main-logo-control{
+    width:50%;
+    display:flex;
+    align-items: center;
+    justify-content: left;
+}
+
+header > .header-main-logo-control img{
+    width:130px;
+    margin-right:1rem;
+}
+
+header > .main-menu-container{
+    position:absolute;
+    margin: 0 auto;
+    width:fit-content;
+    padding:1rem 1.5rem;
+    border-radius:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header > .main-menu-container > .main-menu-btn{
+    background-color: transparent;
+    border:none;
+    color:#dddddd;
+    transition:0.2s;
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size:12px;
+    margin:0 1rem;
+}
+
+header > .main-menu-container > .main-menu-btn > i{
+    font-size:25px;
+    margin-bottom:3px;
+}
+
+header > .main-menu-container > .main-menu-btn:hover{
+    color:#fff;
+    transition:0.2s;
+}
+
+header > .exit-control{
+    width:50%;
+    display:flex;
+    align-items: center;
+    justify-content: right;
+}
+
+header > .exit-control > a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#dddddd;
+    transition:0.2s;
+    padding-right:3rem;
+}
+
+header > .exit-control > a > i{
+    font-size:25px;
+}
+
+header > .exit-control > a > span{
+    font-size:12px;
+    padding-top:3px;
+}
+
+header > .exit-control > a:hover{
+    color:#fff;
+    transition:0.2s;
+}
