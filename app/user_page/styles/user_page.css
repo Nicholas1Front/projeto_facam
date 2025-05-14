@@ -1,5 +1,6 @@
 body{
     overflow-x: hidden;
+    background-color: #000;
 }
 
 *{
@@ -7,6 +8,11 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    color:#fff;
+}
+
+header, footer , section, div{
+    width:100%;
 }
 
 a{
@@ -14,8 +20,8 @@ a{
     color:#000;
 }
 
-header, footer , section, div{
-    width:100%;
+h4{
+    font-weight: normal;
 }
 
 .clear{
@@ -25,7 +31,6 @@ header, footer , section, div{
 }
 
 .container{
-    margin:0 auto; 
     padding: 0 2%;
     /* Centraliza os elementos e dá um espaçamento de 2% nos lados */
 }
@@ -65,11 +70,11 @@ header > .header-main-logo-control{
     display:flex;
     align-items: center;
     justify-content: left;
+    margin-left:2%;
 }
 
 header > .header-main-logo-control img{
     width:130px;
-    margin-right:1rem;
 }
 
 header > .main-menu-container{
@@ -86,7 +91,7 @@ header > .main-menu-container{
 header > .main-menu-container > .main-menu-btn{
     background-color: transparent;
     border:none;
-    color:#dddddd;
+    color:#fff;
     transition:0.2s;
     cursor:pointer;
     display: flex;
@@ -98,12 +103,16 @@ header > .main-menu-container > .main-menu-btn{
 }
 
 header > .main-menu-container > .main-menu-btn > i{
-    font-size:25px;
+    font-size:30px;
     margin-bottom:3px;
 }
 
-header > .main-menu-container > .main-menu-btn:hover{
-    color:#fff;
+header > .main-menu-container > .main-menu-btn > span{
+    transition:0.2s;
+}
+
+header > .main-menu-container > .main-menu-btn > span.active{
+    color:#025cc4;
     transition:0.2s;
 }
 
@@ -118,13 +127,13 @@ header > .exit-control > a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color:#dddddd;
+    color:#fff;
     transition:0.2s;
     padding-right:3rem;
 }
 
 header > .exit-control > a > i{
-    font-size:25px;
+    font-size:30px;
 }
 
 header > .exit-control > a > span{
@@ -132,7 +141,72 @@ header > .exit-control > a > span{
     padding-top:3px;
 }
 
-header > .exit-control > a:hover{
-    color:#fff;
-    transition:0.2s;
+
+/* introduction-section */
+
+.introduction-section{
+    padding: 0 2%;
+    margin:4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introduction-section > .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introduction-section > .title-container > h2{
+    font-size:55px;
+    padding-bottom:5px;
+}
+
+.introduction-section > .title-container > h4{
+    font-weight:300;
+}
+
+.introduction-section > .title-container > div{
+    margin-top:1rem;
+    height:2px;
+    background-color: #025cc4;
+    width:40%;
+}
+
+.introduction-section > p{
+    width:95%;
+    margin:3rem 0;
+}
+
+.introduction-section > .introduction-symbols-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:2rem 0;
+    width:85%;
+}
+
+.introduction-section > .introduction-symbols-container > .introduction-symbol-control{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding:0 2rem;
+}
+
+.introduction-section > .introduction-symbols-container > .introduction-symbol-control > i{
+    color: #025cc4;
+    padding-bottom:1rem;
+    font-size: 50px;
+}
+
+.introduction-section > .introduction-symbols-container > .introduction-symbol-control > h3{
+    font-size: 20px;
+    margin-bottom:4px;
+}
+
+.introduction-section > .introduction-symbols-container > .introduction-symbol-control > h4{
+    font-weight: 300;
 }
