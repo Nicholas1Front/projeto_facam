@@ -146,37 +146,101 @@ header > .exit-control > a > span{
 
 .introduction-section{
     padding: 0 2%;
-    margin:5rem 0;
+    margin:2.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.introduction-section > .title-container{
+.introduction-section > .introduction-container{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-bottom:2.5rem;
 }
 
-.introduction-section > .title-container > h2{
+.introduction-section > .introduction-container > .title-container{
+    width:45%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.introduction-section > .introduction-container > .title-container > h2{
     font-size:65px;
     padding-bottom:5px;
 }
 
-.introduction-section > .title-container > h4{
+.introduction-section > .introduction-container > .title-container > h4{
     font-weight:300;
 }
 
-.introduction-section > .title-container > div{
-    margin-top:1rem;
+.introduction-section > .introduction-container > .line-container{
+    width:10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.introduction-section > .introduction-container > .line-container > .line{
+    width:2px;
+    height: 12rem;
+    background-color: #025cc4;
+}
+
+.introduction-section > .introduction-container > .user-info-container{
+    width:45%;
+    background-color: #1a1a1a;
+    border-radius:25px;
+    padding:1rem;
+    box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+    -webkit-box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+    -moz-box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+}
+
+.introduction-section > .introduction-container > .user-info-container > .title-container{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introduction-section > .introduction-container > .user-info-container > .title-container > h3{
+    font-size:18px;
+    padding:8px 14px;
+    background-color: #025cc4;
+    color: #fff;
+    border-radius:25px;
+    margin-bottom:1rem;
+}
+
+.introduction-section > .introduction-container > .user-info-container > .title-container > .line{
+    width:55%;
     height:2px;
     background-color: #025cc4;
+    margin-bottom:1rem;
+}
+
+.introduction-section > .introduction-container > .user-info-container > .user-info-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem 0;
+}
+
+.introduction-section > .introduction-container > .user-info-container > .user-info-control > h3{
     width:40%;
+    text-align: center;
+}
+
+.introduction-section > .introduction-container > .user-info-container > .user-info-control > span{
+    width:60%;
+    text-align: center;
+    font-style: italic;
 }
 
 .introduction-section > p{
     width:95%;
-    margin:3rem 0;
+    margin:1.5rem 0;
 }
 
 .introduction-section > .introduction-symbols-container{
@@ -211,16 +275,11 @@ header > .exit-control > a > span{
     font-weight: 300;
 }
 
-.introduction-section > .user-info-conainer{
-    width:60%;
-    background-color: #1a1a1a;
-}
-
 /* grades-section */
 
 .grades-section{
     padding : 0 2%;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom:5rem;
@@ -243,4 +302,65 @@ header > .exit-control > a > span{
     height:2px;
     margin-top:0.4rem;
     background-color: #025cc4;
+}
+
+.grades-section > .grades-container{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    margin:2.5rem 0;
+    flex-wrap: wrap;
+}
+
+.grades-section > .grades-container > .grade-control{
+    width:45%;
+    margin:0 2rem;
+    background-color: #1a1a1a;
+    border-radius:25px;
+}
+
+.grades-section > .grades-container > .grade-control > .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0.7rem 0;
+    background-color: #025cc4;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.grades-section > .grades-container > .grade-control > .grade-title-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0.7rem 0.5rem;
+}
+
+.grades-section > .grades-container > .grade-control > .grade-title-control > h3{
+    width:14.27%;
+    text-align: center;
+    font-size:16px;
+    padding: 0 8px;
+}
+
+.grades-section > .grades-container > .grade-control > .grade-info-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:0.7rem;
+}
+
+.grades-section > .grades-container > .grade-control > .grade-info-control > span{
+    width:14.27%;
+    text-align: center;
+    font-size:16px;
+    font-style: italic;
+    padding: 0 8px;
+}
+
+.grades-section > h3{
+    font-size:18px;
+    padding:4px 6px;
+    background-color: #025cc4;
+    margin-top:2rem;
 }
