@@ -361,10 +361,11 @@ header > .exit-control > a > span{
 /* tickets-section */
 
 .tickets-section{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding:0 2%;
+    margin-bottom:2rem;
 }
 
 .tickets-section > .title-container{
@@ -537,7 +538,8 @@ header > .exit-control > a > span{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:3rem 0;
+    margin-top:5rem;
+    margin-bottom:2.5rem;
 }
 
 .tickets-section > .all-tickets-container > .title-container > h2{
@@ -583,4 +585,185 @@ header > .exit-control > a > span{
     width:20%;
     text-align: center;
     padding:1rem 0;
+}
+
+.registration-section{
+    padding:0 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration-section > .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.registration-section > .title-container > h2{
+    font-size: 55px;
+    padding-bottom:6px;
+}
+
+.registration-section > .title-container > .line{
+    width:20%;
+    margin-left:22%;
+    height:2px;
+    margin-top:0.4rem;
+    background-color: #025cc4;
+}
+
+.registration-section > .informations-container{
+    width:95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:3.5rem;
+}
+
+.registration-section > .informations-container > .user-informations-container{
+    display: flex;
+    width:50%;
+    flex-direction: column;
+    align-items: center;
+    padding:0 1rem;
+    padding-bottom:1rem;
+    border-radius:25px;
+    background-color: #1a1a1a;
+    border:1px solid #025cc4;
+    box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+    -webkit-box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+    -moz-box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+}
+
+.registration-section > .informations-container > .user-informations-container > .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding:1.3rem 0;
+}
+
+.registration-section > .informations-container > .user-informations-container > .title-container > h3{
+    background-color: #025cc4;
+    padding: 8px 1rem 8px 8px;
+    width: fit-content;
+    font-size: 19px;
+}
+
+.registration-section > .informations-container > .user-informations-container > .title-container > .line{
+    width:60%;
+    height:2px;
+    background-color: #025cc4;
+    margin-top:0.8rem;
+}
+
+.registration-section > .informations-container > .user-informations-container > .user-information-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.registration-section > .informations-container > .user-informations-container > .user-information-control > h3{
+    width:50%;
+    text-align: left;
+}
+
+.registration-section > .informations-container > .user-informations-container > .user-information-control > span{
+    width:50%;
+    font-style: italic;
+    text-align: center;
+}
+
+.registration-section > .informations-container > .user-informations-container > .university-semester{
+    margin-top:1rem;
+    padding-left:1rem;
+    padding-right: 1rem;
+    width:92%;
+    background-color: #025cc4;
+    border-radius:50px;
+}
+
+.registration-section > .informations-container > .line-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:10%;
+}
+
+.registration-section > .informations-container > .line-container > .line{
+    width:2px;
+    height: 20rem;
+    background-color: #025cc4;
+}
+
+.registration-section > .informations-container > .registration-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+}
+
+.registration-section > .informations-container > .registration-container > .actual-status-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-section > .informations-container > .registration-container > .actual-status-control > i{
+    transform: rotate(-90deg);
+    font-size: 25px;
+    margin-right:1rem;
+    color: #025cc4;
+}
+
+.registration-section > .informations-container > .registration-container > .actual-status-control > h3{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.registration-section > .informations-container > .registration-container > .button-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.registration-section > .informations-container > .registration-container > .button-control > button{
+    padding:10px 1.5rem;
+    cursor: pointer;
+    font-size:20px;
+    border-radius:50px;
+    background-color: transparent;
+    border:2px solid #e34034;
+    color: #e34034;
+    font-weight: bold;
+    transition:0.2s;
+}
+
+.registration-section > .informations-container > .registration-container > .button-control > button:hover{
+    transition:0.2s;
+    background-color: #e34034;
+    color: #fff;
+}
+
+.registration-section > .informations-container > .registration-container > .documents-control{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-top:3.5rem;
+}
+
+.registration-section > .informations-container > .registration-container > .documents-control > a{
+    color: #fff;
+    width:100%;
+    padding: 0.3rem 0;
+    text-align: center;
+    font-size: 15px;
+    transition:0.2s;
+}
+
+.registration-section > .informations-container > .registration-container > .documents-control > a:hover{
+    text-decoration: underline;
+    transition:0.2s;
 }
