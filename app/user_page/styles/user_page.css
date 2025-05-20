@@ -587,9 +587,11 @@ header > .exit-control > a > span{
     padding:1rem 0;
 }
 
+/* registration-section */
+
 .registration-section{
     padding:0 2%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -766,4 +768,150 @@ header > .exit-control > a > span{
 .registration-section > .informations-container > .registration-container > .documents-control > a:hover{
     text-decoration: underline;
     transition:0.2s;
+}
+
+.change-data-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0 2%;
+}
+
+.change-data-section > .title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.change-data-section > .title-container > h2{
+    font-size: 55px;
+    padding-bottom:6px;   
+}
+
+.change-data-section > .title-container > .line{
+    width:20%;
+    margin-left:22%;
+    height:2px;
+    margin-top:0.4rem;
+    background-color: #025cc4;
+}
+
+.change-data-section > .user-data-container{
+    width:39%;
+    margin-top:5rem;
+    padding:0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius:25px;
+    border:1px solid #025cc4;
+    box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+    -webkit-box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+    -moz-box-shadow: -2px 2px 30px 7px rgba(2,92,196,0.75);
+}
+
+.change-data-section > .user-data-container > .title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    font-size:25px;
+    font-weight: bold;
+    margin-top:-1.4rem;
+    margin-bottom:2rem;
+    padding: 0.5rem 1rem;
+    border-radius:50px;
+    background-color: #025cc4;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control{
+    padding-bottom:1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > h3{
+    padding-bottom:10px;
+    font-size: 18px;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > h3 > i{
+    margin-right: 5px;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > input{
+    width:85%;
+    background-color: transparent;
+    border:1px solid #025cc4;
+    border-radius:25px;
+    padding:0.5rem 0;
+    padding-left:8px;
+    transition:0.2s;
+    margin-right:12px;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > input:focus{
+    outline: none;
+    box-shadow: 0px 1px 4px 4px #025cc4;
+    transition: 0.2s;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > .password-control{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width:100%;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > .password-control > input{
+    width:85%;
+    background-color: transparent;
+    border:1px solid #025cc4;
+    border-radius:25px;
+    padding:0.5rem 0;
+    padding-left:8px;
+    transition:0.2s;
+    margin-right:12px;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > .password-control > input:focus{
+    outline: none;
+    box-shadow: 0px 1px 4px 4px #025cc4;
+    transition: 0.2s;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > .password-control > i{
+    font-size: 19px;
+    color: #acacac;
+    cursor: pointer;
+}
+
+.change-data-section > .user-data-container > .user-data-input-control > .password-control > i:hover{
+    transition:0.2s;
+    color: #fff;
+}
+
+.change-data-section > .user-data-container > .button-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:1rem 0;
+}
+
+.change-data-section > .user-data-container > .button-control > button{
+    font-size:20px;
+    font-weight: bold;
+    padding:0.5rem 1rem;
+    background-color: #e34034;
+    border-radius:50px;
+    cursor: pointer;
+    border:none;
+    transition:0.2s;
+}
+
+.change-data-section > .user-data-container > .button-control > button:hover{
+    transition:0.2s;
+    background-color: #a93129;
 }
