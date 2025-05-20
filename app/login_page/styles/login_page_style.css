@@ -58,6 +58,7 @@ principal da página juntamente com a section de login */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    /* background-attachment: fixed; */
     width:100%;
     padding-bottom:6rem;
 }
@@ -172,6 +173,11 @@ principal da página juntamente com a section de login */
     justify-content: center;
     padding:4rem 0;
     color: #fff;
+    /* partes para a animação */
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%)
 }
 
 .user-login-section > .user-login-container{
@@ -293,6 +299,8 @@ principal da página juntamente com a section de login */
     background-color: transparent;
     cursor:pointer;
     transition: 0.2s;
+    /* para separar os botões */
+    margin-left: 15px;
 }
 
 .user-login-section > .user-login-container > .button-container button > i{
@@ -358,3 +366,137 @@ principal da página juntamente com a section de login */
 .register-introduction-section > .introduction-container > p{
     padding:1rem 0 1rem 0.5rem;
 }
+
+/* partes adicionadas  */
+.container-form{
+    position: relative;
+    height: 600px;
+    padding-bottom: 2rem;
+}
+
+.ativo{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+.btn-register{
+    margin-left: 0.5rem; 
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    background-color: transparent; 
+    color: #fff; 
+    border: 2px solid #fff; 
+    cursor: pointer;
+}
+
+#login-section, #register-section{
+    transition: 01s;
+}
+
+.fa-solid fa-eye-slash{
+    display:none
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: #000;
+    color: #fff;
+}
+
+footer > .title-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+footer > .title-container h3{
+    flex: 1;
+    text-align: center;
+    font-size:19px;
+} 
+
+footer > .info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+footer > .info-container > .infos-control{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:33.3%;
+}
+
+footer > .info-container > .important-links a,
+footer > .info-container > .phone-contacts span{
+    color:#fff;
+    padding:0.3rem 0;
+    font-size:16px;
+}
+
+footer > .info-container > .important-links a:hover{
+    text-decoration: underline;
+}
+
+footer > .info-container > .socials-links-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+footer > .info-container > .socials-links-control a{
+    color:#fff;
+    font-size:2.5rem;
+    margin: 0 1rem;
+}
+
+footer > .info-container > .socials-links-control a:hover{
+    color:#c8c8c8;
+}
+
+footer > .image-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+footer > .image-container > .image-control,
+footer > .image-container > .copyright-control{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:12px;
+}
+
+footer > .image-container > .image-control img{
+    max-width:10%;
+    margin: 0 1rem;
+}
+footer > .image-container > .image-control > .line{
+    width:10rem;
+    height:1px;
+    background-color: #fff;
+
+}
+
+footer > .image-container > .copyright-control{
+    margin-bottom:1rem;
+}
+
+
+ @media (max-width:768) {
+    
+      }
