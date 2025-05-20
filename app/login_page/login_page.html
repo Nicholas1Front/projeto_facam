@@ -48,8 +48,8 @@
                 <div class="line"></div>
             </div>
         </section>
-
-        <section class="user-login-section">
+        <div class="container-form">
+                    <section class="user-login-section ativo" id="login-section">
             <div class="user-login-container">
                 <div class="title-container">
                     <h3>Faça login para acessar a área do aluno</h3>
@@ -68,7 +68,7 @@
                     <div class="input-control">
                         <input type="password" id="user-password-input" placeholder="Digite sua senha..." required/>
                         <i id="show-password-btn" class="fa-solid fa-eye"></i>
-                        <i id="hide-password-btn" class="fa-solid fa-eye-slash"></i>
+                        <i id="hide-password-btn" class="fa-solid fa-eye-slash" style="display: none;"></i>
                     </div>
                 </div>
 
@@ -82,6 +82,50 @@
                 </div>
             </div>
         </section>
+        <section class="user-login-section" id="register-section" >
+        <div class="user-login-container">
+            <div class="title-container">
+                <h3>Registro de novo aluno</h3>
+                <div class="line"></div>
+            </div>
+
+            <div class="user-name-container">
+                <label for="cpf">CPF <i class="fa-solid fa-id-card"></i></label>
+                <div class="input-control">
+                    <input type="text" id="cpf" placeholder="Digite seu CPF..." required />
+                </div>
+            </div>
+
+            <div class="user-name-container">
+                <label for="matricula">MATRÍCULA <i class="fa-solid fa-hashtag"></i></label>
+                <div class="input-control">
+                    <input type="text" id="matricula" placeholder="Digite sua matrícula..." required />
+                </div>
+            </div>
+
+            <div class="user-name-container">
+                <label for="new-user">USUÁRIO <i class="fa-solid fa-user-plus"></i></label>
+                <div class="input-control">
+                    <input type="text" id="new-user" placeholder="Crie um nome de usuário..." required />
+                </div>
+            </div>
+
+            <div class="user-password-container">
+                <label for="new-password">SENHA <i class="fa-solid fa-key"></i></label>
+                <div class="input-control">
+                    <input type="password" id="new-password" placeholder="Crie uma senha..." required />
+                        <i id="show-password-btn-register" class="fa-solid fa-eye"></i>
+                        <i id="hide-password-btn-register" class="fa-solid fa-eye-slash" style="display: none;"></i>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="register-btn">REGISTRAR <i class="fa-solid fa-user-check"></i></button>
+                <button onclick="mostrarLogin()">VOLTAR PARA O LOGIN</button>
+            </div>
+        </div>
+    </section>
+        </div>
     </div>
 
     <section class="register-introduction-section">
@@ -97,9 +141,57 @@
         </div>
 
         <div class="introduction-container">
-            <p>Para se registrar na plataforma é necessário com o numero de matricula informado no contrato da universidade se dirigir até a secretaria da mesma para solicitar o cadastro para ter acesso a plataforma</p>
-            <p>Após isso será gerado um usuário e senha para que você tenha acesso a área do aluno e suas funcionalidades : boletos, verificação de notas, rematriculas e mais.</p>
+           <p>Para se registrar, você precisa informar o número de matrícula disponível no contrato da universidade e o seu CPF. Em seguida, crie seu nome de usuário e senha.</p>
+            <p>Após o registro, você poderá acessar a área do aluno com funcionalidades como boletos, notas, rematrículas e muito mais.</p>
+            <button class="btn-register" onclick="mostrarRegistro()">CLIQUE AQUI PARA SE REGISTRAR</button>
         </div>
     </section>
+    <footer>
+        <div class="title-container">
+            <h3>Links importantes <i class="fa-solid fa-link"></i></h3>
+            <h3>Siga-nos nas redes sociais <i class="fa-solid fa-hashtag"></i></h3>
+            <h3>Nossos telefones de contato <i class="fa-solid fa-phone"></i></h3>
+        </div>
+
+        <div class="info-container">
+            <div class="infos-control important-links">
+                <a href="#">Instituição</a>
+                <a href="#">Ambiente virtual de aprendizagem</a>
+                <a href="#">Biblioteca</a>
+                <a href="#">Comissão própria de avaliação</a>
+                <a href="#">Eventos</a>
+                <a href="#">Ouvidoria</a>
+                <a href="#">Educação a distância - EAD</a>
+                <a href="#">Dirigentes e coordenadores</a>
+            </div>
+
+            <div class="socials-links-control">
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+            </div>
+
+            <div class="infos-control phone-contacts">
+                <span>(11) 99999-9999</span>
+                <span>(11) 99999-9999</span>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <div class="image-control">
+                <div class="line"></div>
+                <img src="../../assets/images/facam_logo_white.png"/>
+                <div class="line"></div>
+            </div>
+
+            <div class="copyright-control">
+                <p>Todos os direitos reservados - FACAM 2025</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="scripts/loginScript.js"></script>
 </body>
 </html>
