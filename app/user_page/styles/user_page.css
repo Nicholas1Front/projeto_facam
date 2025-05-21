@@ -160,7 +160,7 @@ header > .exit-control > a > span{
 }
 
 .introduction-section > .introduction-container > .title-container{
-    width:45%;
+    width:40%;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -185,7 +185,7 @@ header > .exit-control > a > span{
 }
 
 .introduction-section > .introduction-container > .user-info-container{
-    width:45%;
+    width:50%;
     background-color: #1a1a1a;
     border-radius:25px;
     border:1px solid #025cc4;
@@ -221,7 +221,7 @@ header > .exit-control > a > span{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.2rem 0;
+    padding: 0.5rem 0;
 }
 
 .introduction-section > .introduction-container > .user-info-container > .user-info-control > h3{
@@ -361,7 +361,7 @@ header > .exit-control > a > span{
 /* tickets-section */
 
 .tickets-section{
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding:0 2%;
@@ -770,8 +770,10 @@ header > .exit-control > a > span{
     transition:0.2s;
 }
 
+/* change-data-section */
+
 .change-data-section{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding:0 2%;

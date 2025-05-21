@@ -1,0 +1,133 @@
+{
+    "id" : "nicholas_eugenio",
+    "name" : "Nicholas de Oliveira Eugênio",
+    "registration_data" : {
+        "registration_code" : "ADS2023101234",
+        "agreement_type" : "PROUNI 100%",
+        "user_semester" : "2024.2",
+        "educational_contract_form_link" : "https://example.com/contract.pdf",
+        "clauses_educational_contract_link" : "https://example.com/clauses.pdf"
+    },
+    "course_data" : {
+        "name" : "Análise e Desenvolvimento de Sistemas",
+        "acronym" : "ADS",
+        "type" : "Graduação - Tecnólogo",
+        "modality" : "Presencial",
+        "shift" : "Noturno",
+        "actual_period" : "5° período"
+    },
+    "grades_data" : [
+        {
+            "name" : "Engenharia de software II",
+            "1°_bim_grade" : 10,
+            "1°_bim_faults" : 1,
+            "2°_bim_grade" : 1,
+            "2°_bim_faults" : 10,
+            "final_test_grade" : 9,
+            "final_average" : 8,
+            "situation" : "Aprovado"
+        },
+        {
+            "name" : "Banco de Dados II",
+            "1°_bim_grade" : 9,
+            "1°_bim_faults" : 2,
+            "2°_bim_grade" : 8,
+            "2°_bim_faults" : 3,
+            "final_test_grade" : 7,
+            "final_average" : 8,
+            "situation" : "Aprovado"
+        },
+        {
+            "name" : "Desenvolvimento Web",
+            "1°_bim_grade" : 10,
+            "1°_bim_faults" : 0,
+            "2°_bim_grade" : 9,
+            "2°_bim_faults" : 1,
+            "final_test_grade" : 8,
+            "final_average" : 9,
+            "situation" : "Aprovado"
+        },
+        {
+            "name" : "Programação Orientada a Objetos",
+            "1°_bim_grade" : 8,
+            "1°_bim_faults" : 4,
+            "2°_bim_grade" : 7,
+            "2°_bim_faults" : 2,
+            "final_test_grade" : 6,
+            "final_average" : 7,
+            "situation" : "Aprovado"
+        },
+        {
+            "name" : "Redes de Computadores",
+            "1°_bim_grade" : 7,
+            "1°_bim_faults" : 3,
+            "2°_bim_grade" : 6,
+            "2°_bim_faults" : 5,
+            "final_test_grade" : 7,
+            "final_average" : 7,
+            "situation" : "Aprovado"
+        },
+        {
+            "name" : "Gestão de Projetos",
+            "1°_bim_grade" : 9,
+            "1°_bim_faults" : 2,
+            "2°_bim_grade" : 8,
+            "2°_bim_faults" : 3,
+            "final_test_grade" : 7,
+            "final_average" : 8,
+            "situation" : "Aprovado"
+        },
+        {
+            "name" : "Estastica",
+            "1°_bim_grade" : 10,
+            "1°_bim_faults" : 0,
+            "2°_bim_grade" : 9,
+            "2°_bim_faults" : 1,
+            "final_test_grade" : 8,
+            "final_average" : 9,
+            "situation" : "Aprovado"
+        }
+    ],
+    "tickets_data" : [
+        {
+            "number" : 1,
+            "creation_date" : "01/02/2025",
+            "due_date" : "01/03/2025",
+            "value" : "R$ 100,10",
+            "status" : "Pendente",
+            "link" : "..."
+        },
+        {
+            "number" : 2,
+            "creation_date" : "01/03/2025",
+            "due_date" : "01/04/2025",
+            "value" : "R$ 100,10",
+            "status" : "Pendente",
+            "link" : "..."
+        },
+        {
+            "number" : 3,
+            "creation_date" : "01/04/2025",
+            "due_date" : "01/05/2025",
+            "value" : "R$ 100,10",
+            "status" : "Pago",
+            "link" : "..."
+        },
+        {
+            "number" : 4,
+            "creation_date" : "01/05/2025",
+            "due_date" : "01/06/2025",
+            "value" : "R$ 100,10",
+            "status" : "Pendente",
+            "link" : "..."
+        },
+        {
+            "number" : 5,
+            "creation_date" : "01/06/2025",
+            "due_date" : "01/07/2025",
+            "value" : "R$ 100,10",
+            "status" : "Pendente",
+            "link" : "..."
+        }
+    ]
+}
