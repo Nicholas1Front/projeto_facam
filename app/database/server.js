@@ -19,7 +19,7 @@ const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
 // Função auxiliar para buscar dados do GitHub
 async function fetchUserJson(username) {
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/users/${username}.json?ref=${GITHUB_BRANCH}`;
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/app/database/users/${username}.json?ref=${GITHUB_BRANCH}`;
 
   try {
     const res = await axios.get(url, {
