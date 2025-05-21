@@ -55,6 +55,39 @@ body::-webkit-scrollbar-thumb {
     border-radius: 34px;
 }
 
+/* server-loading-overlay */
+
+.server-loading-overlay{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
+    top : 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    cursor:wait;
+}
+
+.server-loading-overlay > .server-loading-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.server-loading-overlay > .server-loading-container > i{
+    font-size: 6rem;
+    margin-bottom:8px;
+    color: #fff;
+}
+
+.server-loading-overlay > .server-loading-container > span{
+    font-size:1.5rem;
+    font-weight: bold;
+}
+
 /* header */
 
 header{
