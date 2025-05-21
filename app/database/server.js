@@ -62,13 +62,20 @@ app.post('/login', async (req, res) => {
 // -----------------------------
 // 👤 Pegar o nome do usuário atual
 // -----------------------------
-app.get('/current-user', (req, res) => {
-  if (currentUsername) {
-    return res.json({ username: currentUsername });
-  } else {
+app.get('/current-user', async (req, res) => {
+  if (!currentUsername) {
     return res.status(404).json({ message: "Nenhum usuário autenticado." });
   }
+
+  const userData = await fetchUserJson(currentUsername);
+
+  if (!userData) {
+    return res.status(500).json({ message: "Erro ao buscar dados do usuário." });
+  }
+
+  return res.status(200).json({ user: userData });
 });
+
 
 // -----------------------------
 // ✏️ Atualizar o JSON do usuário atual
