@@ -6,10 +6,10 @@ const cors = require('cors');
 dotenv.config();
 const app = express();
 
-// Libera requisições de qualquer origem (útil para desenvolvimento)
-app.use(cors());
-
-// Permite ler JSON no corpo da requisição
+app.use(cors({
+  origin: 'http://127.0.0.1:5500',
+  credentials: true
+}));
 app.use(express.json());
 
 // Variáveis de ambiente
@@ -17,9 +17,14 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
-// Função auxiliar para buscar dados do GitHub
+// Variável global para armazenar o usuário autenticado
+let currentUsername = null;
+
+// -----------------------------
+// Função para buscar JSON do usuário
+// -----------------------------
 async function fetchUserJson(username) {
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/app/database/users/${username}.json?ref=${GITHUB_BRANCH}`;
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/app/database/users/${username}.json?ref=${GITHUB_BRANCH}`;
 
   try {
     const res = await axios.get(url, {
@@ -35,7 +40,7 @@ async function fetchUserJson(username) {
 }
 
 // -----------------------------
-// 🔐 Endpoint de login
+// 🔐 Login
 // -----------------------------
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -50,48 +55,64 @@ app.post('/login', async (req, res) => {
     return res.status(401).json({ success: false, message: "Senha incorreta." });
   }
 
-  return res.status(200).json({ success: true, user: userData });
+  currentUsername = username;
+  return res.status(200).json({ success: true, message: "Login bem-sucedido." });
 });
 
 // -----------------------------
-// ✏️ Endpoint de atualização de usuário
+// 👤 Pegar o nome do usuário atual
+// -----------------------------
+app.get('/current-user', (req, res) => {
+  if (currentUsername) {
+    return res.json({ username: currentUsername });
+  } else {
+    return res.status(404).json({ message: "Nenhum usuário autenticado." });
+  }
+});
+
+// -----------------------------
+// ✏️ Atualizar o JSON do usuário atual
 // -----------------------------
 app.post('/update-user', async (req, res) => {
-  const userObject = req.body;
-  const username = userObject.username;
+  if (!currentUsername) {
+    return res.status(401).json({ success: false, message: "Usuário não autenticado." });
+  }
 
-  const path = `users/${username}.json`;
+  const userObject = req.body;
+  const path = `app/database/users/${currentUsername}.json`;
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
 
   try {
-    // Buscar SHA do arquivo atual
     const { data: existingFile } = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`
-      }
+      headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
     });
 
     const content = Buffer.from(JSON.stringify(userObject, null, 2)).toString('base64');
 
     await axios.put(url, {
-      message: `update user ${username}`,
-      content: content,
+      message: `update user ${currentUsername}`,
+      content,
       sha: existingFile.sha,
       branch: GITHUB_BRANCH
     }, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`
-      }
+      headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
     });
 
     return res.status(200).json({ success: true, message: "Dados atualizados com sucesso." });
-
   } catch (err) {
     console.error(err.message);
     return res.status(500).json({ success: false, message: "Erro ao atualizar os dados." });
   }
 });
 
-// Inicia o servidor
+// -----------------------------
+// 🚪 Logout
+// -----------------------------
+app.post('/logout', (req, res) => {
+  currentUsername = null;
+  res.json({ success: true, message: "Logout realizado com sucesso." });
+});
+
+// -----------------------------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Servidor rodando na porta ${PORT}`));
