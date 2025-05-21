@@ -38,4 +38,33 @@ setTimeout(()=>{
         symbol.style.color = "#fff";
         span.style.color = "#fff";
     })
-},100)
+},100);
+
+async function testarLogin(username, password) {
+  try {
+    const resposta = await fetch("https://projeto-facam.onrender.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await resposta.json();
+
+    if (resposta.ok && data.success) {
+      console.log("✅ Login bem-sucedido!");
+      console.log("👤 Dados do usuário:", data.user);
+
+      // Armazena o usuário para uso em outra página
+      sessionStorage.setItem("user", JSON.stringify(data.user));
+    } else {
+      console.warn("❌ Falha no login:", data.message || "Credenciais inválidas");
+    }
+  } catch (erro) {
+    console.error("⚠️ Erro na requisição:", erro);
+  }
+}
+
+
+testarLogin("nicholas_eugenio", "@Nick04072004");

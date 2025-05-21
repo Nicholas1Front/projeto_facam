@@ -1,14 +1,23 @@
-require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const dotenv = require('dotenv');
+const cors = require('cors');
+
+dotenv.config();
 const app = express();
+
+// Libera requisições de qualquer origem (útil para desenvolvimento)
+app.use(cors());
+
+// Permite ler JSON no corpo da requisição
 app.use(express.json());
 
+// Variáveis de ambiente
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
-// ---------- Função auxiliar para buscar o JSON do usuário ----------
+// Função auxiliar para buscar dados do GitHub
 async function fetchUserJson(username) {
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/users/${username}.json?ref=${GITHUB_BRANCH}`;
 
@@ -25,7 +34,9 @@ async function fetchUserJson(username) {
   }
 }
 
-// ---------- Endpoint de Login ----------
+// -----------------------------
+// 🔐 Endpoint de login
+// -----------------------------
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -42,7 +53,9 @@ app.post('/login', async (req, res) => {
   return res.status(200).json({ success: true, user: userData });
 });
 
-// ---------- Endpoint de Atualização ----------
+// -----------------------------
+// ✏️ Endpoint de atualização de usuário
+// -----------------------------
 app.post('/update-user', async (req, res) => {
   const userObject = req.body;
   const username = userObject.username;
@@ -51,7 +64,7 @@ app.post('/update-user', async (req, res) => {
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
 
   try {
-    // Buscar SHA do arquivo existente
+    // Buscar SHA do arquivo atual
     const { data: existingFile } = await axios.get(url, {
       headers: {
         Authorization: `Bearer ${GITHUB_TOKEN}`
@@ -79,5 +92,6 @@ app.post('/update-user', async (req, res) => {
   }
 });
 
+// Inicia o servidor
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`✅ Servidor rodando na porta ${PORT}`));
