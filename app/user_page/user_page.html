@@ -18,13 +18,15 @@
         <div class="server-loading-container">
             <i class="fa-solid fa-atom fa-bounce"></i>
             <span>Carregando...</span>
+            <span id="server-msg-span">Informações do usuário não encontradas ! Recarregue a página ou contate o desenvolvedor !</span>
         </div>
     </div>
 
-    <div class="server-msg-popup">
-        <i class="fa-regular fa-circle-check" id="server-msg-icon"></i>
-        <span id="server-msg-span">Rematriculado com sucesso !</span>
-        <i id="close-server-msg-btn" class="fa-solid fa-xmark"></i>
+    <div class="msg-popup">
+        <i class="fa-regular fa-circle-check check_icon"></i>
+        <i class="fa-solid fa-circle-exclamation exclamation_icon"></i>
+        <span id="popup-msg-span">Rematriculado com sucesso !</span>
+        <i id="close-popup-msg-btn" class="fa-solid fa-xmark"></i>
     </div>
 
     <header>
@@ -33,7 +35,7 @@
         </div>
 
         <div class="main-menu-container">
-            <button class="main-menu-btn">
+            <button id="look-grades-btn" class="main-menu-btn">
                 <i class="fa-solid fa-list-check"></i>
                 <span>Ver notas</span>
             </button>
