@@ -1,7 +1,7 @@
-const express = require('express');
-const axios = require('axios');
-const dotenv = require('dotenv');
-const cors = require('cors');
+const express = import('express');
+const axios = import('axios');
+const dotenv = import('dotenv');
+const cors = import('cors');
 
 dotenv.config();
 const app = express();
@@ -20,9 +20,7 @@ const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 // Variável global para armazenar o usuário autenticado
 let currentUsername = await fetchUserJson('nicholas_eugenio');
 
-// -----------------------------
 // Função para buscar JSON do usuário
-// -----------------------------
 async function fetchUserJson(username) {
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/app/database/users/${username}.json?ref=${GITHUB_BRANCH}`;
 
@@ -39,9 +37,7 @@ async function fetchUserJson(username) {
   }
 }
 
-// -----------------------------
 // 🔐 Login
-// -----------------------------
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -59,9 +55,7 @@ app.post('/login', async (req, res) => {
   return res.status(200).json({ success: true, message: "Login bem-sucedido." });
 });
 
-// -----------------------------
 // 👤 Pegar o nome do usuário atual
-// -----------------------------
 app.get('/current-user', async (req, res) => {
   if (!currentUsername) {
     return res.status(404).json({ message: "Nenhum usuário autenticado." });
@@ -77,9 +71,7 @@ app.get('/current-user', async (req, res) => {
 });
 
 
-// -----------------------------
 // ✏️ Atualizar o JSON do usuário atual
-// -----------------------------
 app.post('/update-user', async (req, res) => {
   if (!currentUsername) {
     return res.status(401).json({ success: false, message: "Usuário não autenticado." });
@@ -112,14 +104,11 @@ app.post('/update-user', async (req, res) => {
   }
 });
 
-// -----------------------------
 // 🚪 Logout
-// -----------------------------
 app.post('/logout', (req, res) => {
   currentUsername = null;
   res.json({ success: true, message: "Logout realizado com sucesso." });
 });
 
-// -----------------------------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Servidor rodando na porta ${PORT}`));
