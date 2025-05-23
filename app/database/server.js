@@ -18,7 +18,7 @@ const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
 // Variável global para armazenar o usuário autenticado
-let currentUsername = fetchUserJson('nicholas_eugenio');
+let currentUsername = await fetchUserJson('nicholas_eugenio');
 
 // Função para buscar JSON do usuário
 async function fetchUserJson(username) {
