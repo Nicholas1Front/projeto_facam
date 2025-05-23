@@ -25,8 +25,8 @@ async function initPageProcess(){
   await showHtmlElement([serverLoadingOverlay], "flex");
   user_data = await getUserData();
   console.log(user_data);
-  if(user_data === null){
-    await showHtmlElement([serverMsgSpan],block);
+  if(user_data.message === "Nenhum usuário autenticado."){
+    await showHtmlElement([serverMsgSpan],"block");
     return
   }
   await hideHtmlElement([serverLoadingOverlay]);
