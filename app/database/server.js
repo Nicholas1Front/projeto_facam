@@ -67,7 +67,7 @@ app.get('/current-user', async (req, res) => {
     return res.status(500).json({ message: "Erro ao buscar dados do usuário." });
   }
 
-  return res.status(200).json({ user: userData });
+  return res.status(200).json({ userData });
 });
 
 

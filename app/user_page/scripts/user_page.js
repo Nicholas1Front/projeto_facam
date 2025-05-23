@@ -44,6 +44,12 @@ async function hideHtmlElement([...elements]){
     });
 }
 
+async function cleanHtmlElement([...elements]){
+    elements.forEach(element => {
+        element.innerHTML = "";
+    });
+}
+
 async function showMsgPopup(msgText, msgType){
   const checkIcon = msgPopup.querySelector(".check_icon");
   const exclamationIcon = msgPopup.querySelector(".exclamation_icon");
@@ -75,8 +81,8 @@ async function closeMsgPopup(){
 
 // booting and event listerners
 
-document.addEventListener('DOMContentLoaded', ()=>{
-  initPageProcess();
+document.addEventListener('DOMContentLoaded', async()=>{
+  await initPageProcess();
 });
 
 closePopupMsgBtn.addEventListener("click", ()=>{
@@ -145,7 +151,39 @@ lookGradesBtn.addEventListener('click', async()=>{
 // elements
 const introductionSection = document.querySelector('.introduction-section');
 
+// functions
+
+async function displayUserData_introductionSection(){
+  const userInfo_name = introductionSection.querySelector('.user-info_name');
+  const userInfo_registrationCode = introductionSection.querySelector('.user-info_registration-code');
+  const userInfo_course = introductionSection.querySelector('.user-info_course');
+  const userInfo_typeCourse = introductionSection.querySelector('.user-info_type-course');
+  const userInfo_agreement = introductionSection.querySelector('.user-info_agreement');
+
+  userInfo_name.innerHTML = "";
+  userInfo_registrationCode.innerHTML = "";
+  userInfo_course.innerHTML = "";
+  userInfo_typeCourse.innerHTML = "";
+  userInfo_agreement.innerHTML = "";
+
+  console.log(user_data.name);
+
+  userInfo_name.innerHTML = user_data.name;
+  userInfo_registrationCode.innerHTML = user_data.registration_data?.registration_code;
+  userInfo_course.innerHTML =  `${user_data.course_data?.name}-${user_data.course_data?.shift}-${user_data.course_data?.actual_period}`;
+  userInfo_typeCourse.innerHTML = user_data.course_data?.type;
+  userInfo_agreement.innerHTML = user_data.registration_data?.agreement_type;
+
+}
+
+// booting and event listerners
+
+setTimeout(()=>{
+  displayUserData_introductionSection();
+},1000);
+
 // grades-section
 
 // elements
 const gradesSection = document.querySelector('.grades-section');
+
