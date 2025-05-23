@@ -1,7 +1,7 @@
-const express = import('express');
-const axios = import('axios');
-const dotenv = import('dotenv');
-const cors = import('cors');
+const express = require('express');
+const axios = require('axios');
+const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
@@ -18,7 +18,7 @@ const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
 // Variável global para armazenar o usuário autenticado
-let currentUsername = await fetchUserJson('nicholas_eugenio');
+let currentUsername = fetchUserJson('nicholas_eugenio');
 
 // Função para buscar JSON do usuário
 async function fetchUserJson(username) {
