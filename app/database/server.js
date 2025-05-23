@@ -18,7 +18,7 @@ const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
 // Variável global para armazenar o usuário autenticado
-let currentUsername = await fetchUserJson('nicholas_eugenio');
+let currentUsername = null;
 
 // Função para buscar JSON do usuário
 async function fetchUserJson(username) {
@@ -61,7 +61,7 @@ app.get('/current-user', async (req, res) => {
     return res.status(404).json({ message: "Nenhum usuário autenticado." });
   }
 
-  const userData = await fetchUserJson(currentUsername);
+  const userData = await fetchUserJson(nicholas_eugenio);
 
   if (!userData) {
     return res.status(500).json({ message: "Erro ao buscar dados do usuário." });
