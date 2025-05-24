@@ -15,7 +15,7 @@ async function getUserData(){
 
     const data = await response.json();
 
-    return data;
+    return data.userData;
   }catch(err){
     return null;
   }
@@ -83,6 +83,7 @@ async function closeMsgPopup(){
 
 document.addEventListener('DOMContentLoaded', async()=>{
   await initPageProcess();
+  await displayUserData_introductionSection();
 });
 
 closePopupMsgBtn.addEventListener("click", ()=>{
@@ -143,7 +144,8 @@ setTimeout(()=>{
 },100);
 
 lookGradesBtn.addEventListener('click', async()=>{
-    await scrollToThisElement(gradesSection);
+  await displayUserData_gradesSection();  
+  await scrollToThisElement(gradesSection);
 })
 
 // introduction-section
@@ -166,24 +168,77 @@ async function displayUserData_introductionSection(){
   userInfo_typeCourse.innerHTML = "";
   userInfo_agreement.innerHTML = "";
 
-  console.log(user_data.name);
-
   userInfo_name.innerHTML = user_data.name;
   userInfo_registrationCode.innerHTML = user_data.registration_data?.registration_code;
   userInfo_course.innerHTML =  `${user_data.course_data?.name}-${user_data.course_data?.shift}-${user_data.course_data?.actual_period}`;
   userInfo_typeCourse.innerHTML = user_data.course_data?.type;
   userInfo_agreement.innerHTML = user_data.registration_data?.agreement_type;
-
 }
-
-// booting and event listerners
-
-setTimeout(()=>{
-  displayUserData_introductionSection();
-},1000);
 
 // grades-section
 
 // elements
 const gradesSection = document.querySelector('.grades-section');
+const gradesContainer = gradesSection.querySelector('.grades-container');
 
+// functions 
+
+async function displayUserData_gradesSection(){
+  gradesContainer.innerHTML = "";
+  for(i=0; i < user_data.grades_data.length; i++){
+    user_data.grades_data.final_average = (user_data.grades_data.first_bim_grade + user_data.grades_data.second_bim_grade ) / 2;
+
+    if(user_data.grades_data.final_average >= 4 && user_data.grades_data.final_average <= 7){
+      user_data.grades_data.final_average = (user_data.grades_data.first_bim_grade + user_data.grades_data.second_bim_grade + user_data.grades_data.final_test_grade) / 3
+    }
+
+    if(user_data.grades_data.final_average < 4 || user_data.grades_data.final_average > 7){
+      user_data.grades_data.final_test_grade = 0;
+    }
+
+    if(user_data.grades_data.final_average >= 7){
+      user_data.grades_data.situation = "Aprovado";
+    }
+
+    if(user_data.grades_data.final_average <= 7){
+      user_data.grades_data.situation = "Reprovado";
+    }
+
+    const gradeControlString = 
+    `
+      <div class="grade-control">
+                <div class="title-container">
+                    <h3>${user_data.grades_data[i].name}</h3>
+                </div>
+
+                <div class="grade-title-control">
+                    <h3>1° BIM.</h3>
+                    <h3>FALTAS</h3>
+                    <h3>2° BIM.</h3>
+                    <h3>FALTAS</h3>
+                    <h3>P.FINAL</h3>
+                    <h3>MÉD.FINAL</h3>
+                    <h3>SITUAÇÃO</h3>
+                </div>
+
+                <div class="grade-info-control">
+                    <span>${user_data.grades_data[i].first_bim_grade}</span>
+                    <span>${user_data.grades_data[i].first_bim_faults}</span>
+                    <span>${user_data.grades_data[i].second_bim_grade}</span>
+                    <span>${user_data.grades_data[i].second_bim_faults}</span>
+                    <span>${user_data.grades_data[i].final_test_grade}</span>
+                    <span>${user_data.grades_data[i].final_average}</span>
+                    <span>${user_data.grades_data[i].situation}</span>
+                </div>
+            </div>
+    `
+
+    const parse = new DOMParser();
+    const doc = parse.parseFromString(gradeControlString, 'text/html');
+    const gradeControl = doc.querySelector('.grade-control');
+    gradesContainer.appendChild(gradeControl);
+    
+  }
+
+  console.log(user_data);
+} 

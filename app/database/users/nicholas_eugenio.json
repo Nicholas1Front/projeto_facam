@@ -20,73 +20,73 @@
     "grades_data" : [
         {
             "name" : "Engenharia de software II",
-            "1°_bim_grade" : 10,
-            "1°_bim_faults" : 1,
-            "2°_bim_grade" : 1,
-            "2°_bim_faults" : 10,
+            "first_bim_grade" : 10,
+            "first_bim_faults" : 1,
+            "second_bim_grade" : 1,
+            "second_bim_faults" : 10,
             "final_test_grade" : 9,
-            "final_average" : 8,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         },
         {
             "name" : "Banco de Dados II",
-            "1°_bim_grade" : 9,
-            "1°_bim_faults" : 2,
-            "2°_bim_grade" : 8,
-            "2°_bim_faults" : 3,
+            "first_bim_grade" : 9,
+            "first_bim_faults" : 2,
+            "second_bim_grade" : 8,
+            "second_bim_faults" : 3,
             "final_test_grade" : 7,
-            "final_average" : 8,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         },
         {
             "name" : "Desenvolvimento Web",
-            "1°_bim_grade" : 10,
-            "1°_bim_faults" : 0,
-            "2°_bim_grade" : 9,
-            "2°_bim_faults" : 1,
+            "first_bim_grade" : 10,
+            "first_bim_faults" : 0,
+            "second_bim_grade" : 9,
+            "second_bim_faults" : 1,
             "final_test_grade" : 8,
-            "final_average" : 9,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         },
         {
             "name" : "Programação Orientada a Objetos",
-            "1°_bim_grade" : 8,
-            "1°_bim_faults" : 4,
-            "2°_bim_grade" : 7,
-            "2°_bim_faults" : 2,
+            "first_bim_grade" : 8,
+            "first_bim_faults" : 4,
+            "second_bim_grade" : 7,
+            "second_bim_faults" : 2,
             "final_test_grade" : 6,
-            "final_average" : 7,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         },
         {
             "name" : "Redes de Computadores",
-            "1°_bim_grade" : 7,
-            "1°_bim_faults" : 3,
-            "2°_bim_grade" : 6,
-            "2°_bim_faults" : 5,
+            "first_bim_grade" : 7,
+            "first_bim_faults" : 3,
+            "second_bim_grade" : 6,
+            "second_bim_faults" : 5,
             "final_test_grade" : 7,
-            "final_average" : 7,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         },
         {
             "name" : "Gestão de Projetos",
-            "1°_bim_grade" : 9,
-            "1°_bim_faults" : 2,
-            "2°_bim_grade" : 8,
-            "2°_bim_faults" : 3,
+            "first_bim_grade" : 9,
+            "first_bim_faults" : 2,
+            "second_bim_grade" : 8,
+            "second_bim_faults" : 3,
             "final_test_grade" : 7,
-            "final_average" : 8,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         },
         {
             "name" : "Estastica",
-            "1°_bim_grade" : 10,
-            "1°_bim_faults" : 0,
-            "2°_bim_grade" : 9,
-            "2°_bim_faults" : 1,
+            "first_bim_grade" : 10,
+            "first_bim_faults" : 0,
+            "second_bim_grade" : 9,
+            "second_bim_faults" : 1,
             "final_test_grade" : 8,
-            "final_average" : 9,
-            "situation" : "Aprovado"
+            "final_average" : null,
+            "situation" : null
         }
     ],
     "tickets_data" : [
