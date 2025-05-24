@@ -186,22 +186,29 @@ const gradesContainer = gradesSection.querySelector('.grades-container');
 async function displayUserData_gradesSection(){
   gradesContainer.innerHTML = "";
   for(i=0; i < user_data.grades_data.length; i++){
-    user_data.grades_data.final_average = (user_data.grades_data.first_bim_grade + user_data.grades_data.second_bim_grade ) / 2;
-
-    if(user_data.grades_data.final_average >= 4 && user_data.grades_data.final_average <= 7){
-      user_data.grades_data.final_average = (user_data.grades_data.first_bim_grade + user_data.grades_data.second_bim_grade + user_data.grades_data.final_test_grade) / 3
+    let averageNum = (user_data.grades_data[i].first_bim_grade + user_data.grades_data[i].second_bim_grade ) / 2;
+    if(averageNum.length > 3){
+      averageNum = averageNum.toFixed(2);
+    }
+  
+    if(averageNum < 7){
+      user_data.grades_data[i].final_average = (averageNum + user_data.grades_data[i].final_test_grade) / 2;
+      if(user_data.grades_data[i].final_average.length > 3){
+        user_data.grades_data[i].final_average = user_data.grades_data[i].final_average.toFixed(2);
+      }
     }
 
-    if(user_data.grades_data.final_average < 4 || user_data.grades_data.final_average > 7){
-      user_data.grades_data.final_test_grade = 0;
+    if(averageNum >= 7){
+      user_data.grades_data[i].final_test_grade = 0;
+      user_data.grades_data[i].final_average = averageNum;
     }
 
-    if(user_data.grades_data.final_average >= 7){
-      user_data.grades_data.situation = "Aprovado";
+    if(user_data.grades_data[i].final_average >= 7){
+      user_data.grades_data[i].situation = "Aprovado";
     }
 
-    if(user_data.grades_data.final_average <= 7){
-      user_data.grades_data.situation = "Reprovado";
+    if(user_data.grades_data[i].final_average < 7){
+      user_data.grades_data[i].situation = "Reprovado";
     }
 
     const gradeControlString = 

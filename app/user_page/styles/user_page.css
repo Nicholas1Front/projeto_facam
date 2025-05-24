@@ -429,7 +429,7 @@ header > .exit-control > a > span{
 
 .grades-section > .grades-container > .grade-control{
     width:45%;
-    margin:0 2rem;
+    margin:1.5rem 2rem;
     background-color: #1a1a1a;
     border-radius:25px;
 }
