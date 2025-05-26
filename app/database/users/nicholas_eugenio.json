@@ -92,40 +92,40 @@
     "tickets_data" : [
         {
             "number" : 1,
-            "creation_date" : "01/02/2025",
-            "due_date" : "01/03/2025",
+            "creation_date" : "2025-02-01",
+            "due_date" : "2025-03-01",
             "value" : "R$ 100,10",
             "status" : "Pendente",
             "link" : "..."
         },
         {
             "number" : 2,
-            "creation_date" : "01/03/2025",
-            "due_date" : "01/04/2025",
+            "creation_date" : "2025-03-01",
+            "due_date" : "2025-04-01",
             "value" : "R$ 100,10",
             "status" : "Pendente",
             "link" : "..."
         },
         {
             "number" : 3,
-            "creation_date" : "01/04/2025",
-            "due_date" : "01/05/2025",
+            "creation_date" : "2025-04-01",
+            "due_date" : "2025-05-01",
             "value" : "R$ 100,10",
             "status" : "Pago",
             "link" : "..."
         },
         {
             "number" : 4,
-            "creation_date" : "01/05/2025",
-            "due_date" : "01/06/2025",
+            "creation_date" : "2025-05-01",
+            "due_date" : "2025-06-01",
             "value" : "R$ 100,10",
             "status" : "Pendente",
             "link" : "..."
         },
         {
             "number" : 5,
-            "creation_date" : "01/06/2025",
-            "due_date" : "01/07/2025",
+            "creation_date" : "2025-06-01",
+            "due_date" : "2025-07-01",
             "value" : "R$ 100,10",
             "status" : "Pendente",
             "link" : "..."

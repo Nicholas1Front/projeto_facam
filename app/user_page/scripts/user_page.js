@@ -96,6 +96,7 @@ closePopupMsgBtn.addEventListener("click", ()=>{
 const allMainMenuBtns = document.querySelectorAll('.main-menu-btn');
 const exitLink = document.querySelector('.exit-control a');
 const lookGradesBtn = document.querySelector('#look-grades-btn');
+const lookTicketsBtn = document.querySelector('#look-tickets-btn');
 
 // functions
 
@@ -146,6 +147,10 @@ setTimeout(()=>{
 lookGradesBtn.addEventListener('click', async()=>{
   await displayUserData_gradesSection();  
   await scrollToThisElement(gradesSection);
+})
+
+lookTicketsBtn.addEventListener('click', async()=>{
+  await scrollToThisElement(ticketsSection);
 })
 
 // introduction-section
@@ -249,3 +254,20 @@ async function displayUserData_gradesSection(){
 
   console.log(user_data);
 } 
+
+// tickets-section
+
+// elements
+const ticketsSection = document.querySelector('.tickets-section');
+
+// functions
+
+async function displayUserData_latestTickets(){
+  let allTickets = user_data.tickets_data;
+
+  allTickets.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+}
+
+setTimeout(()=>{
+  displayUserData_latestTickets();
+},1000)
