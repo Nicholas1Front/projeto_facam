@@ -95,32 +95,32 @@
             "creation_date" : "2025-02-01",
             "due_date" : "2025-03-01",
             "value" : "R$ 100,10",
-            "status" : "Pendente",
-            "link" : "..."
+            "status" : "Pago",
+            "link" : "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
         },
         {
             "number" : 2,
             "creation_date" : "2025-03-01",
             "due_date" : "2025-04-01",
             "value" : "R$ 100,10",
-            "status" : "Pendente",
-            "link" : "..."
+            "status" : "Pago",
+            "link" : "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
         },
         {
             "number" : 3,
             "creation_date" : "2025-04-01",
             "due_date" : "2025-05-01",
             "value" : "R$ 100,10",
-            "status" : "Pago",
-            "link" : "..."
+            "status" : "Vencido",
+            "link" : "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
         },
         {
             "number" : 4,
             "creation_date" : "2025-05-01",
             "due_date" : "2025-06-01",
             "value" : "R$ 100,10",
-            "status" : "Pendente",
-            "link" : "..."
+            "status" : "Vencido",
+            "link" : "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
         },
         {
             "number" : 5,
@@ -128,7 +128,7 @@
             "due_date" : "2025-07-01",
             "value" : "R$ 100,10",
             "status" : "Pendente",
-            "link" : "..."
+            "link" : "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
         }
     ]
 }

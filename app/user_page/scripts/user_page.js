@@ -259,15 +259,135 @@ async function displayUserData_gradesSection(){
 
 // elements
 const ticketsSection = document.querySelector('.tickets-section');
+const ticketsContainer = ticketsSection.querySelector('.tickets-container');
 
 // functions
 
 async function displayUserData_latestTickets(){
   let allTickets = user_data.tickets_data;
 
-  allTickets.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  allTickets.sort((a, b) =>{
+    return dayjs(b.due_data).valueOf() - dayjs(a.due_data).valueOf();
+  });
+
+  let actualTicket = allTickets[allTickets.length - 2];
+  let actualTicketDueDate = dayjs(actualTicket.due_date).format('DD/MM/YYYY');
+  let actualTicketCreationDate = dayjs(actualTicket.creation_date).format('DD/MM/YYYY');
+
+  let nextTicket = allTickets[allTickets.length - 1];
+  let nextTicketDueDate = dayjs(nextTicket.due_date).format('DD/MM/YYYY');
+  let nextTicketCreationDate = dayjs(nextTicket.creation_date).format('DD/MM/YYYY');
+
+  console.log(actualTicket);
+  console.log(nextTicket);
+
+  const actualTicketContainer = ticketsSection.querySelector('.actual-ticket-container');
+  const actualTicket_documentLink = actualTicketContainer.querySelector('.link-to-ticket');
+  const nextTicketContainer = ticketsSection.querySelector('.next-ticket-container');
+  const nextTicket_documentLink = nextTicketContainer.querySelector('.link-to-ticket');
+
+  actualTicketContainer.querySelector(".ticket-name-span").innerHTML = "";
+  actualTicketContainer.querySelector(".ticket-creation-date-span").innerHTML ="";
+  actualTicketContainer.querySelector(".ticket-due-date-span").innerHTML ="";
+  actualTicketContainer.querySelector(".ticket-value-span").innerHTML ="";
+  actualTicketContainer.querySelector(".ticket-payment-situation-span").innerHTML ="";
+
+  nextTicketContainer.querySelector(".ticket-name-span").innerHTML = "";
+  nextTicketContainer.querySelector(".ticket-creation-date-span").innerHTML ="";
+  nextTicketContainer.querySelector(".ticket-due-date-span").innerHTML ="";
+  nextTicketContainer.querySelector(".ticket-value-span").innerHTML ="";
+  nextTicketContainer.querySelector(".ticket-payment-situation-span").innerHTML ="";
+
+  actualTicketContainer.querySelector(".ticket-name-span").innerHTML = actualTicket.number;
+  actualTicketContainer.querySelector(".ticket-creation-date-span").innerHTML = actualTicketCreationDate;
+  actualTicketContainer.querySelector(".ticket-due-date-span").innerHTML = actualTicketDueDate;
+  actualTicketContainer.querySelector(".ticket-value-span").innerHTML = actualTicket.value;
+  actualTicketContainer.querySelector(".ticket-payment-situation-span").innerHTML = actualTicket.status;
+  actualTicket_documentLink.href = actualTicket.link;
+
+  if(actualTicket.status === "Pago"){
+    actualTicketContainer.querySelector(".ticket-payment-situation-span").style.backgroundColor = "#4dc96e";
+  }
+
+  if(actualTicket.status === "Pendente"){
+    actualTicketContainer.querySelector(".ticket-payment-situation-span").style.backgroundColor = "#eb9b34";
+  }
+
+  if(actualTicket.status === "Vencido"){
+    actualTicketContainer.querySelector(".ticket-payment-situation-span").style.backgroundColor = "#e34034";
+  }
+
+  nextTicketContainer.querySelector(".ticket-name-span").innerHTML = nextTicket.number;
+  nextTicketContainer.querySelector(".ticket-creation-date-span").innerHTML = nextTicketCreationDate;
+  nextTicketContainer.querySelector(".ticket-due-date-span").innerHTML = nextTicketDueDate;
+  nextTicketContainer.querySelector(".ticket-value-span").innerHTML = nextTicket.value;
+  nextTicketContainer.querySelector(".ticket-payment-situation-span").innerHTML = nextTicket.status;
+  nextTicket_documentLink.href = nextTicket.link;
+
+  if(nextTicket.status === "Pago"){
+    nextTicketContainer.querySelector(".ticket-payment-situation-span").style.backgroundColor = "#4dc96e";
+  }
+
+  if(nextTicket.status === "Pendente"){
+    nextTicketContainer.querySelector(".ticket-payment-situation-span").style.backgroundColor = "#eb9b34";
+  }
+
+  if(nextTicket.status === "Vencido"){
+    nextTicketContainer.querySelector(".ticket-payment-situation-span").style.backgroundColor = "#e34034";
+  }
+}
+
+async function displayUserData_allTickets(){
+  
+  let allTickets = user_data.tickets_data;
+
+  allTickets.forEach((ticket)=>{
+    let dueDateFormatted = dayjs(ticket.due_date).format('DD/MM/YYYY');
+    let creationDateFormatted = dayjs(ticket.creation_date).format('DD/MM/YYYY');
+
+    const ticketControlString = 
+    `
+      <div class="ticket-control">
+          <span class="ticket-number-span">${ticket.number}</span>
+          <span class="ticket-creation-date-span">${creationDateFormatted}</span>
+          <span class="ticket-due-date-span">${dueDateFormatted}</span>
+          <span class="ticket-value-span">${ticket.value}</span>
+          <span class="ticket-payment-situation-span">${ticket.status}</span>
+          <a href="${ticket.link}" class="link-to-ticket">Abrir boleto</a>
+      </div>
+    `;
+
+    const parse = new DOMParser();
+    const doc = parse.parseFromString(ticketControlString, 'text/html');
+    const ticketControl = doc.querySelector('.ticket-control');
+    ticketsContainer.appendChild(ticketControl);
+  });
+
+  setTimeout(()=>{
+    const allTicketsControls = ticketsContainer.querySelectorAll('.ticket-control');
+  
+    allTicketsControls.forEach((ticketControl)=>{
+      const ticketPaymentSituationSpan = ticketControl.querySelector('.ticket-payment-situation-span');
+
+      console.log(ticketPaymentSituationSpan.innerHTML);
+      
+      if(ticketPaymentSituationSpan.innerHTML === "Pago"){
+        ticketPaymentSituationSpan.style.color = "#4dc96e";
+      }
+
+      if(ticketPaymentSituationSpan.innerHTML === "Pendente"){
+        ticketPaymentSituationSpan.style.color = "#eb9b34";
+      }
+
+      if(ticketPaymentSituationSpan.innerHTML === "Vencido"){
+        ticketPaymentSituationSpan.style.color = "#e34034";
+      }
+    });
+  },100)
+
 }
 
 setTimeout(()=>{
   displayUserData_latestTickets();
-},1000)
+  displayUserData_allTickets()
+},5000)
