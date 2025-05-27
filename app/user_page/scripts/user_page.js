@@ -7,6 +7,9 @@ const serverMsgSpan = serverLoadingOverlay.querySelector("#server-msg-span");
 const msgPopup = document.querySelector(".msg-popup");
 const popupMsgSpan = msgPopup.querySelector("#popup-msg-span");
 const closePopupMsgBtn = msgPopup.querySelector("#close-popup-msg-btn");
+const entranceAnimation = "slide-in-fwd-left";
+const exitAnimation = "slide-out-left";
+
 // functions
 
 async function getUserData(){
@@ -21,6 +24,34 @@ async function getUserData(){
   }
 }
 
+async function calculateGrades_userData(){
+  for(i=0; i < user_data.grades_data.length; i++){
+    let averageNum = (user_data.grades_data[i].first_bim_grade + user_data.grades_data[i].second_bim_grade ) / 2;
+    if(averageNum.length > 3){
+      averageNum = averageNum.toFixed(2);
+    }
+  
+    if(averageNum < 7){
+      user_data.grades_data[i].final_average = (averageNum + user_data.grades_data[i].final_test_grade) / 2;
+      if(user_data.grades_data[i].final_average.length > 3){
+        user_data.grades_data[i].final_average = user_data.grades_data[i].final_average.toFixed(2);
+      }
+    }
+
+    if(averageNum >= 7){
+      user_data.grades_data[i].final_test_grade = 0;
+      user_data.grades_data[i].final_average = averageNum;
+    }
+
+    if(user_data.grades_data[i].final_average >= 7){
+      user_data.grades_data[i].situation = "Aprovado";
+    }
+
+    if(user_data.grades_data[i].final_average < 7){
+      user_data.grades_data[i].situation = "Reprovado";
+    }
+}
+
 async function initPageProcess(){
   await showHtmlElement([serverLoadingOverlay], "flex");
   user_data = await getUserData();
@@ -29,6 +60,7 @@ async function initPageProcess(){
     await showHtmlElement([serverMsgSpan],"block");
     return
   }
+  //await calculateGrades_userData();
   await hideHtmlElement([serverLoadingOverlay]);
 }
 
@@ -44,35 +76,50 @@ async function hideHtmlElement([...elements]){
     });
 }
 
-async function cleanHtmlElement([...elements]){
-    elements.forEach(element => {
-        element.innerHTML = "";
-    });
-}
-
 async function showMsgPopup(msgText, msgType){
   const checkIcon = msgPopup.querySelector(".check_icon");
   const exclamationIcon = msgPopup.querySelector(".exclamation_icon");
+  const loadingIcon = msgPopup.querySelector(".loading_icon");
 
   checkIcon.style.display = "none";
   exclamationIcon.style.display = "none";
+  loadingIcon.style.display = "none";
+
+  msgPopup.classList.remove(exitAnimation);
+
+  popupMsgSpan.innerHTML = "";
+  popupMsgSpan.innerHTML = msgText;
 
   if(msgType === "sucessMsg"){
     msgPopup.style.backgroundColor = "#025cc4";
     checkIcon.style.display = "block";
+    await showHtmlElement([msgPopup], "flex");
+    msgPopup.classList.add(entranceAnimation);
+
+    setTimeout(async()=>{
+      await closeMsgPopup()
+    },5000)
   }
 
   if(msgType === "errorMsg"){
     msgPopup.style.backgroundColor = "#e3483d";
     exclamationIcon.style.display = "block";
+
+    await showHtmlElement([msgPopup], "flex");
+    msgPopup.classList.add(entranceAnimation);
+
+    setTimeout(async()=>{
+      await closeMsgPopup()
+    },5000)
   }
 
-  popupMsgSpan.innerHTML = "";
-  popupMsgSpan.innerHTML = msgText;
+  if(msgType === "loadingMsg"){
+    msgPopup.style.backgroundColor = "#025cc4";
+    loadingIcon.style.display = "block";
 
-  setTimeout(async()=>{
-    await closeMsgPopup()
-  },5000)
+    await showHtmlElement([msgPopup], "flex");
+    msgPopup.classList.add(entranceAnimation);
+  }
 }
 
 async function closeMsgPopup(){
@@ -145,11 +192,20 @@ setTimeout(()=>{
 },100);
 
 lookGradesBtn.addEventListener('click', async()=>{
+  await hideHtmlElement([
+    ticketsSection
+  ]);
+
   await displayUserData_gradesSection();  
   await scrollToThisElement(gradesSection);
 })
 
 lookTicketsBtn.addEventListener('click', async()=>{
+  await hideHtmlElement([
+    gradesSection
+  ])
+  await displayUserData_latestTickets();
+  await displayUserData_allTickets();
   await scrollToThisElement(ticketsSection);
 })
 
@@ -190,32 +246,6 @@ const gradesContainer = gradesSection.querySelector('.grades-container');
 
 async function displayUserData_gradesSection(){
   gradesContainer.innerHTML = "";
-  for(i=0; i < user_data.grades_data.length; i++){
-    let averageNum = (user_data.grades_data[i].first_bim_grade + user_data.grades_data[i].second_bim_grade ) / 2;
-    if(averageNum.length > 3){
-      averageNum = averageNum.toFixed(2);
-    }
-  
-    if(averageNum < 7){
-      user_data.grades_data[i].final_average = (averageNum + user_data.grades_data[i].final_test_grade) / 2;
-      if(user_data.grades_data[i].final_average.length > 3){
-        user_data.grades_data[i].final_average = user_data.grades_data[i].final_average.toFixed(2);
-      }
-    }
-
-    if(averageNum >= 7){
-      user_data.grades_data[i].final_test_grade = 0;
-      user_data.grades_data[i].final_average = averageNum;
-    }
-
-    if(user_data.grades_data[i].final_average >= 7){
-      user_data.grades_data[i].situation = "Aprovado";
-    }
-
-    if(user_data.grades_data[i].final_average < 7){
-      user_data.grades_data[i].situation = "Reprovado";
-    }
-
     const gradeControlString = 
     `
       <div class="grade-control">
@@ -229,7 +259,7 @@ async function displayUserData_gradesSection(){
                     <h3>2° BIM.</h3>
                     <h3>FALTAS</h3>
                     <h3>P.FINAL</h3>
-                    <h3>MÉD.FINAL</h3>
+                    <h3>MD.FINAL</h3>
                     <h3>SITUAÇÃO</h3>
                 </div>
 
@@ -341,6 +371,14 @@ async function displayUserData_allTickets(){
   
   let allTickets = user_data.tickets_data;
 
+  let allTicketsControl = ticketsContainer.querySelectorAll(".ticket-control");
+
+  if(allTicketsControl.length > 0 || allTicketsControl !== undefined){
+    allTicketsControl.forEach((ticketControl)=>{
+      ticketControl.remove();
+    });
+  }
+
   allTickets.forEach((ticket)=>{
     let dueDateFormatted = dayjs(ticket.due_date).format('DD/MM/YYYY');
     let creationDateFormatted = dayjs(ticket.creation_date).format('DD/MM/YYYY');
@@ -386,8 +424,3 @@ async function displayUserData_allTickets(){
   },100)
 
 }
-
-setTimeout(()=>{
-  displayUserData_latestTickets();
-  displayUserData_allTickets()
-},5000)
