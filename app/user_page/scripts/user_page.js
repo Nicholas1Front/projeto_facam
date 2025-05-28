@@ -21,7 +21,7 @@ async function getUserData(){
 
     const data = await response.json();
 
-    return data.userData;
+    return data.user;
   }catch(err){
     return null;
   }
@@ -60,7 +60,7 @@ async function initPageProcess(){
   await showHtmlElement([serverLoadingOverlay], "flex");
   user_data = await getUserData();
   console.log(user_data);
-  if(user_data.message === "Nenhum usuário autenticado." || user_data === null){
+  if(user_data === undefined || user_data === null){
     await showHtmlElement([serverMsgSpan],"block");
     return
   }

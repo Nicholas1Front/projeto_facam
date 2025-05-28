@@ -143,6 +143,8 @@ async function userLoginProcess(){
 
   })
 
+  console.log(response);
+
   const data = await response.json();
 
   console.log(data);
@@ -150,13 +152,13 @@ async function userLoginProcess(){
   if(data.success){
     await closeMsgPopup();
     
-    setTimeout(async () => {
-      await showMsgPopup("Login efetuado com sucesso!", "sucessMsg");
-    },300);
+    setTimeout(()=>{
+      showMsgPopup("Login efetuado com sucesso!", "sucessMsg");
+    },600)
 
     setTimeout(()=>{
-      window.location.href = "https://nicholas1front.github.io/projeto_facam/app/user_page/user_page.html";
-    },2500);
+      window.location.href = "http://127.0.0.1:5500/app/user_page/user_page.html";
+    },3000);
 
     return;
   }
