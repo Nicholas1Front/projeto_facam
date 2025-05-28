@@ -211,6 +211,7 @@ body::-webkit-scrollbar-thumb {
     border-radius:20px;
     padding-right:1rem;
     padding:1.2rem 0;
+    color:#fff;
     background-color: #4dc96e;
 }
 
@@ -486,6 +487,13 @@ principal da página juntamente com a section de login */
 .user-login-section > .user-login-container > .user-password-container > .input-control i{
     font-size:18px;
     margin-left:10px;
+    cursor: pointer;
+    color:#c8c8c8;
+}
+
+.user-login-section > .user-login-container > .user-password-container > .input-control i:hover{
+    color:#fff;
+    transition:0.2s;
 }
 
 .user-login-section > .user-login-container > .forgot-password-container{
@@ -607,6 +615,7 @@ principal da página juntamente com a section de login */
     pointer-events: auto;
     transform: translateX(0);
 }
+
 .btn-register{
     margin-left: 0.5rem; 
     padding: 10px 20px; 
@@ -615,6 +624,14 @@ principal da página juntamente com a section de login */
     color: #fff; 
     border: 2px solid #fff; 
     cursor: pointer;
+    font-weight: bold;
+    transition:0.2s;
+}
+
+.btn-register:hover{
+    background-color:#fff;
+    color: #025cc4;
+    transition:0.2s;
 }
 
 #login-section, #register-section{
@@ -724,7 +741,3 @@ footer > .image-container > .copyright-control{
     margin-bottom:1rem;
 }
 
-
- @media (max-width:768) {
-    
-      }

@@ -6,10 +6,22 @@ const cors = require('cors');
 dotenv.config();
 const app = express();
 
+const allowedOrigins = [
+  'http://127.0.0.1:5500',
+  'https://nicholas1front.github.io'
+];
+
 app.use(cors({
-  origin: 'http://127.0.0.1:5500',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
+
 app.use(express.json());
 
 // Variáveis de ambiente

@@ -79,7 +79,7 @@ async function closeMsgPopup(){
 }
 
 async function scrollToTop(){
-  window.scrollIntoView({
+  document.body.scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
@@ -145,17 +145,23 @@ async function userLoginProcess(){
 
   const data = await response.json();
 
-  if(data.sucess){
+  console.log(data);
+
+  if(data.success){
     await closeMsgPopup();
-    await showMsgPopup("Login realizado com sucesso!", "sucessMsg");
-    setTimeout(() => {
-      window.location.href = "C:/Users/nicho/OneDrive/Área de Trabalho/projeto_facam/app/user_page/user_page.html";
-    }, 2000);
+    
+    setTimeout(async () => {
+      await showMsgPopup("Login efetuado com sucesso!", "sucessMsg");
+    },300);
+
+    setTimeout(()=>{
+      window.location.href = "https://nicholas1front.github.io/projeto_facam/app/user_page/user_page.html";
+    },2500);
 
     return;
   }
 
-  if(!data.sucess){
+  if(!data.success){
     await closeMsgPopup();
     await showMsgPopup(data.message, "errorMsg");
     return;

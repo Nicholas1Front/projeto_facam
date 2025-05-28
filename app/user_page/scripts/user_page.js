@@ -4,6 +4,7 @@
 let user_data = null;
 const serverLoadingOverlay = document.querySelector('.server-loading-overlay'); // overlay de carregamento para o servidor
 const serverMsgSpan = serverLoadingOverlay.querySelector("#server-msg-span");
+console.log(serverMsgSpan);
 const msgPopup = document.querySelector(".msg-popup");
 const popupMsgSpan = msgPopup.querySelector("#popup-msg-span");
 const msgPopupCloseBtn = msgPopup.querySelector("#close-msg-popup-btn");
@@ -59,7 +60,7 @@ async function initPageProcess(){
   await showHtmlElement([serverLoadingOverlay], "flex");
   user_data = await getUserData();
   console.log(user_data);
-  if(user_data.message === "Nenhum usuário autenticado."){
+  if(user_data.message === "Nenhum usuário autenticado." || user_data === null){
     await showHtmlElement([serverMsgSpan],"block");
     return
   }
