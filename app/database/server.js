@@ -17,18 +17,18 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 
-// Variável global para armazenar o usuário autenticado
-let currentUsername = "nicholas_eugenio";
+// Variável global do usuário autenticado
+let currentUsername = null;
 
-// Função para buscar JSON do usuário
-async function fetchUserJson(username) {
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/app/database/users/${username}.json?ref=${GITHUB_BRANCH}`;
+// Função para buscar o arquivo users.json
+async function fetchUsersJson() {
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/app/database/users.json?ref=${GITHUB_BRANCH}`;
 
   try {
     const res = await axios.get(url, {
       headers: {
         Authorization: `Bearer ${GITHUB_TOKEN}`,
-        Accept: 'application/vnd.github.v3.raw',
+        Accept: 'application/vnd.github.v3.raw'
       }
     });
     return res.data;
@@ -40,14 +40,15 @@ async function fetchUserJson(username) {
 // 🔐 Login
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  const users = await fetchUsersJson();
 
-  const userData = await fetchUserJson(username);
+  const user = users.find(u => u.username === username);
 
-  if (!userData) {
+  if (!user) {
     return res.status(404).json({ success: false, message: "Usuário não encontrado." });
   }
 
-  if (userData.password !== password) {
+  if (user.password !== password) {
     return res.status(401).json({ success: false, message: "Senha incorreta." });
   }
 
@@ -55,30 +56,30 @@ app.post('/login', async (req, res) => {
   return res.status(200).json({ success: true, message: "Login bem-sucedido." });
 });
 
-// 👤 Pegar o nome do usuário atual
+// 👤 Dados do usuário atual
 app.get('/current-user', async (req, res) => {
   if (!currentUsername) {
     return res.status(404).json({ message: "Nenhum usuário autenticado." });
   }
 
-  const userData = await fetchUserJson(currentUsername);
+  const users = await fetchUsersJson();
+  const user = users.find(u => u.username === currentUsername);
 
-  if (!userData) {
+  if (!user) {
     return res.status(500).json({ message: "Erro ao buscar dados do usuário." });
   }
 
-  return res.status(200).json({ userData });
+  return res.status(200).json({ user });
 });
 
-
-// ✏️ Atualizar o JSON do usuário atual
+// ✏️ Atualizar dados do usuário atual
 app.post('/update-user', async (req, res) => {
   if (!currentUsername) {
     return res.status(401).json({ success: false, message: "Usuário não autenticado." });
   }
 
-  const userObject = req.body;
-  const path = `app/database/users/${currentUsername}.json`;
+  const updatedUser = req.body;
+  const path = `app/database/users.json`;
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
 
   try {
@@ -86,7 +87,16 @@ app.post('/update-user', async (req, res) => {
       headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
     });
 
-    const content = Buffer.from(JSON.stringify(userObject, null, 2)).toString('base64');
+    const users = await fetchUsersJson();
+    const index = users.findIndex(u => u.username === currentUsername);
+
+    if (index === -1) {
+      return res.status(404).json({ success: false, message: "Usuário não encontrado para atualização." });
+    }
+
+    users[index] = updatedUser;
+
+    const content = Buffer.from(JSON.stringify(users, null, 2)).toString('base64');
 
     await axios.put(url, {
       message: `update user ${currentUsername}`,
@@ -97,7 +107,8 @@ app.post('/update-user', async (req, res) => {
       headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
     });
 
-    return res.status(200).json({ success: true, message: "Dados atualizados com sucesso." });
+    return res.status(200).json({ success: true, message: "Dados atualizados e publicados no GitHub Pages." });
+
   } catch (err) {
     console.error(err.message);
     return res.status(500).json({ success: false, message: "Erro ao atualizar os dados." });
@@ -110,5 +121,6 @@ app.post('/logout', (req, res) => {
   res.json({ success: true, message: "Logout realizado com sucesso." });
 });
 
+// 🔥 Inicializa servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Servidor rodando na porta ${PORT}`));

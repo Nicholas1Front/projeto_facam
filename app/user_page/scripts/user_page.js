@@ -6,8 +6,11 @@ const serverLoadingOverlay = document.querySelector('.server-loading-overlay'); 
 const serverMsgSpan = serverLoadingOverlay.querySelector("#server-msg-span");
 const msgPopup = document.querySelector(".msg-popup");
 const popupMsgSpan = msgPopup.querySelector("#popup-msg-span");
+const msgPopupCloseBtn = msgPopup.querySelector("#close-msg-popup-btn");
 const entranceAnimation = "slide-in-fwd-left";
 const exitAnimation = "slide-out-left";
+const backTopControl = document.querySelector(".back-to-top-control");
+const backTopBtn = document.querySelector(".back-to-top-btn");
 
 // functions
 
@@ -91,7 +94,7 @@ async function showMsgPopup(msgText, msgType){
   popupMsgSpan.innerHTML = msgText;
 
   if(msgType === "sucessMsg"){
-    msgPopup.style.backgroundColor = "#025cc4";
+    msgPopup.style.backgroundColor = "#4dc96e";
     checkIcon.style.display = "block";
     await showHtmlElement([msgPopup], "flex");
     msgPopup.classList.add(entranceAnimation);
@@ -138,9 +141,14 @@ document.addEventListener('DOMContentLoaded', async()=>{
   await displayUserData_introductionSection();
 });
 
+msgPopupCloseBtn.addEventListener("click", async()=>{
+  await closeMsgPopup();
+})
+
 // header menu
 
 // elements
+const header = document.querySelector('header');
 const allMainMenuBtns = document.querySelectorAll('.main-menu-btn');
 const exitLink = document.querySelector('.exit-control a');
 const lookGradesBtn = document.querySelector('#look-grades-btn');
@@ -157,6 +165,15 @@ async function scrollToThisElement(element){
     changeDataSection,
   ]
 
+  if(element === header){
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    
+    return;
+  }
+
   allSections.forEach((section)=>{
     hideHtmlElement([section]);
   })
@@ -168,9 +185,31 @@ async function scrollToThisElement(element){
   });
 }
 
+async function showBackTopBtn(){
+    let scrollValue = window.scrollY || document.documentElement.scrollTop;
+
+    if(scrollValue > 300){
+        backTopControl.style.display = "flex";
+        backTopControl.style.justifyContent = "center";
+        backTopControl.style.alignItems = "center"
+        backTopControl.style.transition = "0.3s";
+        backTopBtn.classList.remove("slide-out-bottom")
+        backTopBtn.classList.add("slide-in-bottom");
+    }else if (scrollValue < 300){
+        backTopBtn.classList.remove("slide-in-bottom");
+        backTopBtn.classList.add("slide-out-bottom");
+    }
+}
+
 // event listeners or booting
 
-console.log(allMainMenuBtns);
+document.addEventListener('scroll', async()=>{
+  await showBackTopBtn();
+});
+
+backTopBtn.addEventListener("click", async()=>{
+  await scrollToThisElement(header);
+})
 
 setTimeout(()=>{
     for(let i = 0; i < allMainMenuBtns.length; i++){
