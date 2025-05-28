@@ -25,11 +25,16 @@
     </div>
 
     <div class="msg-popup">
-        <i class="fa-regular fa-circle-check check_icon"></i>
-        <i class="fa-solid fa-circle-exclamation exclamation_icon"></i>
-        <i class="fa-solid fa-spinner loading-icon"></i>
-        <span id="popup-msg-span">Rematriculado com sucesso !</span>
-        <i id="close-popup-msg-btn" class="fa-solid fa-xmark"></i>
+        <div class="msg-control">
+            <i class="fa-regular fa-circle-check check_icon"></i>
+            <i class="fa-solid fa-circle-exclamation exclamation_icon"></i>
+            <i class="fa-solid fa-spinner fa-spin loading_icon"></i>
+            <span id="popup-msg-span">Rematricula realizada com sucesso</span>
+        </div>
+
+        <div class="close-control">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
     </div>
 
     <header>
@@ -43,17 +48,17 @@
                 <span>Ver notas</span>
             </button>
     
-            <button class="main-menu-btn">
+            <button id="look-registration-btn" class="main-menu-btn">
                 <i class="fa-solid fa-id-card"></i>
                 <span>Rematrícula</span>
             </button>
     
-            <button class="main-menu-btn">
-                <i id="look-tickets-btn" class="fa-solid fa-file-invoice-dollar"></i>
+            <button id="look-tickets-btn" class="main-menu-btn">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
                 <span>Boletos</span>
             </button>
     
-            <button class="main-menu-btn">
+            <button  id="look-change-data-btn" class="main-menu-btn">
                 <i class="fa-solid fa-user-pen"></i>
                 <span>Alterar dados</span>
             </button>
@@ -175,7 +180,7 @@
                     <h3>Valor : <span class="ticket-value-span">235,00</span></h3>
                     <h3>Situação : <span class="ticket-payment-situation-span">Aguardando pagamento</span></h3>
 
-                    <a href="" class="link-to-ticket">ABRIR BOLETO</a>
+                    <a href=""  target="_blank" class="link-to-ticket">ABRIR BOLETO</a>
                 </div>
             </div>
 
@@ -194,7 +199,7 @@
                     <h3>Data de vencimento : <span class="ticket-due-date-span"></span></h3>
                     <h3>Valor : <span class="ticket-value-span"></span></h3>
                     <h3>Situação : <span class="ticket-payment-situation-span"></span></h3>
-                    <a href="" class="link-to-ticket">ABRIR BOLETO</a>
+                    <a href="" target="_blank" class="link-to-ticket">ABRIR BOLETO</a>
                 </div>
             </div>
         </div>
@@ -273,8 +278,8 @@
                 </div>
 
                 <div class="documents-control">
-                    <a href="">Abrir Ficha do contrato educacional</a>
-                    <a href="">Abrir Cláusulas do contrato educacional</a>
+                    <a href="https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf" target="_blank">Abrir Ficha do contrato educacional</a>
+                    <a href="https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf" target="_blank">Abrir Cláusulas do contrato educacional</a>
                 </div>
             </div>
         </div>
@@ -294,20 +299,20 @@
 
             <div class="user-data-input-control">
                 <h3><i class="fa-solid fa-user"></i>Usuário</h3>
-                <input type="text" class="user-name-data-input" placeholder="Digite seu novo nome de usuário..." autocomplete="off"/>
+                <input type="text" id="user-name-input" placeholder="Digite seu novo nome de usuário..." autocomplete="off"/>
             </div>
 
             <div class="user-data-input-control">
                 <h3><i class="fa-solid fa-key"></i>Senha</h3>
                 <div class="password-control">
-                    <input type="password" class="user-password-data-input" placeholder="Digite sua nova senha..." autocomplete="off"/>
+                    <input type="password" id="user-password-input" placeholder="Digite sua nova senha..." autocomplete="off"/>
                     <i class="fa-solid fa-eye" id="show-password-btn"></i>
                     <i style="display: none;" class="fa-solid fa-eye-slash" id="hide-password-btn"></i>
                 </div>
             </div>
 
             <div class="button-control">
-                <button class="change-user-data-btn">ALTERAR DADOS</button>
+                <button id="change-user-data-btn">ALTERAR DADOS</button>
             </div>
 
         </div>

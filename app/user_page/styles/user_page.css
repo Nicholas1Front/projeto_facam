@@ -182,34 +182,47 @@ body::-webkit-scrollbar-thumb {
 .msg-popup{
     margin-top:2rem;
     margin-left:1rem;
-    width:fit-content;
+    max-width:35%;
     display: none;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     position:fixed;
+    z-index: 999;
     border-radius:20px;
-    padding:0 1.5rem;
-    padding-top:1.3rem;
-    padding-bottom:1rem;
+    padding-right:1rem;
+    padding:1.2rem 0;
     background-color: #4dc96e;
 }
 
-.msg-popup i{
-    margin-right:8px;
-    font-size:1.8rem;
+.msg-popup > .msg-control{
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    width: 90%;
 }
 
-.msg-popup span{
+
+.msg-popup > .msg-control i{
+    margin:0 10px;
+    font-size:1.8rem;
+    width:10%;
+}
+
+.msg-popup > .msg-control span{
+    width:85%;
     font-size:16px;
     font-weight: bold;
 }
 
-.msg-popup #close-popup-msg-btn{
-    position:absolute;
-    margin-bottom:15%;
-    margin-left:90%;
+.msg-popup > .close-control{
+    width:5%;
+    display: flex;
+    justify-content: center;
+    font-size:20px;
+}
+
+.msg-popup > .close-control i{
     cursor: pointer;
-    font-size:15px;
 }
 
 /* header */
@@ -770,7 +783,7 @@ header > .exit-control > a > span{
 .registration-section{
     padding:0 2%;
     margin-bottom:3rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -956,6 +969,7 @@ header > .exit-control > a > span{
     flex-direction: column;
     align-items: center;
     padding:0 2%;
+    margin-bottom:3rem;
 }
 
 .change-data-section > .title-container{

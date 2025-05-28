@@ -6,7 +6,6 @@ const serverLoadingOverlay = document.querySelector('.server-loading-overlay'); 
 const serverMsgSpan = serverLoadingOverlay.querySelector("#server-msg-span");
 const msgPopup = document.querySelector(".msg-popup");
 const popupMsgSpan = msgPopup.querySelector("#popup-msg-span");
-const closePopupMsgBtn = msgPopup.querySelector("#close-popup-msg-btn");
 const entranceAnimation = "slide-in-fwd-left";
 const exitAnimation = "slide-out-left";
 
@@ -50,6 +49,7 @@ async function calculateGrades_userData(){
     if(user_data.grades_data[i].final_average < 7){
       user_data.grades_data[i].situation = "Reprovado";
     }
+  };
 }
 
 async function initPageProcess(){
@@ -60,7 +60,7 @@ async function initPageProcess(){
     await showHtmlElement([serverMsgSpan],"block");
     return
   }
-  //await calculateGrades_userData();
+  await calculateGrades_userData();
   await hideHtmlElement([serverLoadingOverlay]);
 }
 
@@ -123,7 +123,12 @@ async function showMsgPopup(msgText, msgType){
 }
 
 async function closeMsgPopup(){
-  await hideHtmlElement([msgPopup]);
+  msgPopup.classList.remove(entranceAnimation);
+  msgPopup.classList.add(exitAnimation);
+
+  setTimeout(()=>{
+    hideHtmlElement([msgPopup]);
+  },500)
 }
 
 // booting and event listerners
@@ -133,10 +138,6 @@ document.addEventListener('DOMContentLoaded', async()=>{
   await displayUserData_introductionSection();
 });
 
-closePopupMsgBtn.addEventListener("click", ()=>{
-  closeMsgPopup();
-});
-
 // header menu
 
 // elements
@@ -144,10 +145,22 @@ const allMainMenuBtns = document.querySelectorAll('.main-menu-btn');
 const exitLink = document.querySelector('.exit-control a');
 const lookGradesBtn = document.querySelector('#look-grades-btn');
 const lookTicketsBtn = document.querySelector('#look-tickets-btn');
-
+const lookRegistrationBtn = document.querySelector('#look-registration-btn');
+const lookChangeDataBtn = document.querySelector('#look-change-data-btn');
 // functions
 
 async function scrollToThisElement(element){
+  const allSections = [
+    gradesSection,
+    ticketsSection,
+    registrationSection,
+    changeDataSection,
+  ]
+
+  allSections.forEach((section)=>{
+    hideHtmlElement([section]);
+  })
+
   await showHtmlElement([element], "flex");
   element.scrollIntoView({
     behavior: "smooth",
@@ -192,21 +205,23 @@ setTimeout(()=>{
 },100);
 
 lookGradesBtn.addEventListener('click', async()=>{
-  await hideHtmlElement([
-    ticketsSection
-  ]);
-
   await displayUserData_gradesSection();  
   await scrollToThisElement(gradesSection);
 })
 
 lookTicketsBtn.addEventListener('click', async()=>{
-  await hideHtmlElement([
-    gradesSection
-  ])
   await displayUserData_latestTickets();
   await displayUserData_allTickets();
   await scrollToThisElement(ticketsSection);
+})
+
+lookRegistrationBtn.addEventListener('click', async()=>{
+  await displayUserData_registrationSection();
+  await scrollToThisElement(registrationSection);
+});
+
+lookChangeDataBtn.addEventListener('click', async()=>{
+  await scrollToThisElement(changeDataSection);
 })
 
 // introduction-section
@@ -246,6 +261,8 @@ const gradesContainer = gradesSection.querySelector('.grades-container');
 
 async function displayUserData_gradesSection(){
   gradesContainer.innerHTML = "";
+  
+  for(i = 0 ; i < user_data.grades_data.length; i++){
     const gradeControlString = 
     `
       <div class="grade-control">
@@ -281,7 +298,7 @@ async function displayUserData_gradesSection(){
     gradesContainer.appendChild(gradeControl);
     
   }
-
+  
   console.log(user_data);
 } 
 
@@ -391,7 +408,7 @@ async function displayUserData_allTickets(){
           <span class="ticket-due-date-span">${dueDateFormatted}</span>
           <span class="ticket-value-span">${ticket.value}</span>
           <span class="ticket-payment-situation-span">${ticket.status}</span>
-          <a href="${ticket.link}" class="link-to-ticket">Abrir boleto</a>
+          <a href="${ticket.link}" target="_blank" class="link-to-ticket">Abrir boleto</a>
       </div>
     `;
 
@@ -424,3 +441,115 @@ async function displayUserData_allTickets(){
   },100)
 
 }
+
+// registration-section
+
+// elements
+const registrationSection = document.querySelector(".registration-section");
+const registrationContainer = registrationSection.querySelector(".registration-container");
+const registrationBtn = registrationContainer.querySelector(".registration-btn");
+
+// functions
+
+async function displayUserData_registrationSection(){
+  registrationSection.querySelector(".user-info_name").innerHTML = "";
+  registrationSection.querySelector(".user-info_registration-code").innerHTML = "";
+  registrationSection.querySelector(".user-info_course-class").innerHTML = "";
+  registrationSection.querySelector(".user-info_agreement").innerHTML = "";
+
+  registrationSection.querySelector(".user-info_name").innerHTML = user_data.name;
+  registrationSection.querySelector(".user-info_registration-code").innerHTML = user_data.registration_data.registration_code;
+  registrationSection.querySelector(".user-info_course-class").innerHTML = `${user_data.course_data.acronym} - ${user_data.course_data.shift} - ${user_data.course_data.actual_period}`;
+  registrationSection.querySelector(".user-info_agreement").innerHTML = user_data.registration_data.agreement_type;
+
+  if(user_data.registration_user_semester !== "2025.1"){
+    registrationContainer.querySelector("h3").innerHTML = "";
+    registrationContainer.querySelector("h3").innerHTML = "Você não está matriculado no semestre atual. Clique no botão abaixo para efetuar sua rematrícula.";
+
+    await showHtmlElement([registrationContainer.querySelector(".button-control")], "flex");
+  }
+
+  if(user_data.registration_user_semester === "2025.1"){
+    registrationContainer.querySelector("h3").innerHTML = "";
+    registrationContainer.querySelector("h3").innerHTML = "Você está matriculado no semestre atual. Não é necessário realizar a rematrícula.";
+
+    await hideHtmlElement([registrationContainer.querySelector(".button-control")]);
+  }
+}
+
+async function registrationProcess(){
+  let userIsApproved = true;
+
+  user_data.grades_data.forEach((grade)=>{
+    if(grade.situation === "Reprovado"){
+      userIsApproved = false;
+    }
+  });
+
+  if(userIsApproved){
+    user_data.registration_data.user_semester = "2025.1";
+    await showMsgPopup("Rematrícula realizada com sucesso!","sucessMsg");
+    await displayUserData_registrationSection();
+  }else{
+    await showMsgPopup("Você não está apto a realizar a rematrícula. Você precisa estar aprovado em todas as disciplinas.","errorMsg");
+  }
+}
+
+// event listeners or booting
+
+registrationBtn.addEventListener("click", async()=>{
+  await registrationProcess();
+})
+
+// change-data-section
+
+// elements
+const changeDataSection = document.querySelector(".change-data-section");
+const userNameInput = changeDataSection.querySelector("#user-name-input");
+const userPasswordInput = changeDataSection.querySelector("#user-password-input");
+const showPasswordBtn = changeDataSection.querySelector("#show-password-btn");
+const hidePasswordBtn = changeDataSection.querySelector("#hide-password-btn");
+const changeUserDataBtn = changeDataSection.querySelector("#change-user-data-btn");
+
+// functions
+
+async function changenDataLoginProcess(){
+  if(userNameInput.value === "" || userPasswordInput.value === ""){
+    await showMsgPopup("Preencha todos os campos.","errorMsg");
+    return;
+  }
+
+  if(userNameInput.value === user_data.username){
+    await showMsgPopup("Novo nome de usuário não pode ser o mesmo do atual.","errorMsg");
+    return;
+  }
+
+  if(userPasswordInput.value === user_data.password){
+    await showMsgPopup("Nova senha não pode ser a mesma da atual.","errorMsg");
+    return;
+  }
+
+  user_data.username = userNameInput.value;
+  user_data.password = userPasswordInput.value;
+
+  await showMsgPopup("Alterações realizadas com sucesso!","sucessMsg");
+  await scrollToThisElement(introductionSection);
+}
+
+// event listerners or booting
+
+showPasswordBtn.addEventListener("click", ()=>{
+  userPasswordInput.type = "text";
+  showPasswordBtn.style.display = "none";
+  hidePasswordBtn.style.display = "block";
+})
+
+hidePasswordBtn.addEventListener("click", ()=>{
+  userPasswordInput.type = "password";
+  showPasswordBtn.style.display = "block";
+  hidePasswordBtn.style.display = "none";
+});
+
+changeUserDataBtn.addEventListener("click", async()=>{
+  await changenDataLoginProcess();
+});
