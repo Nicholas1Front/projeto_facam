@@ -361,7 +361,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
 window.addEventListener("scroll",function(){
     showBackTopBtn();
-    showAnimationContentControl();
 })
 
 backTopBtn.addEventListener("click",function(){

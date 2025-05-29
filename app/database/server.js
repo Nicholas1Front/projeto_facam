@@ -178,7 +178,7 @@ app.post('/register-user', async (req, res) => {
 
 
 // 🚪 Logout
-app.post('/logout', (req, res) => {
+app.get('/logout', (req, res) => {
   currentUsername = null;
   res.json({ success: true, message: "Logout realizado com sucesso." });
 });

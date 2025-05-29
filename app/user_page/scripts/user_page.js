@@ -151,7 +151,7 @@ msgPopupCloseBtn.addEventListener("click", async()=>{
 // elements
 const header = document.querySelector('header');
 const allMainMenuBtns = document.querySelectorAll('.main-menu-btn');
-const exitLink = document.querySelector('.exit-control a');
+const exitLink = document.querySelector('#exit-link');
 const lookGradesBtn = document.querySelector('#look-grades-btn');
 const lookTicketsBtn = document.querySelector('#look-tickets-btn');
 const lookRegistrationBtn = document.querySelector('#look-registration-btn');

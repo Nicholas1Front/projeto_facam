@@ -343,6 +343,8 @@ async function newUserRegisterProcess(){
 
   newUser_data = JSON.stringify(newUser_data);
 
+  console.log(newUser_data);
+
   const response = await fetch("https://projeto-facam.onrender.com/register-user", {
     method: "POST",
     headers: {
@@ -367,6 +369,17 @@ async function newUserRegisterProcess(){
 }
 
 // event listerners
+
+registerUser_cpf.addEventListener("input", (event)=>{
+  let updateValue = event.target.value.replace(/\D/g, ""); // Remove non-digit characters
+
+    if(updateValue.length >= 11){
+        updateValue = event.target.value.slice(0, 11);
+    }
+
+    event.target.value = updateValue;
+})
+
 registerBtn.addEventListener("click", async()=>{
   await newUserRegisterProcess();
 })
