@@ -187,6 +187,7 @@ const registerUser_registrationCode = document.querySelector("#matricula");
 const registerUser_name = document.querySelector("#new-user-name");
 const registerUser_username = document.querySelector("#new-username");
 const registerUser_password = document.querySelector("#new-password");
+const registerBtn = document.querySelector("#register-btn");
 
 // functions
 
@@ -342,10 +343,33 @@ async function newUserRegisterProcess(){
 
   newUser_data = JSON.stringify(newUser_data);
 
-  const response = await fetch("https://projeto-facam.onrender.com/register-user", {})
+  const response = await fetch("https://projeto-facam.onrender.com/register-user", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: newUser_data
+  })
 
+  const data = await response.json();
 
+  if(data.success){
+    await closeMsgPopup();
+
+    setTimeout(()=>{
+      showMsgPopup("Usuário registrado com sucesso!", "sucessMsg");
+    },600);
+
+    setTimeout(()=>{
+      window.location.href = "http://127.0.0.1:5500/app/user_page/user_page.html";
+    },3000);
+  }
 }
+
+// event listerners
+registerBtn.addEventListener("click", async()=>{
+  await newUserRegisterProcess();
+})
 
 // altena entre login e registro
 function mostrarRegistro() {
