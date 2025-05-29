@@ -27,8 +27,8 @@
         "second_bim_grade": 1,
         "second_bim_faults": 10,
         "final_test_grade": 9,
-        "final_average": null,
-        "situation": null
+        "final_average": 7.25,
+        "situation": "Aprovado"
       },
       {
         "name": "Banco de Dados II",
@@ -36,9 +36,9 @@
         "first_bim_faults": 2,
         "second_bim_grade": 8,
         "second_bim_faults": 3,
-        "final_test_grade": 7,
-        "final_average": null,
-        "situation": null
+        "final_test_grade": 0,
+        "final_average": 8.5,
+        "situation": "Aprovado"
       },
       {
         "name": "Desenvolvimento Web",
@@ -46,9 +46,9 @@
         "first_bim_faults": 0,
         "second_bim_grade": 9,
         "second_bim_faults": 1,
-        "final_test_grade": 8,
-        "final_average": null,
-        "situation": null
+        "final_test_grade": 0,
+        "final_average": 9.5,
+        "situation": "Aprovado"
       },
       {
         "name": "Programação Orientada a Objetos",
@@ -56,9 +56,9 @@
         "first_bim_faults": 4,
         "second_bim_grade": 7,
         "second_bim_faults": 2,
-        "final_test_grade": 6,
-        "final_average": null,
-        "situation": null
+        "final_test_grade": 0,
+        "final_average": 7.5,
+        "situation": "Aprovado"
       },
       {
         "name": "Redes de Computadores",
@@ -67,8 +67,8 @@
         "second_bim_grade": 6,
         "second_bim_faults": 5,
         "final_test_grade": 7,
-        "final_average": null,
-        "situation": null
+        "final_average": 6.75,
+        "situation": "Reprovado"
       },
       {
         "name": "Gestão de Projetos",
@@ -76,9 +76,9 @@
         "first_bim_faults": 2,
         "second_bim_grade": 8,
         "second_bim_faults": 3,
-        "final_test_grade": 7,
-        "final_average": null,
-        "situation": null
+        "final_test_grade": 0,
+        "final_average": 8.5,
+        "situation": "Aprovado"
       },
       {
         "name": "Estastica",
@@ -86,9 +86,9 @@
         "first_bim_faults": 0,
         "second_bim_grade": 9,
         "second_bim_faults": 1,
-        "final_test_grade": 8,
-        "final_average": null,
-        "situation": null
+        "final_test_grade": 0,
+        "final_average": 9.5,
+        "situation": "Aprovado"
       }
     ],
     "tickets_data": [
