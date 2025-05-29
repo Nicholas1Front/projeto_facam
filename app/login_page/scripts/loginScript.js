@@ -177,6 +177,176 @@ verifyPasswordBtn.addEventListener("click", async()=>{
   await userLoginProcess();
 })
 
+// register-section
+
+// elements
+
+let newUser_data = null;
+const registerUser_cpf = document.querySelector("#cpf");
+const registerUser_registrationCode = document.querySelector("#matricula");
+const registerUser_name = document.querySelector("#new-user-name");
+const registerUser_username = document.querySelector("#new-username");
+const registerUser_password = document.querySelector("#new-password");
+
+// functions
+
+async function newUserRegisterProcess(){
+  if(
+    registerUser_cpf.value === "" ||
+    registerUser_registrationCode.value === "" ||
+    registerUser_name.value === "" ||
+    registerUser_username.value === "" ||
+    registerUser_password.value === ""
+  ){
+    await showMsgPopup("Preencha todos os campos!", "errorMsg");
+    return;
+  }
+
+  await showMsgPopup("Registrando novo usuário...", "loadingMsg");
+
+  newUser_data = {
+  username: registerUser_username.value,
+  password: registerUser_password.value,
+  name: registerUser_name.value,
+  cpf : registerUser_cpf.value,
+  registration_data: {
+    registration_code: registerUser_registrationCode.value,
+    agreement_type: "Parcelado",
+    user_semester: "2025.1",
+    educational_contract_form_link: "https://example.com/contract.pdf",
+    clauses_educational_contract_link: "https://example.com/clauses.pdf"
+  },
+  course_data: {
+    name: "Análise e Desenvolvimento de Sistemas",
+    acronym: "ADS",
+    type: "Graduação - Tecnólogo",
+    modality: "Presencial",
+    shift: "Noturno",
+    actual_period: "5° período"
+  },
+  grades_data: [
+    {
+      name: "Engenharia de software II",
+      first_bim_grade: 10,
+      first_bim_faults: 1,
+      second_bim_grade: 10,
+      second_bim_faults: 10,
+      final_test_grade: 9,
+      final_average: null,
+      situation: null
+    },
+    {
+      name: "Banco de Dados II",
+      first_bim_grade: 9,
+      first_bim_faults: 2,
+      second_bim_grade: 8,
+      second_bim_faults: 3,
+      final_test_grade: 7,
+      final_average: null,
+      situation: null
+    },
+    {
+      name: "Desenvolvimento Web",
+      first_bim_grade: 10,
+      first_bim_faults: 0,
+      second_bim_grade: 9,
+      second_bim_faults: 1,
+      final_test_grade: 8,
+      final_average: null,
+      situation: null
+    },
+    {
+      name: "Programação Orientada a Objetos",
+      first_bim_grade: 8,
+      first_bim_faults: 4,
+      second_bim_grade: 9,
+      second_bim_faults: 2,
+      final_test_grade: 6,
+      final_average: null,
+      situation: null
+    },
+    {
+      name: "Redes de Computadores",
+      first_bim_grade: 7,
+      first_bim_faults: 3,
+      second_bim_grade: 8,
+      second_bim_faults: 5,
+      final_test_grade: 7,
+      final_average: null,
+      situation: null
+    },
+    {
+      name: "Gestão de Projetos",
+      first_bim_grade: 9,
+      first_bim_faults: 2,
+      second_bim_grade: 8,
+      second_bim_faults: 3,
+      final_test_grade: 7,
+      final_average: null,
+      situation: null
+    },
+    {
+      name: "Estastica",
+      first_bim_grade: 10,
+      first_bim_faults: 0,
+      second_bim_grade: 9,
+      second_bim_faults: 1,
+      final_test_grade: 8,
+      final_average: null,
+      situation: null
+    }
+  ],
+  tickets_data: [
+    {
+      number: 1,
+      creation_date: "2025-02-01",
+      due_date: "2025-03-01",
+      value: "R$ 100,10",
+      status: "Pago",
+      link: "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
+    },
+    {
+      number: 2,
+      creation_date: "2025-03-01",
+      due_date: "2025-04-01",
+      value: "R$ 100,10",
+      status: "Pago",
+      link: "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
+    },
+    {
+      number: 3,
+      creation_date: "2025-04-01",
+      due_date: "2025-05-01",
+      value: "R$ 100,10",
+      status: "Vencido",
+      link: "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
+    },
+    {
+      number: 4,
+      creation_date: "2025-05-01",
+      due_date: "2025-06-01",
+      value: "R$ 100,10",
+      status: "Vencido",
+      link: "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
+    },
+    {
+      number: 5,
+      creation_date: "2025-06-01",
+      due_date: "2025-07-01",
+      value: "R$ 100,10",
+      status: "Pendente",
+      link: "https://nicholas1front.github.io/projeto_facam/documents/boleto_example.pdf"
+    }
+  ]
+  };
+
+  newUser_data = JSON.stringify(newUser_data);
+
+  const response = await fetch("https://projeto-facam.onrender.com/register-user", {})
+
+
+}
+
 // altena entre login e registro
 function mostrarRegistro() {
     document.getElementById("register-section").classList.add("ativo");

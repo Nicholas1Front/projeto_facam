@@ -202,6 +202,53 @@ async function showBackTopBtn(){
     }
 }
 
+async function logoutProcess(){
+  await showMsgPopup("Fazendo logout...", "loadingMsg");
+
+  const updateUser = await updateUserProcess();
+
+  if(updateUser === "No update needed" || updateUser === "Update successful"){
+    const response = await fetch("https://projeto-facam.onrender.com/logout")
+
+    const data = await response.json();
+
+    if(data.success){
+      await closeMsgPopup();
+      setTimeout(async()=>{
+        await showMsgPopup("Logout realizado com sucesso!","sucessMsg");
+      },600);
+      setTimeout(()=>{
+        window.location.href = "http://127.0.0.1:5500/app/index/index.html";
+      },2000);
+    }
+  }
+}
+
+async function updateUserProcess(){
+  let user_data_fromServer = await getUserData();
+  user_data_fromServer = JSON.stringify(user_data_fromServer);
+
+  let user_data_toUpdate = JSON.stringify(user_data);
+
+  if(user_data_fromServer === user_data_toUpdate){
+    return "No update needed";
+  }else{
+    const response = await fetch("https://projeto-facam.onrender.com/update-user",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: user_data_toUpdate
+    });
+
+    const data = await response.json();
+
+    if(data.success){
+      return "Update successful";
+    }
+  }
+}
+
 // event listeners or booting
 
 document.addEventListener('scroll', async()=>{
@@ -262,6 +309,10 @@ lookRegistrationBtn.addEventListener('click', async()=>{
 
 lookChangeDataBtn.addEventListener('click', async()=>{
   await scrollToThisElement(changeDataSection);
+});
+
+exitLink.addEventListener('click', async()=>{
+  await logoutProcess();
 })
 
 // introduction-section

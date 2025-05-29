@@ -127,6 +127,56 @@ app.post('/update-user', async (req, res) => {
   }
 });
 
+// 🚀 Register User
+app.post('/register-user', async (req, res) => {
+  const newUser = req.body;
+
+  // Buscar users.json atual
+  const path = `app/database/users.json`;
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
+
+  try {
+    // Buscar SHA do arquivo atual
+    const { data: existingFile } = await axios.get(url, {
+      headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
+    });
+
+    const users = await fetchUsersJson();
+
+    // Verificar se username já existe
+    const userExists = users.some(u => u.username === newUser.username);
+
+    if (userExists) {
+      return res.status(409).json({ success: false, message: "❌ Nome de usuário já existe." });
+    }
+
+    // Adicionar novo usuário
+    users.push(newUser);
+
+    const content = Buffer.from(JSON.stringify(users, null, 2)).toString('base64');
+
+    // Atualizar no GitHub
+    await axios.put(url, {
+      message: `register user ${newUser.username}`,
+      content,
+      sha: existingFile.sha,
+      branch: GITHUB_BRANCH
+    }, {
+      headers: { Authorization: `Bearer ${GITHUB_TOKEN}` }
+    });
+
+    // Atualiza currentUsername
+    currentUsername = newUser.username;
+
+    return res.status(200).json({ success: true, message: "✅ Usuário registrado com sucesso." });
+
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ success: false, message: "Erro ao registrar usuário." });
+  }
+});
+
+
 // 🚪 Logout
 app.post('/logout', (req, res) => {
   currentUsername = null;
