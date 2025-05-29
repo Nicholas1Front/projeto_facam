@@ -144,7 +144,7 @@ slideNextBtn.addEventListener("click", function(event){
 //esta parte diz respeito a todos os elementos e functions que formam o mecanismo de slides da news-section
 
 //slide elements
-
+/* 
 const newsSlides = document.querySelectorAll(".news-slide");
 const newsBreadcrumbs = document.querySelectorAll(".news-slide-breadcrumb");
 const newsSlidePrevControl = document.querySelector(".news-slide-prev-control");
@@ -251,7 +251,7 @@ newsSlidePrevControl.addEventListener("click", (event)=>{
 newsSlideNextControl.addEventListener("click", (event)=>{
     event.preventDefault();
     nextNewsSlideProcess(); 
-})
+}) */
 
 // functions
 
@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     //slide init : esconde os outros slides e mostra o primeiro slide
     initSlides(slides); 
-    initNewsSlides(newsSlides);
+    // initNewsSlides(newsSlides);
 
     for(let i = 0; i < coursesControl.length ; i++){
         coursesControl[i].addEventListener("mouseenter",function(event){
