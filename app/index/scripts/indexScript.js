@@ -26,7 +26,19 @@ const informationsBox = document.querySelectorAll(".information-box");
 const backTopControl = document.querySelector(".back-to-top-control");
 const backTopBtn = document.querySelector(".back-to-top-btn");
 
-// testing
+// functions 
+
+async function showHtmlElement([...elements], displayType){
+    elements.forEach((element) => {
+        element.style.display = displayType;
+    });
+}
+
+async function hideHtmlElement([...elements]){
+    elements.forEach((element)=>{
+        element.style.display = "none";
+    })
+}
 
 
 //registration slides
@@ -140,11 +152,87 @@ slideNextBtn.addEventListener("click", function(event){
 
 });
 
+// post-graduation-ead-section
+
+// elements
+
+const postGraduationEadSection = document.querySelector(".post-graduation-ead-section");
+const scaleOutVerTop_animation = "scale-out-ver-top";
+const scaleInVerTop_animation = "scale-in-ver-top";
+const postGraduationContainer = postGraduationEadSection.querySelector(".post-graduation-container");
+const eadContainer = postGraduationEadSection.querySelector(".ead-container");
+
+// functions
+
+async function showInfoContainer_postGraduationEadSection(fatherContainer){
+    const titleContainer = fatherContainer.querySelector(".title-container");
+    const titleIcon = titleContainer.querySelector("i");
+    const infoContainer = fatherContainer.querySelector(".info-container");
+
+    if(infoContainer.classList.contains("hidden")){
+        infoContainer.classList.remove(scaleOutVerTop_animation);
+
+        titleIcon.classList.remove("fa-chevron-down");
+        titleIcon.classList.add("fa-chevron-up");
+
+        await showHtmlElement([infoContainer], "flex");
+        infoContainer.classList.add(scaleInVerTop_animation);
+
+        infoContainer.classList.remove("hidden");
+        infoContainer.classList.add("active")
+    }    
+}
+
+async function hideInfoContainer_postGraduationEadSection(fatherContainer){
+    const titleContainer = fatherContainer.querySelector(".title-container");
+    const titleIcon = titleContainer.querySelector("i");
+    const infoContainer = fatherContainer.querySelector(".info-container");
+
+    if(infoContainer.classList.contains("active")){
+        infoContainer.classList.remove(scaleInVerTop_animation);
+
+        titleIcon.classList.remove("fa-chevron-up");
+        titleIcon.classList.add("fa-chevron-down");
+
+        infoContainer.classList.add(scaleOutVerTop_animation);
+
+        setTimeout(()=>{
+            hideHtmlElement([infoContainer]);            
+            infoContainer.classList.remove(scaleOutVerTop_animation);
+
+            infoContainer.classList.remove("active");
+            infoContainer.classList.add("hidden");
+        }, 550);
+    }
+}
+
+// event listeners
+
+postGraduationContainer.querySelector(".title-container").addEventListener("click", async()=>{
+    const infoContainer = postGraduationContainer.querySelector(".info-container");
+
+    if(infoContainer.classList.contains("hidden")){
+        await showInfoContainer_postGraduationEadSection(postGraduationContainer);
+    }else if(infoContainer.classList.contains("active")){
+        await hideInfoContainer_postGraduationEadSection(postGraduationContainer);
+    }
+});
+
+eadContainer.querySelector(".title-container").addEventListener("click", async()=>{
+    const infoContainer = eadContainer.querySelector(".info-container");
+
+    if(infoContainer.classList.contains("hidden")){
+        await showInfoContainer_postGraduationEadSection(eadContainer);
+    }else if(infoContainer.classList.contains("active")){
+        await hideInfoContainer_postGraduationEadSection(eadContainer);
+    }
+});
+
 // news slides
 //esta parte diz respeito a todos os elementos e functions que formam o mecanismo de slides da news-section
 
 //slide elements
-/* 
+
 const newsSlides = document.querySelectorAll(".news-slide");
 const newsBreadcrumbs = document.querySelectorAll(".news-slide-breadcrumb");
 const newsSlidePrevControl = document.querySelector(".news-slide-prev-control");
@@ -251,7 +339,7 @@ newsSlidePrevControl.addEventListener("click", (event)=>{
 newsSlideNextControl.addEventListener("click", (event)=>{
     event.preventDefault();
     nextNewsSlideProcess(); 
-}) */
+})
 
 // functions
 
@@ -343,7 +431,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     //slide init : esconde os outros slides e mostra o primeiro slide
     initSlides(slides); 
-    // initNewsSlides(newsSlides);
+    initNewsSlides(newsSlides);
 
     for(let i = 0; i < coursesControl.length ; i++){
         coursesControl[i].addEventListener("mouseenter",function(event){
