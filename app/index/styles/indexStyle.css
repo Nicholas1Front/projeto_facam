@@ -1620,6 +1620,7 @@ que engloba as duas */
     transition: 0.2s;
     padding: 12px 12px;
     border-radius:50%;
+    cursor: pointer;
 }
 
 .news-slide-prev-control:hover , .news-slide-next-control:hover{
