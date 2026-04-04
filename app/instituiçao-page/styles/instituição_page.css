@@ -76,7 +76,7 @@ h2{
 }
 
 .container_fundo{
-  background-image: url("/assets/images/instituto_fundo.png");
+  background-image: url("../../../assets/images/instituto_fundo.png");
   width: 100%;
   background-size: cover;
   background-position: center;

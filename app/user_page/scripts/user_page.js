@@ -218,7 +218,7 @@ async function logoutProcess(){
         await showMsgPopup("Logout realizado com sucesso!","sucessMsg");
       },600);
       setTimeout(()=>{
-        window.location.href = "http://127.0.0.1:5500/app/index/index.html";
+        window.location.href = "../../../app/index/index.html";
       },2000);
     }
   }

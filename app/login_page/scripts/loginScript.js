@@ -157,7 +157,7 @@ async function userLoginProcess(){
     },600)
 
     setTimeout(()=>{
-      window.location.href = "http://127.0.0.1:5500/app/user_page/user_page.html";
+      window.location.href = "../../../app/user_page/user_page.html";
     },3000);
 
     return;
@@ -363,7 +363,7 @@ async function newUserRegisterProcess(){
     },600);
 
     setTimeout(()=>{
-      window.location.href = "http://127.0.0.1:5500/app/user_page/user_page.html";
+      window.location.href = "../../../app/user_page/user_page.html";
     },3000);
   }
 }
